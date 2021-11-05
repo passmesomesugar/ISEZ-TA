@@ -1,0 +1,3 @@
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\smoke.xml clean test
+
+ 
