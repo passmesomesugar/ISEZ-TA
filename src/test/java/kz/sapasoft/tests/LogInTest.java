@@ -1,8 +1,6 @@
 package kz.sapasoft.tests;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.Selenide;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.*;
