@@ -1,3 +1,9 @@
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\smoke.xml clean test
 
+
+
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Denv=test-env clean test
+
+ 
+
  
