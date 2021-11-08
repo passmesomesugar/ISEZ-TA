@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LogInTest extends BasicTestConditions {
-    @Test(groups = "this")
+    @Test(groups = "regress")
     public void openMain() {
         openHome();
         element(Selectors.byXpath("//span[text()='Войти без ЭЦП']")).click();
