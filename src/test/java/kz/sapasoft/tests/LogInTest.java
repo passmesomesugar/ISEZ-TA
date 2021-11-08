@@ -8,14 +8,16 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LogInTest extends BasicTestConditions {
-    @Test(groups = "regress")
+    @Test(groups = "this")
     public void openMain() {
         openHome();
         element(Selectors.byXpath("//span[text()='Войти без ЭЦП']")).click();
-        dismiss(); // дабы убрать предупреждение об отсутствии NCA layer
+        //dismiss();  NCA Layer alert still needs to be handled properly
         element(Selectors.byXpath("//*/label[text()=' Логин ']/../input")).setValue(userName);
         element(Selectors.byXpath("//*[@type='password']")).setValue(password);
         element(Selectors.byXpath("//*[@type='submit']")).click();
         Selenide.element(Selectors.byId("logout")).should(Condition.exist);
+        Selenide.element(Selectors.byId("logout")).click();
+        Selenide.element(Selectors.byId("logout")).shouldNotHave(Condition.exist);
     }
 }

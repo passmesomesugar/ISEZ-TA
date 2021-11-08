@@ -1,6 +1,7 @@
 package kz.sapasoft.tests;
 
 import com.codeborne.selenide.Selectors;
+import com.codeborne.selenide.Selenide;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import services.PropertyDataReader;
@@ -29,7 +30,17 @@ public class BasicTestConditions {
         element(Selectors.byXpath("//*/label[text()=' Логин ']/../input")).setValue(userName);
         element(Selectors.byXpath("//*[@type='password']")).setValue(password);
         element(Selectors.byXpath("//*[@type='submit']")).click();
+        logger.info("User name and password were submitted for:" + this.getClass().toString());
+
     }
 
+    public void logOut() {
+        Selenide.element(Selectors.byXpath("//span[text()='Выйти']")).click();
+        logger.info("Log out has been clicked for:" + this.getClass().toString());
+    }
 
+    public void tryToDismissAlert() {
+
+
+    }
 }
