@@ -16,7 +16,7 @@ public class BasicTestConditions {
 
     public void openHome() {
         open(MAIN_URL);
-        logger.info("Main/home url opened");
+        logger.info("Main/home url opened for: " + this.getClass().toString());
     }
 
 
