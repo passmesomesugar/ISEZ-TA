@@ -9,10 +9,8 @@ public class BusinessLogicTest extends BasicTestConditions {
     @Test(groups = "this")
     public void someBusinessLogicScenario() {
         openHomeAndLogin();
-        Selenide.sleep(3000);
         Selenide.element(Selectors.byXpath("//span[text()='На главную']")).click();
         Selenide.element(Selectors.byXpath("//*[text()='Личный кабинет']")).click();
-        Selenide.sleep(3000);
         logOut();
     }
 }

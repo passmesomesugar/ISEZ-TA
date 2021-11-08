@@ -26,7 +26,6 @@ public class BasicTestConditions {
         open(MAIN_URL);
         logger.info("Main/home url opened for: " + this.getClass().toString());
         element(Selectors.byXpath("//span[text()='Войти без ЭЦП']")).click();
-        dismiss(); // дабы убрать предупреждение об отсутствии NCA layer
         element(Selectors.byXpath("//*/label[text()=' Логин ']/../input")).setValue(userName);
         element(Selectors.byXpath("//*[@type='password']")).setValue(password);
         element(Selectors.byXpath("//*[@type='submit']")).click();
@@ -37,10 +36,5 @@ public class BasicTestConditions {
     public void logOut() {
         Selenide.element(Selectors.byXpath("//span[text()='Выйти']")).click();
         logger.info("Log out has been clicked for:" + this.getClass().toString());
-    }
-
-    public void tryToDismissAlert() {
-
-
     }
 }

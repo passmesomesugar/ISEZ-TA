@@ -12,7 +12,6 @@ public class LogInTest extends BasicTestConditions {
     public void openMain() {
         openHome();
         element(Selectors.byXpath("//span[text()='Войти без ЭЦП']")).click();
-        //dismiss();  NCA Layer alert still needs to be handled properly
         element(Selectors.byXpath("//*/label[text()=' Логин ']/../input")).setValue(userName);
         element(Selectors.byXpath("//*[@type='password']")).setValue(password);
         element(Selectors.byXpath("//*[@type='submit']")).click();
