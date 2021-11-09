@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 
 public class BusinessLogicTest extends BasicTestConditions {
 
-    @Test(groups = "this")
+    @Test(groups = "1")
     public void someBusinessLogicScenario() {
         openHomeAndLogin();
         Selenide.element(Selectors.byXpath("//span[text()='На главную']")).click();
