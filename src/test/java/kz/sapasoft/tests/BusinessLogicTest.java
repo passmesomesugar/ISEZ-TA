@@ -10,7 +10,7 @@ public class BusinessLogicTest extends BasicTestConditions {
     public void someBusinessLogicScenario() {
         openHomeAndLogin();
         Selenide.element(Selectors.byXpath("//span[text()='На главную']")).click();
-        Selenide.element(Selectors.byXpath("//*[text()='Личный кабинет']")).click();
+        Selenide.element(Selectors.by("placeholder", "Слово для поиска или номер закупки")).setValue("11111111");
         logOut();
     }
 }
