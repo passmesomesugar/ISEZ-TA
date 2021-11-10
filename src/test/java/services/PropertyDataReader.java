@@ -20,7 +20,6 @@ public class PropertyDataReader {
             System.out.println();
         }
         return properties;
-
     }
 }
 
