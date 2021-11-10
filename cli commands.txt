@@ -1,16 +1,13 @@
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\smoke.xml clean test
 
-
-
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Denv=test-env clean test
-
-
-
 
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Denv=test-env-for-customer clean test
 
-
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Denv=test-env clean test
+
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\regress.xml -Duser=customer -Denv=test-env clean test
+
 
 
 

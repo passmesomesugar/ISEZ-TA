@@ -5,7 +5,7 @@ import com.codeborne.selenide.Selenide;
 import org.testng.annotations.Test;
 
 public class BusinessLogicTest extends BasicTestConditions {
-
+    /*This is used for the sake of example*/
     @Test(groups = "1")
     public void someBusinessLogicScenario() {
         openHomeAndLogin();

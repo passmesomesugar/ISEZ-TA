@@ -9,8 +9,9 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class LogInTest extends BasicTestConditions {
     @Test(groups = "regress")
-    public void openMain() {
+    public void logIn() {
         openHome();
+        logger.info("Execution started for:" + this.getClass().toString());
         element(Selectors.byXpath("//span[text()='Войти без ЭЦП']")).click();
         element(Selectors.byXpath("//*/label[text()=' Логин ']/../input")).setValue(userName);
         element(Selectors.byXpath("//*[@type='password']")).setValue(password);
@@ -18,5 +19,6 @@ public class LogInTest extends BasicTestConditions {
         Selenide.element(Selectors.byId("logout")).should(Condition.exist);
         Selenide.element(Selectors.byId("logout")).click();
         Selenide.element(Selectors.byId("logout")).shouldNotHave(Condition.exist);
+        logger.info("Execution ended for:" + this.getClass().toString());
     }
 }

@@ -3,7 +3,6 @@ package kz.sapasoft.tests;
 import com.codeborne.selenide.Selectors;
 import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
-import services.MrRobot;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -14,6 +13,7 @@ public class CreateProcurementPlanTest extends BasicTestConditions {
     @Test(groups = "this")
     void createProcurementPlanAndPositionTest() {
         openHomeAndLogin();
+        logger.info("Execution started for:" + this.getClass().toString());
         open(PERSONAL_CABINET);
         element(Selectors.byXpath("//span[text()='План закупок']")).click();
         element(Selectors.byXpath("//span[text()='Создать план закупок']")).click();
@@ -29,6 +29,6 @@ public class CreateProcurementPlanTest extends BasicTestConditions {
         element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).setValue(SEARCH_QUERY_PROCUREMENT_CODE);
         sleep(LOAD_PAUSE);
         element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
-        sleep(20000);
+        logger.info("Execution ended for:" + this.getClass().toString());
     }
 }

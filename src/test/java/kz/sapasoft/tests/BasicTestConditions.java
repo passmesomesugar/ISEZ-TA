@@ -4,6 +4,8 @@ import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.Selenide;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.testng.annotations.AfterSuite;
+import org.testng.annotations.BeforeSuite;
 import services.PropertyDataReader;
 
 import static com.codeborne.selenide.Selenide.*;
@@ -11,6 +13,8 @@ import static com.codeborne.selenide.Selenide.element;
 
 public class BasicTestConditions {
     protected static final Logger logger = LogManager.getLogger(BasicTestConditions.class);
+    protected static final Logger logger1 = LogManager.getRootLogger(); //?? Test this
+
     public String currentUserEnv = System.getProperty("user");
     public String currentTestingEnv = System.getProperty("env");
     public String PERSONAL_CABINET =
@@ -40,4 +44,18 @@ public class BasicTestConditions {
         Selenide.element(Selectors.byXpath("//span[text()='Выйти']")).click();
         logger.info("Log out has been clicked for:" + this.getClass().toString());
     }
+
+    @BeforeSuite(alwaysRun = true)
+    void genesis() {
+        logger.info("Main session (test suite execution) has started");
+    }
+
+    @AfterSuite(alwaysRun = true)
+    void loggingEndOfSuite() {
+        logger.info("Main session (test suite execution) has ended");
+    }
+
+
 }
+
+
