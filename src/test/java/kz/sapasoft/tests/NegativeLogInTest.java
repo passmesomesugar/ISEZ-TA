@@ -12,10 +12,11 @@ public class NegativeLogInTest extends BasicTestConditions {
     String nonExistentUserName = "null";
     String randomPassword = "null";
 
-    @Test(groups = "regress")
+    @Test(groups = "smoke")
     public void attemptLogIn() {
         openHome();
         logger.info("Execution started for:" + this.getClass().toString());
+        element(Selectors.byXpath("//span//*[text()='зарегистрироваться']")).click();
         element(Selectors.byXpath("//span[text()='Войти без ЭЦП']")).click();
         element(Selectors.byXpath("//*/label[text()=' Логин ']/../input")).setValue(nonExistentUserName);
         element(Selectors.byXpath("//*[@type='password']")).setValue(randomPassword);

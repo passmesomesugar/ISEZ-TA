@@ -6,11 +6,11 @@ import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.*;
 
-public class CreateProcurementPlanTest extends BasicTestConditions {
+public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions {
     public String SEARCH_QUERY_PROCUREMENT_CODE = "101315.930.000000";
     int LOAD_PAUSE = 4000;
 
-    @Test(groups = "this")
+    @Test(groups = "regress")
     void createProcurementPlanAndPositionTest() {
         openHomeAndLogin();
         logger.info("Execution started for:" + this.getClass().toString());
@@ -29,12 +29,9 @@ public class CreateProcurementPlanTest extends BasicTestConditions {
         element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).setValue(SEARCH_QUERY_PROCUREMENT_CODE);
         sleep(LOAD_PAUSE);
         element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
-
         element(Selectors.byXpath("//label[contains(.,'Способ закупок')]/..//select")).selectOptionContainingText("Открытый");
         element(Selectors.byXpath("//label[contains(.,'Приоритет закупок')]/..//select")).selectOptionContainingText("холдинга");
         element(Selectors.byXpath("//label[contains(.,'Прогноз местного содержания')]/..//input")).setValue("100");
-
-        sleep(5000);
         logger.info("Execution ended for:" + this.getClass().toString());
     }
 }

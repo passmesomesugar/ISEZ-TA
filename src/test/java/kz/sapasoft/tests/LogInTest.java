@@ -8,10 +8,11 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.*;
 
 public class LogInTest extends BasicTestConditions {
-    @Test(groups = "regress")
+    @Test(groups = "smoke")
     public void logIn() {
         openHome();
         logger.info("Execution started for:" + this.getClass().toString());
+        element(Selectors.byXpath("//span//*[text()='зарегистрироваться']")).click();
         element(Selectors.byXpath("//span[text()='Войти без ЭЦП']")).click();
         element(Selectors.byXpath("//*/label[text()=' Логин ']/../input")).setValue(userName);
         element(Selectors.byXpath("//*[@type='password']")).setValue(password);

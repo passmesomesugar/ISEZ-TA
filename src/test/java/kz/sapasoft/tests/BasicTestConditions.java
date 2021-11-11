@@ -17,12 +17,15 @@ public class BasicTestConditions {
 
     public String currentUserEnv = System.getProperty("user");
     public String currentTestingEnv = System.getProperty("env");
+    public String currentTestingKeys = System.getProperty("keys");
     public String PERSONAL_CABINET =
             PropertyDataReader.getProperties(currentTestingEnv).getProperty("personal.cabinet");
     public String MAIN_URL =
             PropertyDataReader.getProperties(currentTestingEnv).getProperty("main.url");
     public String userName = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.name");
     public String password = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.password");
+    public String pathToKeys = PropertyDataReader.getProperties(currentTestingKeys).getProperty("path.to.keys");
+    public String passToKeys = PropertyDataReader.getProperties(currentTestingKeys).getProperty("password.to.keys");
 
     public void openHome() {
         open(MAIN_URL);
@@ -32,6 +35,7 @@ public class BasicTestConditions {
     public void openHomeAndLogin() {
         open(MAIN_URL);
         logger.info("Main/home url opened for: " + this.getClass().toString());
+        element(Selectors.byXpath("//span//*[text()='зарегистрироваться']")).click();
         element(Selectors.byXpath("//span[text()='Войти без ЭЦП']")).click();
         element(Selectors.byXpath("//*/label[text()=' Логин ']/../input")).setValue(userName);
         element(Selectors.byXpath("//*[@type='password']")).setValue(password);
@@ -54,8 +58,6 @@ public class BasicTestConditions {
     void loggingEndOfSuite() {
         logger.info("Main session (test suite execution) has ended");
     }
-
-
 }
 
 
