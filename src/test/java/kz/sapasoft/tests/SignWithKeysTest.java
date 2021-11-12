@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.sleep;
 import static services.MrRobot.callRobotAndPaste;
 
 public class SignWithKeysTest extends BasicTestConditions {
-    @Test(groups = "this")
+    @Test(groups = "1")
     public void test() {
         open(MAIN_URL);
         element(Selectors.byXpath("//span//*[text()='Войти']")).click();

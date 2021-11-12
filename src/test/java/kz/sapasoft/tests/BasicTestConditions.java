@@ -1,12 +1,18 @@
 package kz.sapasoft.tests;
 
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.Selenide;
+import com.codeborne.selenide.logevents.SelenideLogger;
+import io.qameta.allure.selenide.AllureSelenide;
+import io.qameta.allure.selenide.LogType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import services.PropertyDataReader;
+
+import java.util.logging.Level;
 
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.element;
@@ -26,6 +32,7 @@ public class BasicTestConditions {
     public String password = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.password");
     public String pathToKeys = PropertyDataReader.getProperties(currentTestingKeys).getProperty("path.to.keys");
     public String passToKeys = PropertyDataReader.getProperties(currentTestingKeys).getProperty("password.to.keys");
+
 
     public void openHome() {
         open(MAIN_URL);
@@ -49,8 +56,13 @@ public class BasicTestConditions {
         logger.info("Log out has been clicked for:" + this.getClass().toString());
     }
 
+
     @BeforeSuite(alwaysRun = true)
     void genesis() {
+        Configuration.browserSize = "1920x1080";
+        SelenideLogger.addListener("AllureSelenide",
+                new AllureSelenide().enableLogs(LogType.BROWSER, Level.ALL)
+        );
         logger.info("Main session (test suite execution) has started");
     }
 

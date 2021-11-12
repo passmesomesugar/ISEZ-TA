@@ -10,11 +10,13 @@ mvn -Dsurefire.suiteXmlFiles=src\test\resources\regress.xml -Duser=customer -Den
 
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Dheadless=true -Denv=test-env clean test
 
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Dselenide.headless=true -Dkeys=customer_with_keys -Denv=test-env clean test
-
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Dkeys=keys -Denv=test-env clean test
 
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\smoke.xml -Duser=customer -Denv=test-env clean test
 
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Denv=test-env clean test
+
+allure serve target/allure-results
 
  
 
