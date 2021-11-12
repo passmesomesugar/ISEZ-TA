@@ -20,7 +20,9 @@ import static com.codeborne.selenide.Selenide.element;
 public class BasicTestConditions {
     protected static final Logger logger = LogManager.getLogger(BasicTestConditions.class);
     protected static final Logger logger1 = LogManager.getRootLogger(); //?? Test this
-
+    int LOAD_PAUSE = 4000;
+    int MINI_LOAD_PAUSE = 2000;
+    int MICRO_LOAD_PAUSE = 700;
     public String currentUserEnv = System.getProperty("user");
     public String currentTestingEnv = System.getProperty("env");
     public String currentTestingKeys = System.getProperty("keys");
