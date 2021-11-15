@@ -21,7 +21,7 @@ public class BasicTestConditions {
     protected static final Logger logger = LogManager.getLogger(BasicTestConditions.class);
     protected static final Logger logger1 = LogManager.getRootLogger(); //?? Test this
     int LOAD_PAUSE = 4000;
-    int MINI_LOAD_PAUSE = 2000;
+    int MINI_LOAD_PAUSE = 1500;
     int MICRO_LOAD_PAUSE = 700;
     public String currentUserEnv = System.getProperty("user");
     public String currentTestingEnv = System.getProperty("env");

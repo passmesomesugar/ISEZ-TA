@@ -1,7 +1,8 @@
 package services;
 
-import java.io.FileReader;
-import java.io.IOException;
+import java.io.*;
+import java.nio.charset.Charset;
+import java.nio.charset.StandardCharsets;
 import java.util.Properties;
 
 public class PropertyDataReader {
@@ -12,10 +13,10 @@ public class PropertyDataReader {
 
     public static Properties getProperties(String propertiesFileName) {
         try {
-            FileReader fileReader =
-                    new FileReader("src/test/resources/" + propertiesFileName + ".properties");
+            new FileReader("src/test/resources/" + propertiesFileName + ".properties");
             properties = new Properties();
-            properties.load(fileReader);
+            FileInputStream fileInputStream = new FileInputStream("src/test/resources/" + propertiesFileName + ".properties");
+            properties.load(new InputStreamReader(fileInputStream, StandardCharsets.UTF_8));
         } catch (IOException e) {
             System.out.println();
         }
