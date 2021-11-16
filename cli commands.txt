@@ -14,9 +14,9 @@ mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Dkeys=
 
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\smoke.xml -Duser=customer -Denv=test-env clean test
 
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Denv=test-env -Dscenario=procurement.scenario.1 clean test
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Denv=test-env -Dscenario=procurement.plan.scenario.1 -Dposition.scenario=procurement.position.scenario.1 clean test
 
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Denv=test-env -Dscenario=procurement.scenario.2 -Dposition.scenario=procurement.position.scenario.1 clean test
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Denv=test-env -Dscenario=procurement.plan.scenario.2 -Dposition.scenario=procurement.position.scenario.1 clean test
 
 allure serve target/allure-results
 

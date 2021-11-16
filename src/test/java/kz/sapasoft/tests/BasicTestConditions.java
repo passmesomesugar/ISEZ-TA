@@ -11,6 +11,7 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
+import pages.PagesManager;
 import services.PropertyDataReader;
 
 import java.util.logging.Level;
@@ -18,7 +19,7 @@ import java.util.logging.Level;
 import static com.codeborne.selenide.Selenide.*;
 import static com.codeborne.selenide.Selenide.element;
 
-public class BasicTestConditions {
+public class BasicTestConditions extends PagesManager {
     protected static final Logger logger = LogManager.getLogger(BasicTestConditions.class);
     protected static final Logger logger1 = LogManager.getRootLogger(); //?? Test this
     int LOAD_PAUSE = 4000;

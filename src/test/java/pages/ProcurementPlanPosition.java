@@ -6,7 +6,7 @@ import services.PropertyDataReader;
 
 import static com.codeborne.selenide.Selenide.element;
 
-public class ProcurementPlanPositionCreation extends PagesManager {
+public class ProcurementPlanPosition extends PagesManager {
 
     public String positionProcurementTestingScenario = System.getProperty("position.scenario");
     public String positionProcurementMethod = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.method");

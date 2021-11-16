@@ -31,4 +31,16 @@ public class ProcurementPlan extends PagesManager {
         element(Selectors.byXpath("//span[text()='Сохранить']")).click();
     }
 
+    public void pressActions() {
+        element(Selectors.byXpath("//button[text()='Действия']")).click();
+    }
+
+    public void reviewProcurementPositions() {
+        element(Selectors.byXpath("//button[text()='Посмотреть пункты плана']")).click();
+    }
+
+    public void createPlanPosition() {
+        element(Selectors.byXpath("//span[text()='Создать строку плана']")).click();
+    }
+
 }
