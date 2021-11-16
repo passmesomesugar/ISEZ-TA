@@ -1,15 +1,18 @@
 package pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
+import org.openqa.selenium.Keys;
 import services.PropertyDataReader;
 
-import static com.codeborne.selenide.Selenide.element;
+import static com.codeborne.selenide.Selenide.*;
 
 public class ProcurementPlan extends PagesManager {
     public String year = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.plan.year");
     private SelenideElement createNewPlanButton =
             element(Selectors.byXpath("//span[text()='Создать план закупок']"));
+
 
     public void createNewPlan() {
         createNewPlanButton.click();
@@ -43,4 +46,18 @@ public class ProcurementPlan extends PagesManager {
         element(Selectors.byXpath("//span[text()='Создать строку плана']")).click();
     }
 
+    public void attemptClickGWS() {
+        while (!element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).has(Condition.visible)) {
+            sleep(MINI_LOAD_PAUSE);
+            actions().click(element(Selectors.byXpath("//label[contains(.,'Код ЕНС ТРУ')]/span"))).build().perform();
+        }
+    }
+
+    public void attemptInputGWS(String procurementCode) {
+        while (!element(Selectors.byXpath("//*[contains(@class, 'autocomplete__layout')]")).has(Condition.visible)) {
+            sleep(MINI_LOAD_PAUSE);
+            element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).setValue(procurementCode);
+        }
+        element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
+    }
 }
