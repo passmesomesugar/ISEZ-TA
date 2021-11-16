@@ -16,7 +16,7 @@ public class CreateAndRemoveProcurementPlanTest extends BasicTestConditions {
     public String planType = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.plan.type");
     public String planTimeFrame = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.time.frame");
 
-    @Test(groups = "this")
+    @Test(groups = "1")
     void createProcurementPlanAndPositionTest() {
         openHomeAndLogin();
         logger.info("Execution started for:" + this.getClass().toString());
@@ -27,7 +27,6 @@ public class CreateAndRemoveProcurementPlanTest extends BasicTestConditions {
         element(Selectors.byXpath("//select[contains(.,'" + planType + "')]")).selectOptionContainingText(planType);
         element(Selectors.byXpath("//select[contains(.,'" + planTimeFrame + "')]")).selectOptionContainingText(planTimeFrame);
         element(Selectors.byXpath("//span[text()='Сохранить']")).click();
-
         open(PLAN_URL);
         element(Selectors.byXpath("//button[text()='Действия']")).shouldHave(Condition.visible);
         element(Selectors.byXpath("//button[text()='Действия']")).click();

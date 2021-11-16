@@ -37,7 +37,7 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
         element(Selectors.byXpath("//label[contains(.,'Приоритет закупок')]/..//select")).selectOptionContainingText("холдинга");
         element(Selectors.byXpath("//label[contains(.,'Прогноз местного содержания')]/..//input")).setValue("100");
         element(Selectors.byXpath("//label[contains(.,'Месяц закупок')]/..//input")).click();
-        element(Selectors.byXpath("//button[contains(.,'дек.')]")).click();
+        element(Selectors.byXpath("//button[contains(.,'ноя.')]")).click();
         element(Selectors.byXpath("//label[contains(.,'Место закупок')]/..//input")).click();
         element(Selectors.byXpath("//span[contains(.,'Алматы')]")).click();
         element(Selectors.byXpath("//label[contains(.,'Адрес закупок')]/..//input")).setValue("Геодезистов,28");
@@ -47,6 +47,9 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
         element(Selectors.byXpath("//label[contains(.,'Адрес поставки')]//..//textarea")).setValue("Геодезистов,29");
         element(Selectors.byXpath("//label[contains(.,'ИНКОТЕРМС')]")).scrollIntoView(true);
         element(Selectors.byXpath("//label[contains(.,'ИНКОТЕРМС')]//..//select")).selectOptionContainingText("FCA");
+
+
+
 
         // Remove to keep the system clean
         open(PLAN_URL);

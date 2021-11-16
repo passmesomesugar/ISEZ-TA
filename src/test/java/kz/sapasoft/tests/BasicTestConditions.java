@@ -10,6 +10,7 @@ import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
+import org.testng.annotations.BeforeTest;
 import services.PropertyDataReader;
 
 import java.util.logging.Level;
@@ -25,15 +26,12 @@ public class BasicTestConditions {
     int MICRO_LOAD_PAUSE = 700;
     public String currentUserEnv = System.getProperty("user");
     public String currentTestingEnv = System.getProperty("env");
-    public String currentTestingKeys = System.getProperty("keys");
     public String PERSONAL_CABINET =
             PropertyDataReader.getProperties(currentTestingEnv).getProperty("personal.cabinet");
     public String MAIN_URL =
             PropertyDataReader.getProperties(currentTestingEnv).getProperty("main.url");
     public String userName = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.name");
     public String password = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.password");
-    public String pathToKeys = PropertyDataReader.getProperties(currentTestingKeys).getProperty("path.to.keys");
-    public String passToKeys = PropertyDataReader.getProperties(currentTestingKeys).getProperty("password.to.keys");
 
 
     public void openHome() {
@@ -58,6 +56,11 @@ public class BasicTestConditions {
         logger.info("Log out has been clicked for:" + this.getClass().toString());
     }
 
+
+    @BeforeTest
+    void setTimeOut() {
+        Configuration.timeout = 20000;
+    }
 
     @BeforeSuite(alwaysRun = true)
     void genesis() {
