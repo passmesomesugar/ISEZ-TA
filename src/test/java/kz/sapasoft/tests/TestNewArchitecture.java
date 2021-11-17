@@ -8,7 +8,7 @@ import static com.codeborne.selenide.Selenide.*;
 public class TestNewArchitecture extends BasicTestConditions {
     public String PROCUREMENT_CODE = PropertyDataReader.getProperties("customer").getProperty("procurement.code");
 
-    @Test(groups = "this")
+    @Test(groups = "1")
     void createProcurementPlanAndPositionTest() {
         logger.info("Execution started for:" + this.getClass().toString());
         getHomePage().logIn();

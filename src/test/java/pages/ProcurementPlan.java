@@ -10,9 +10,11 @@ import static com.codeborne.selenide.Selenide.*;
 
 public class ProcurementPlan extends PagesManager {
     public String year = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.plan.year");
+    public String planType = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.plan.type");
+    public String planTimeFrame = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.time.frame");
+
     private SelenideElement createNewPlanButton =
             element(Selectors.byXpath("//span[text()='Создать план закупок']"));
-
 
     public void createNewPlan() {
         createNewPlanButton.click();
@@ -23,11 +25,11 @@ public class ProcurementPlan extends PagesManager {
     }
 
     public void setProcurementPlanType() {
-        element(Selectors.byXpath("//select[contains(.,'Основной план')]")).selectOptionContainingText("Основной план");
+        element(Selectors.byXpath("//select[contains(.,'" + planType + "')]")).selectOptionContainingText(planType);
     }
 
     public void setProcurementPlanTimeFrame() {
-        element(Selectors.byXpath("//select[contains(.,'Годовой')]")).selectOptionContainingText("Годовой");
+        element(Selectors.byXpath("//select[contains(.,'" + planTimeFrame + "')]")).selectOptionContainingText(planTimeFrame);
     }
 
     public void savePlan() {
@@ -35,7 +37,7 @@ public class ProcurementPlan extends PagesManager {
     }
 
     public void pressActions() {
-        element(Selectors.byXpath("//button[text()='Действия']")).click();
+        element(Selectors.byXpath("//td[contains(.,' " + planType + " ')]/../*//button[text()='Действия']")).click();
     }
 
     public void reviewProcurementPositions() {
@@ -60,4 +62,14 @@ public class ProcurementPlan extends PagesManager {
         }
         element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
     }
+
+    public void pressRemovePlan() {
+        element(Selectors.byAttribute("jhitranslate", "plan.delete")).click();
+    }
+
+    public void approveRemovalOfPlan() {
+        element(Selectors.byAttribute("jhitranslate", "entity.action.delete")).click();
+    }
+
+
 }

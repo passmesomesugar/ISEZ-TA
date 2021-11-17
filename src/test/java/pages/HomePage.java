@@ -8,8 +8,6 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class HomePage extends PagesManager {
 
-    public String currentUserEnv = System.getProperty("user");
-    public String currentTestingEnv = System.getProperty("env");
     public String userName = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.name");
     public String password = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.password");
 
@@ -22,5 +20,9 @@ public class HomePage extends PagesManager {
         element(Selectors.byXpath("//*[@type='password']")).setValue(password);
         element(Selectors.byXpath("//*[@type='submit']")).click();
         logger.info("User name and password were submitted for:" + this.getClass().toString());
+    }
+
+    public void logOut() {
+
     }
 }

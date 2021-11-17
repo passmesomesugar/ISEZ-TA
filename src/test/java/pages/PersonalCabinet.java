@@ -9,12 +9,12 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class PersonalCabinet extends PagesManager {
 
-    private SelenideElement procurementScheme = element(element(Selectors.byXpath("//span[text()='План закупок']")));// Поменять на способ закупок
+    private SelenideElement procurementPlan = element(element(Selectors.byXpath("//span[text()='План закупок']")));// Поменять на способ закупок xpath
     public String PERSONAL_CABINET =
             PropertyDataReader.getProperties(currentTestingEnv).getProperty("personal.cabinet");
 
     public void openProcurementPlan() {
-        procurementScheme.click();
+        procurementPlan.click();
     }
 
     public void openPersonalCabinet() {
