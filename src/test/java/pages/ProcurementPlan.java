@@ -33,19 +33,20 @@ public class ProcurementPlan extends PagesManager {
     }
 
     public void savePlan() {
-        element(Selectors.byXpath("//span[text()='Сохранить']")).click();
+        element(Selectors.byAttribute("jhitranslate", "entity.action.save")).click();
     }
 
     public void pressActions() {
-        element(Selectors.byXpath("//td[contains(.,' " + planType + " ')]/../*//button[text()='Действия']")).click();
+        element(Selectors.byXpath("//td[contains(.,'" + planType + "')]/../*//*[@jhitranslate=\"plan.actions\"]")).click();
     }
 
     public void reviewProcurementPositions() {
-        element(Selectors.byXpath("//button[text()='Посмотреть пункты плана']")).click();
+        element(Selectors.byAttribute("jhitranslate", "plan.viewPlanItem")).click();
     }
 
     public void createPlanPosition() {
-        element(Selectors.byXpath("//span[text()='Создать строку плана']")).click();
+
+        element(Selectors.byAttribute("jhitranslate", "planItem.createPlanItem")).click();
     }
 
     public void attemptClickGWS() {
