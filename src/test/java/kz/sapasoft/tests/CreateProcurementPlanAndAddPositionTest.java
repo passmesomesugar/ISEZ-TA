@@ -12,28 +12,35 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
 
     public String PROCUREMENT_CODE = PropertyDataReader.getProperties("customer").getProperty("procurement.code");
 
-    //String PLAN_URL = PropertyDataReader.getProperties(currentTestingEnv).getProperty("procurement.plan.url");
 
-    @Test(groups = "1")
+    @Test(groups = "this")
     void createProcurementPlanAndPositionTest() {
-//        openHomeAndLogin();
-//        logger.info("Execution started for:" + this.getClass().toString());
-//        open(PERSONAL_CABINET);
-//        element(Selectors.byXpath("//span[text()='План закупок']")).click();
-//        element(Selectors.byXpath("//span[text()='Создать план закупок']")).click();
-//        element(Selectors.byXpath("//select[contains(.,'Основной план')]")).selectOptionContainingText("Основной план");
-//        element(Selectors.byXpath("//select[contains(.,'Годовой')]")).selectOptionContainingText("Годовой");
-//        element(Selectors.byXpath("//span[text()='Сохранить']")).click();
-//        element(Selectors.byXpath("//button[text()='Действия']")).click();
-//        element(Selectors.byXpath("//button[text()='Посмотреть пункты плана']")).click();
-//        element(Selectors.byXpath("//span[text()='Создать строку плана']")).click();
-//        actions().click(element(Selectors.byXpath("//label[contains(.,'Код ЕНС ТРУ')]/span"))).build().perform();
+        getHomePage().logIn();
+        logger.info("Execution started for:" + this.getClass().toString());
+        getPersonalCabinetPage().openPersonalCabinet();
+        getPersonalCabinetPage().openProcurementPlan();
+        getProcurementPlanPage().createNewPlan();
+        getProcurementPlanPage().setYear();
+        getProcurementPlanPage().setProcurementPlanType();
+        getProcurementPlanPage().setProcurementPlanTimeFrame();
+        getProcurementPlanPage().savePlan();
+        //some assertion here
+        getProcurementPlanPage().pressActions();
+        getProcurementPlanPage().reviewProcurementPositions();
+        getProcurementPlanPositionsPage().createProcurementPlanPosition();
+        getProcurementPlanPositionsPage().createNewProcurementPlanPosition();
+        getProcurementPlanPositionsPage().attemptClickGWS();
+        getProcurementPlanPositionsPage().attemptInputGWS(PROCUREMENT_CODE);
+
 //        while (!element(Selectors.byXpath("//*[contains(@class, 'autocomplete__layout')]")).has(Condition.visible)) {
 //            sleep(MICRO_LOAD_PAUSE);
 //            element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).setValue(PROCUREMENT_CODE);
 //        }
 //        element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
-//        element(Selectors.byXpath("//label[contains(.,'Способ закупок')]/..//select")).selectOptionContainingText("Открытый");
+//
+//        getProcurementPlanPositionPage().chooseProcurementMethod();
+
+
 //        element(Selectors.byXpath("//label[contains(.,'Приоритет закупок')]/..//select")).selectOptionContainingText("холдинга");
 //        element(Selectors.byXpath("//label[contains(.,'Прогноз местного содержания')]/..//input")).setValue("100");
 //        element(Selectors.byXpath("//label[contains(.,'Месяц закупок')]/..//input")).click();
@@ -47,8 +54,6 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
 //        element(Selectors.byXpath("//label[contains(.,'Адрес поставки')]//..//textarea")).setValue("Геодезистов,29");
 //        element(Selectors.byXpath("//label[contains(.,'ИНКОТЕРМС')]")).scrollIntoView(true);
 //        element(Selectors.byXpath("//label[contains(.,'ИНКОТЕРМС')]//..//select")).selectOptionContainingText("FCA");
-
-
 
 
         // Remove to keep the system clean

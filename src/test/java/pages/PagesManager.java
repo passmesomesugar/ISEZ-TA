@@ -33,18 +33,26 @@ public class PagesManager {
     private PersonalCabinet personalCabinet;
     private ProcurementPlanPosition procurementPlanPosition;
     private HomePage homePage;
+    private ProcurementPlanPositions procurementPlanPositions;
 
     public ProcurementPlan getProcurementPlanPage() {
         return procurementPlan;
     }
+
     public PersonalCabinet getPersonalCabinetPage() {
         return personalCabinet;
     }
+
     public ProcurementPlanPosition getProcurementPlanPositionPage() {
         return procurementPlanPosition;
     }
+
     public HomePage getHomePage() {
         return homePage;
+    }
+
+    public ProcurementPlanPositions getProcurementPlanPositionsPage() {
+        return procurementPlanPositions;
     }
 
 
@@ -54,7 +62,6 @@ public class PagesManager {
         personalCabinet = new PersonalCabinet();
         procurementPlanPosition = new ProcurementPlanPosition();
         homePage = new HomePage();
+        procurementPlanPositions = new ProcurementPlanPositions();
     }
-
-
 }

@@ -4,7 +4,7 @@ import org.testng.annotations.Test;
 
 public class CreateAndRemoveProcurementPlanTest extends BasicTestConditions {
 
-    @Test(groups = "this")
+    @Test(groups = "1")
     void createProcurementPlanAndPositionTest() {
         getHomePage().logIn();
         getPersonalCabinetPage().openPersonalCabinet();
@@ -18,6 +18,7 @@ public class CreateAndRemoveProcurementPlanTest extends BasicTestConditions {
         getProcurementPlanPage().pressActions();
         getProcurementPlanPage().pressRemovePlan();
         getProcurementPlanPage().approveRemovalOfPlan();
+
         //some assertion here
     }
 }

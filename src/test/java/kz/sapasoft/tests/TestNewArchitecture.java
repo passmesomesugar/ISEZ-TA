@@ -10,20 +10,7 @@ public class TestNewArchitecture extends BasicTestConditions {
 
     @Test(groups = "1")
     void createProcurementPlanAndPositionTest() {
-        logger.info("Execution started for:" + this.getClass().toString());
-        getHomePage().logIn();
-        getPersonalCabinetPage().openPersonalCabinet();
-        getPersonalCabinetPage().openProcurementPlan();
-        getProcurementPlanPage().createNewPlan();
-        getProcurementPlanPage().setYear();
-        getProcurementPlanPage().setProcurementPlanType();
-        getProcurementPlanPage().setProcurementPlanTimeFrame();
-        getProcurementPlanPage().savePlan();
-        getProcurementPlanPage().pressActions();
-        getProcurementPlanPage().reviewProcurementPositions();
-        getProcurementPlanPage().createPlanPosition();
-        getProcurementPlanPage().attemptClickGWS();
-        getProcurementPlanPage().attemptInputGWS(PROCUREMENT_CODE);
+
     }
 }
 

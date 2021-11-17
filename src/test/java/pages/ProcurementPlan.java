@@ -1,12 +1,10 @@
 package pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
-import org.openqa.selenium.Keys;
 import services.PropertyDataReader;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.element;
 
 public class ProcurementPlan extends PagesManager {
     public String year = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.plan.year");
@@ -37,31 +35,12 @@ public class ProcurementPlan extends PagesManager {
     }
 
     public void pressActions() {
-        element(Selectors.byXpath("//td[contains(.,'" + planType + "')]/../*//*[@jhitranslate=\"plan.actions\"]")).click();
+        element(Selectors.byXpath("//td[contains(.,'" + planType + "')]/../*//*[@jhitranslate='plan.actions']")).click();
     }
 
     public void reviewProcurementPositions() {
-        element(Selectors.byAttribute("jhitranslate", "plan.viewPlanItem")).click();
-    }
+        element(Selectors.byXpath("//td[contains(.,'" + planType + "')]/../*//*[@jhitranslate='plan.viewPlanItem']")).click();
 
-    public void createPlanPosition() {
-
-        element(Selectors.byAttribute("jhitranslate", "planItem.createPlanItem")).click();
-    }
-
-    public void attemptClickGWS() {
-        while (!element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).has(Condition.visible)) {
-            sleep(MINI_LOAD_PAUSE);
-            actions().click(element(Selectors.byXpath("//label[contains(.,'Код ЕНС ТРУ')]/span"))).build().perform();
-        }
-    }
-
-    public void attemptInputGWS(String procurementCode) {
-        while (!element(Selectors.byXpath("//*[contains(@class, 'autocomplete__layout')]")).has(Condition.visible)) {
-            sleep(MINI_LOAD_PAUSE);
-            element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).setValue(procurementCode);
-        }
-        element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
     }
 
     public void pressRemovePlan() {
