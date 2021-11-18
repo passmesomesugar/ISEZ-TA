@@ -18,7 +18,6 @@ public class CreateAndRemoveProcurementPlanTest extends BasicTestConditions {
         getProcurementPlanPage().pressActions();
         getProcurementPlanPage().pressRemovePlan();
         getProcurementPlanPage().approveRemovalOfPlan();
-
         //some assertion here
     }
 }

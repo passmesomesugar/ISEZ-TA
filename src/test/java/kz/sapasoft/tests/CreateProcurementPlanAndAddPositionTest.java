@@ -7,8 +7,6 @@ import static com.codeborne.selenide.Selenide.sleep;
 
 public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions {
 
-    public String PROCUREMENT_CODE = PropertyDataReader.getProperties("customer").getProperty("procurement.code");
-
     @Test(groups = "this")
     void createProcurementPlanAndPositionTest() {
         getHomePage().logIn();
@@ -26,8 +24,13 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
         getProcurementPlanPositionsPage().createProcurementPlanPosition();
         getProcurementPlanPositionsPage().createNewProcurementPlanPosition();
         getProcurementPlanPositionsPage().attemptClickGWS();
-        getProcurementPlanPositionsPage().attemptInputGWS(PROCUREMENT_CODE);
+        getProcurementPlanPositionsPage().attemptInputGWS();
         getProcurementPlanPositionPage().chooseProcurementMethod();
+        getProcurementPlanPositionPage().setProcurementPriority();
+        getProcurementPlanPositionPage().setLocalContentRatio();
+        getProcurementPlanPositionPage().setProcurementDate();
+        getProcurementPlanPositionPage().setProcurementLocation();
+
 
         sleep(15000);
 
