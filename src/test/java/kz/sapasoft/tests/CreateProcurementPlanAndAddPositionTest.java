@@ -30,6 +30,9 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
         getProcurementPlanPositionPage().setLocalContentRatio();
         getProcurementPlanPositionPage().setProcurementDate();
         getProcurementPlanPositionPage().setProcurementLocation();
+        getProcurementPlanPositionPage().setTenderAddress();
+        getProcurementPlanPositionPage().setCountry();
+        getProcurementPlanPositionPage().setDeliveryAddress();
 
 
         sleep(15000);

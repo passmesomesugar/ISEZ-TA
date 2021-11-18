@@ -12,6 +12,10 @@ public class ProcurementPlanPosition extends PagesManager {
     public String procurementPriorityProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.priority");
     public String localContentRatio = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("local.content.ratio");
     public String dateProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.date");
+    public String procurementAddressProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.address");
+    public String tenderAddressProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.tender.address");
+    public String deliveryCountryProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.delivery.country");
+    public String deliveryAddressProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.delivery.address");
 
 
     public void chooseProcurementMethod() {
@@ -32,7 +36,20 @@ public class ProcurementPlanPosition extends PagesManager {
 
     public void setProcurementLocation() {
         element(Selectors.byXpath("//*[@name='kato']//input")).click();
+        element(Selectors.byXpath("//span[contains(text(),'" + procurementAddressProp + "')]")).click();
     }
 
+    public void setTenderAddress() {
+        element(Selectors.byXpath("//*[@name='tenderLocation']//input")).setValue(tenderAddressProp);
+    }
+
+    public void setCountry() {
+        element(Selectors.byXpath("//*[@name='deliveryCountry']//input")).setValue(deliveryCountryProp);
+    }
+
+    public void setDeliveryAddress() {
+        element(Selectors.byXpath("//*[@name='deliveryKato']//input")).click();
+        element(Selectors.byXpath("//span[contains(text(),'" + deliveryAddressProp + "')]")).click();
+    }
 
 }
