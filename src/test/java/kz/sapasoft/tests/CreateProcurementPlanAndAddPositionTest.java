@@ -1,17 +1,13 @@
 package kz.sapasoft.tests;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selectors;
-import org.openqa.selenium.Keys;
 import org.testng.annotations.Test;
 import services.PropertyDataReader;
 
-import static com.codeborne.selenide.Selenide.*;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions {
 
     public String PROCUREMENT_CODE = PropertyDataReader.getProperties("customer").getProperty("procurement.code");
-
 
     @Test(groups = "this")
     void createProcurementPlanAndPositionTest() {
@@ -31,17 +27,10 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
         getProcurementPlanPositionsPage().createNewProcurementPlanPosition();
         getProcurementPlanPositionsPage().attemptClickGWS();
         getProcurementPlanPositionsPage().attemptInputGWS(PROCUREMENT_CODE);
+        getProcurementPlanPositionPage().chooseProcurementMethod();
 
-//        while (!element(Selectors.byXpath("//*[contains(@class, 'autocomplete__layout')]")).has(Condition.visible)) {
-//            sleep(MICRO_LOAD_PAUSE);
-//            element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).setValue(PROCUREMENT_CODE);
-//        }
-//        element(Selectors.byXpath("//div[contains(@class, 'modal')]//label[contains(.,'Код ЕНС ТРУ')]/..//input")).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
-//
-//        getProcurementPlanPositionPage().chooseProcurementMethod();
+        sleep(15000);
 
-
-//        element(Selectors.byXpath("//label[contains(.,'Приоритет закупок')]/..//select")).selectOptionContainingText("холдинга");
 //        element(Selectors.byXpath("//label[contains(.,'Прогноз местного содержания')]/..//input")).setValue("100");
 //        element(Selectors.byXpath("//label[contains(.,'Месяц закупок')]/..//input")).click();
 //        element(Selectors.byXpath("//button[contains(.,'ноя.')]")).click();

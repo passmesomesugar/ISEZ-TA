@@ -50,6 +50,4 @@ public class ProcurementPlan extends PagesManager {
     public void approveRemovalOfPlan() {
         element(Selectors.byAttribute("jhitranslate", "entity.action.delete")).click();
     }
-
-
 }

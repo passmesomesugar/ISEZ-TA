@@ -1,20 +1,11 @@
 package pages;
 
-import com.codeborne.selenide.Configuration;
-import com.codeborne.selenide.logevents.SelenideLogger;
-import io.qameta.allure.selenide.AllureSelenide;
-import io.qameta.allure.selenide.LogType;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
-import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeClass;
-import org.testng.annotations.BeforeSuite;
 import services.PropertyDataReader;
 
-import java.util.logging.Level;
-
 public class PagesManager {
-
 
     public final int LOAD_PAUSE = 4000;
     public final int MICRO_LOAD_PAUSE = 700;
@@ -27,7 +18,6 @@ public class PagesManager {
     public String testingScenario = System.getProperty("scenario");
     public String currentTestingEnv = System.getProperty("env");
     public String MAIN_URL = PropertyDataReader.getProperties(currentTestingEnv).getProperty("main.url");
-
 
     private ProcurementPlan procurementPlan;
     private PersonalCabinet personalCabinet;
@@ -54,7 +44,6 @@ public class PagesManager {
     public ProcurementPlanPositions getProcurementPlanPositionsPage() {
         return procurementPlanPositions;
     }
-
 
     @BeforeClass(alwaysRun = true)
     public void setUpPages() {

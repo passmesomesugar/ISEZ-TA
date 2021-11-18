@@ -13,7 +13,6 @@ import java.util.logging.Level;
 
 public class BasicTestConditions extends PagesManager {
 
-
     @BeforeTest
     void setTimeOut() {
         Configuration.timeout = 20000;
@@ -32,7 +31,6 @@ public class BasicTestConditions extends PagesManager {
     void loggingEndOfSuite() {
         logger.info("Main session (test suite execution) has ended");
     }
-
 }
 
 

@@ -5,8 +5,6 @@ import com.codeborne.selenide.Selectors;
 import org.openqa.selenium.Keys;
 
 import static com.codeborne.selenide.Selenide.*;
-import static com.codeborne.selenide.Selenide.sleep;
-import static org.openqa.selenium.remote.tracing.EventAttribute.setValue;
 
 public class ProcurementPlanPositions extends PagesManager {
 
@@ -15,7 +13,12 @@ public class ProcurementPlanPositions extends PagesManager {
     }
 
     public void createNewProcurementPlanPosition() {
-        actions().click(element(Selectors.byAttribute("data-cname", "enstru"))).build().perform();
+        while (!element(Selectors.byAttribute("data-cname", "completerRemote")).has(Condition.visible)) {
+            sleep(MINI_LOAD_PAUSE);
+            actions().click(element(Selectors.byAttribute("data-cname", "enstru"))).build().perform();
+        }
+
+
     }
 
     public void attemptClickGWS() {
@@ -32,6 +35,4 @@ public class ProcurementPlanPositions extends PagesManager {
         }
         element(Selectors.byXpath("//input[contains(@data-cname, 'completer')]")).sendKeys(Keys.ARROW_DOWN, Keys.ENTER);
     }
-
-
 }
