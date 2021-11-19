@@ -8,19 +8,18 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class HomePage extends PagesManager {
 
-    public String userName = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.name");
-    public String password = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.password");
 
-    public void logIn() {
+    public void logIn(String user, String password) {
         open(MAIN_URL);
         logger.info("Main/home url opened for: " + this.getClass().toString());
         element(Selectors.byAttribute("jhitranslate", "layouts.register")).click();
         element(Selectors.byAttribute("jhitranslate", "global.menu.account.loginWithoutEds")).click();
-        element(Selectors.byXpath("//*[@name='username']//input")).setValue(userName);
+        element(Selectors.byXpath("//*[@name='username']//input")).setValue(user);
         element(Selectors.byXpath("//*[@type='password']")).setValue(password);
         element(Selectors.byXpath("//*[@type='submit']")).click();
         logger.info("User name and password were submitted for:" + this.getClass().toString());
     }
+
 
     public void logOut() {
 

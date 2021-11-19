@@ -2,6 +2,7 @@ package pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
+import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import services.PropertyDataReader;
 
@@ -47,10 +48,16 @@ public class PagesManager {
 
     @BeforeClass(alwaysRun = true)
     public void setUpPages() {
+        logger.info("Execution started for:" + this.getClass().toString());
         procurementPlan = new ProcurementPlan();
         personalCabinet = new PersonalCabinet();
         procurementPlanPosition = new ProcurementPlanPosition();
         homePage = new HomePage();
         procurementPlanPositions = new ProcurementPlanPositions();
+    }
+
+    @AfterClass
+    public void afterClassActions() {
+        logger.info("Execution ended for:" + this.getClass().toString());
     }
 }

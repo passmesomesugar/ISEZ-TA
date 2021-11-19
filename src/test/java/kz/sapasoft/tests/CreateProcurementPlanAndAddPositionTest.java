@@ -6,35 +6,51 @@ import services.PropertyDataReader;
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions {
+    public String positionProcurementTestingScenario = System.getProperty("position.scenario");
+    public String userName = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.name");
+    public String password = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.password");
+    public String year = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.plan.year");
+    public String planType = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.plan.type");
+    public String PROCUREMENT_CODE = PropertyDataReader.getProperties("procurement.position.scenario.1").getProperty("procurement.code");
+    public String positionProcurementMethodProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.method");
+    public String procurementPriorityProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.priority");
+    public String localContentRatioProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("local.content.ratio");
+    public String dateProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.date");
+    public String procurementAddressProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.address");
+    public String tenderAddressProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.tender.address");
+    public String deliveryCountryProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.delivery.country");
+    public String deliveryAddressProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.delivery.address");
+    public String incotermsProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("incoterms");
+    public String schedulePeriodProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("schedule.period");
 
-    @Test(groups = "this")
+    @Test(groups = "this", description = "")
     void createProcurementPlanAndPositionTest() {
-        getHomePage().logIn();
-        logger.info("Execution started for:" + this.getClass().toString());
+        getHomePage().logIn(userName, password);
+
         getPersonalCabinetPage().openPersonalCabinet();
         getPersonalCabinetPage().openProcurementPlan();
         getProcurementPlanPage().createNewPlan();
-        getProcurementPlanPage().setYear();
-        getProcurementPlanPage().setProcurementPlanType();
+        getProcurementPlanPage().setYear(year);
+        getProcurementPlanPage().setProcurementPlanType(planType);
         getProcurementPlanPage().setProcurementPlanTimeFrame();
         getProcurementPlanPage().savePlan();
         //some assertion here
-        getProcurementPlanPage().pressActions();
-        getProcurementPlanPage().reviewProcurementPositions();
+        getProcurementPlanPage().pressActions(planType);
+        getProcurementPlanPage().reviewProcurementPositions(planType);
         getProcurementPlanPositionsPage().createProcurementPlanPosition();
         getProcurementPlanPositionsPage().createNewProcurementPlanPosition();
         getProcurementPlanPositionsPage().attemptClickGWS();
-        getProcurementPlanPositionsPage().attemptInputGWS();
-        getProcurementPlanPositionPage().chooseProcurementMethod();
-        getProcurementPlanPositionPage().setProcurementPriority();
-        getProcurementPlanPositionPage().setLocalContentRatio();
-        getProcurementPlanPositionPage().setProcurementDate();
-        getProcurementPlanPositionPage().setProcurementLocation();
-        getProcurementPlanPositionPage().setTenderAddress();
-        getProcurementPlanPositionPage().setCountry();
-        getProcurementPlanPositionPage().setDeliveryAddress();
-
-
+        getProcurementPlanPositionsPage().attemptInputGWS(PROCUREMENT_CODE);
+        getProcurementPlanPositionPage().chooseProcurementMethod(positionProcurementMethodProp);
+        getProcurementPlanPositionPage().setProcurementPriority(procurementPriorityProp);
+        getProcurementPlanPositionPage().setLocalContentRatio(localContentRatioProp);
+        getProcurementPlanPositionPage().setProcurementDate(dateProp);
+        getProcurementPlanPositionPage().setProcurementLocation(procurementAddressProp);
+        getProcurementPlanPositionPage().setTenderAddress(tenderAddressProp);
+        getProcurementPlanPositionPage().setCountry(deliveryCountryProp);
+        getProcurementPlanPositionPage().setDeliveryAddress(deliveryAddressProp);
+        getProcurementPlanPositionPage().setINCOTERMS(incotermsProp);
+        getProcurementPlanPositionPage().setSchedulePeriod(schedulePeriodProp);
         sleep(15000);
 
 //        element(Selectors.byXpath("//label[contains(.,'Прогноз местного содержания')]/..//input")).setValue("100");
