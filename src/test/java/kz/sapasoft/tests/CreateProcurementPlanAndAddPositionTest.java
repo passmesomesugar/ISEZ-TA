@@ -4,11 +4,10 @@ import org.testng.annotations.Test;
 import services.PropertyDataReader;
 
 import static com.codeborne.selenide.Selenide.sleep;
+import static services.UserManager.getCustomer;
 
 public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions {
     public String positionProcurementTestingScenario = System.getProperty("position.scenario");
-    public String userName = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.name");
-    public String password = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.password");
     public String year = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.plan.year");
     public String planType = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.plan.type");
     public String PROCUREMENT_CODE = PropertyDataReader.getProperties("procurement.position.scenario.1").getProperty("procurement.code");
@@ -25,8 +24,7 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
 
     @Test(groups = "this", description = "")
     void createProcurementPlanAndPositionTest() {
-        getHomePage().logIn(userName, password);
-
+        getHomePage().logIn(getCustomer().getName(), getCustomer().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
         getPersonalCabinetPage().openProcurementPlan();
         getProcurementPlanPage().createNewPlan();

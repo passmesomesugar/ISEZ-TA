@@ -8,7 +8,6 @@ import static com.codeborne.selenide.Selenide.element;
 
 public class ProcurementPlan extends PagesManager {
 
-
     public String planTimeFrame = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.time.frame");
 
     private SelenideElement createNewPlanButton =

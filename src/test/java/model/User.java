@@ -1,8 +1,17 @@
 package model;
 
 public class User {
+
     private String name;
     private String password;
+
+    public String getName() {
+        return name;
+    }
+
+    public String getPassword() {
+        return password;
+    }
 
     public static UserBuilder newBuilder() {
         return new User().new UserBuilder();
@@ -21,9 +30,9 @@ public class User {
             User.this.password = password;
             return this;
         }
-    }
 
-    public User build() {
-        return this;
+        public User build() {
+            return User.this;
+        }
     }
 }
