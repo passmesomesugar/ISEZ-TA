@@ -1,4 +1,4 @@
-package pages;
+package kz.sapasoft.pages;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;

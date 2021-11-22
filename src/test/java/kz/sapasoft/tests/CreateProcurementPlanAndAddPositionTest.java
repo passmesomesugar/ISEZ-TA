@@ -1,10 +1,10 @@
 package kz.sapasoft.tests;
 
 import org.testng.annotations.Test;
-import services.PropertyDataReader;
+import kz.sapasoft.services.PropertyDataReader;
 
 import static com.codeborne.selenide.Selenide.sleep;
-import static services.UserManager.getCustomer;
+import static kz.sapasoft.services.UserManager.getCustomer;
 
 public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions {
     public String positionProcurementTestingScenario = System.getProperty("position.scenario");

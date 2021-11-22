@@ -1,4 +1,4 @@
-package model;
+package kz.sapasoft.model;
 
 public class User {
 

@@ -1,7 +1,6 @@
-package pages;
+package kz.sapasoft.pages;
 
 import com.codeborne.selenide.Selectors;
-import services.PropertyDataReader;
 
 import static com.codeborne.selenide.Selenide.element;
 

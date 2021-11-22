@@ -1,4 +1,4 @@
-package services;
+package kz.sapasoft.services;
 
 import java.awt.*;
 import java.awt.datatransfer.StringSelection;

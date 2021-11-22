@@ -7,7 +7,7 @@ import io.qameta.allure.selenide.LogType;
 import org.testng.annotations.AfterSuite;
 import org.testng.annotations.BeforeSuite;
 import org.testng.annotations.BeforeTest;
-import pages.PagesManager;
+import kz.sapasoft.pages.PagesManager;
 
 import java.util.logging.Level;
 

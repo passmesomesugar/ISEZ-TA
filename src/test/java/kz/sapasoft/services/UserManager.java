@@ -1,8 +1,8 @@
-package services;
+package kz.sapasoft.services;
 
-import model.User;
+import kz.sapasoft.model.User;
 
-import java.util.Properties;
+
 
 public class UserManager {
     private static String currentUserEnv = System.getProperty("user");

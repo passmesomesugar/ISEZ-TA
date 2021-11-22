@@ -1,10 +1,10 @@
-package pages;
+package kz.sapasoft.pages;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import services.PropertyDataReader;
+import kz.sapasoft.services.PropertyDataReader;
 
 public class PagesManager {
 
@@ -16,7 +16,7 @@ public class PagesManager {
     protected static final Logger logger1 = LogManager.getRootLogger(); //?? Test this
 
     public String currentUserEnv = System.getProperty("user");
-    public String testingScenario = System.getProperty("scenario");
+    public String testingScenario = System.getProperty("procurement.plan.scenario");
     public String currentTestingEnv = System.getProperty("env");
     public String MAIN_URL = PropertyDataReader.getProperties(currentTestingEnv).getProperty("main.url");
 

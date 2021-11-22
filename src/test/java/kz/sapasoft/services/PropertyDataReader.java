@@ -1,4 +1,4 @@
-package services;
+package kz.sapasoft.services;
 
 import java.io.*;
 import java.nio.charset.Charset;
