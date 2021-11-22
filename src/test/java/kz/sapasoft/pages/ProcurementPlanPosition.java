@@ -6,7 +6,6 @@ import static com.codeborne.selenide.Selenide.element;
 
 public class ProcurementPlanPosition extends PagesManager {
 
-    //public String positionProcurementTestingScenario = System.getProperty("position.scenario");
 
     public void chooseProcurementMethod(String procurementMethod) {
         element(Selectors.byXpath("//*[@name='tenderType']//select//option[contains(@value,'" + procurementMethod + "')]")).click();
@@ -24,7 +23,7 @@ public class ProcurementPlanPosition extends PagesManager {
         element(Selectors.byXpath("//*[@name='durationMonth']//input")).setValue(dateProp);
     }
 
-    public void setProcurementLocation(String address) {
+    public void setProcurementAddress(String address) {
         element(Selectors.byXpath("//*[@name='kato']//input")).click();
         element(Selectors.byXpath("//span[contains(text(),'" + address + "')]")).click();
     }

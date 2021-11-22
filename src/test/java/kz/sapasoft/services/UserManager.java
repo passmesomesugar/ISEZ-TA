@@ -2,8 +2,6 @@ package kz.sapasoft.services;
 
 import kz.sapasoft.model.User;
 
-
-
 public class UserManager {
     private static String currentUserEnv = System.getProperty("user");
     private static String userName = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.name");

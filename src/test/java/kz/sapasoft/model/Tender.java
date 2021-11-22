@@ -2,9 +2,6 @@ package kz.sapasoft.model;
 
 public class Tender {
 
-    private String year;
-    private String planType;
-    private String timeFrame;
     private String procurementCode;
     private String procurementMethod;
     private String procurementPriority;
@@ -16,15 +13,6 @@ public class Tender {
     private String deliveryAddress;
     private String incoterms;
     private String schedulePeriod;
-
-
-    public String getYear() {
-        return year;
-    }
-
-    public String getPlanType() {
-        return planType;
-    }
 
     public String getProcurementCode() {
         return procurementCode;
@@ -78,29 +66,6 @@ public class Tender {
     public class TenderBuilder {
         public TenderBuilder() {
         }
-
-//        public TenderBuilder setPositionProcurementTestingScenario(String positionProcurementTestingScenario) {
-//            Tender.this.positionProcurementTestingScenario = positionProcurementTestingScenario;
-//            return this;
-//        }
-
-//        public TenderBuilder setYear(String year) {
-//            Tender.this.year = year;
-//            return this;
-//
-//        }
-
-//        public TenderBuilder setPlanType(String planType) {
-//            Tender.this.planType = planType;
-//            return this;
-//
-//        }
-
-
-//        public TenderBuilder setTimeFrame(String timeFrame) {
-//            Tender.this.timeFrame = timeFrame;
-//            return this;
-//        }
 
 
         public TenderBuilder setProcurementCode(String procurementCode) {
