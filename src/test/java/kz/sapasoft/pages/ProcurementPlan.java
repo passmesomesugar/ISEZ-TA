@@ -8,7 +8,6 @@ import static com.codeborne.selenide.Selenide.element;
 
 public class ProcurementPlan extends PagesManager {
 
-    public String planTimeFrame = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.time.frame");
 
     private SelenideElement createNewPlanButton =
             element(Selectors.byXpath("//span[text()='Создать план закупок']"));
@@ -25,7 +24,7 @@ public class ProcurementPlan extends PagesManager {
         element(Selectors.byXpath("//select[contains(.,'" + planType + "')]")).selectOptionContainingText(planType);
     }
 
-    public void setProcurementPlanTimeFrame() {
+    public void setProcurementPlanTimeFrame(String planTimeFrame) {
         element(Selectors.byXpath("//select[contains(.,'" + planTimeFrame + "')]")).selectOptionContainingText(planTimeFrame);
     }
 

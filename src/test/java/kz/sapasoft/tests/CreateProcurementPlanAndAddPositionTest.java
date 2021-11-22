@@ -4,13 +4,12 @@ import org.testng.annotations.Test;
 import kz.sapasoft.services.PropertyDataReader;
 
 import static com.codeborne.selenide.Selenide.sleep;
+import static kz.sapasoft.services.TenderManager.getOpenTender;
 import static kz.sapasoft.services.UserManager.getCustomer;
+import static kz.sapasoft.services.ProcurementPlanManager.getProcurementList;
 
 public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions {
-    public String positionProcurementTestingScenario = System.getProperty("position.scenario");
-    public String year = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.plan.year");
-    public String planType = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.plan.type");
-    public String PROCUREMENT_CODE = PropertyDataReader.getProperties("procurement.position.scenario.1").getProperty("procurement.code");
+    public String positionProcurementTestingScenario = System.getProperty("procurement.position.scenario");
     public String positionProcurementMethodProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.method");
     public String procurementPriorityProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.priority");
     public String localContentRatioProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("local.content.ratio");
@@ -21,6 +20,7 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
     public String deliveryAddressProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("procurement.delivery.address");
     public String incotermsProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("incoterms");
     public String schedulePeriodProp = PropertyDataReader.getProperties(positionProcurementTestingScenario).getProperty("schedule.period");
+    public String planTimeFrame = PropertyDataReader.getProperties(testingScenario).getProperty("procurement.time.frame");
 
     @Test(groups = "this", description = "")
     void createProcurementPlanAndPositionTest() {
@@ -28,18 +28,19 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
         getPersonalCabinetPage().openPersonalCabinet();
         getPersonalCabinetPage().openProcurementPlan();
         getProcurementPlanPage().createNewPlan();
-        getProcurementPlanPage().setYear(year);
-        getProcurementPlanPage().setProcurementPlanType(planType);
-        getProcurementPlanPage().setProcurementPlanTimeFrame();
+        getProcurementPlanPage().setYear(getProcurementList().getYear());
+        getProcurementPlanPage().setProcurementPlanType(getProcurementList().getPlanType());
+        getProcurementPlanPage().setProcurementPlanTimeFrame(getProcurementList().getTimeFrame());
         getProcurementPlanPage().savePlan();
         //some assertion here
-        getProcurementPlanPage().pressActions(planType);
-        getProcurementPlanPage().reviewProcurementPositions(planType);
+        getProcurementPlanPage().pressActions(getProcurementList().getPlanType());
+        getProcurementPlanPage().reviewProcurementPositions(getProcurementList().getPlanType());
+        //
         getProcurementPlanPositionsPage().createProcurementPlanPosition();
         getProcurementPlanPositionsPage().createNewProcurementPlanPosition();
         getProcurementPlanPositionsPage().attemptClickGWS();
-        getProcurementPlanPositionsPage().attemptInputGWS(PROCUREMENT_CODE);
-        getProcurementPlanPositionPage().chooseProcurementMethod(positionProcurementMethodProp);
+        getProcurementPlanPositionsPage().attemptInputGWS(getOpenTender().getProcurementCode());
+        getProcurementPlanPositionPage().chooseProcurementMethod(getOpenTender().getProcurementMethod());
         getProcurementPlanPositionPage().setProcurementPriority(procurementPriorityProp);
         getProcurementPlanPositionPage().setLocalContentRatio(localContentRatioProp);
         getProcurementPlanPositionPage().setProcurementDate(dateProp);

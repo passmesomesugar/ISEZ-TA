@@ -1,11 +1,12 @@
 package kz.sapasoft.model;
 
 public class Tender {
-    private String positionProcurementTestingScenario;
+
     private String year;
     private String planType;
+    private String timeFrame;
     private String procurementCode;
-    private String positionProcurementMethod;
+    private String procurementMethod;
     private String procurementPriority;
     private String localContentRatio;
     private String date;
@@ -16,9 +17,6 @@ public class Tender {
     private String incoterms;
     private String schedulePeriod;
 
-    public String getPositionProcurementTestingScenario() {
-        return positionProcurementTestingScenario;
-    }
 
     public String getYear() {
         return year;
@@ -32,8 +30,8 @@ public class Tender {
         return procurementCode;
     }
 
-    public String getPositionProcurementMethod() {
-        return positionProcurementMethod;
+    public String getProcurementMethod() {
+        return procurementMethod;
     }
 
     public String getProcurementPriority() {
@@ -81,31 +79,37 @@ public class Tender {
         public TenderBuilder() {
         }
 
-        public TenderBuilder setPositionProcurementTestingScenario(String positionProcurementTestingScenario) {
-            Tender.this.positionProcurementTestingScenario = positionProcurementTestingScenario;
-            return this;
-        }
+//        public TenderBuilder setPositionProcurementTestingScenario(String positionProcurementTestingScenario) {
+//            Tender.this.positionProcurementTestingScenario = positionProcurementTestingScenario;
+//            return this;
+//        }
 
-        public TenderBuilder setYear(String year) {
-            Tender.this.year = year;
-            return this;
+//        public TenderBuilder setYear(String year) {
+//            Tender.this.year = year;
+//            return this;
+//
+//        }
 
-        }
+//        public TenderBuilder setPlanType(String planType) {
+//            Tender.this.planType = planType;
+//            return this;
+//
+//        }
 
-        public TenderBuilder setPlanType(String planType) {
-            Tender.this.planType = planType;
-            return this;
 
-        }
+//        public TenderBuilder setTimeFrame(String timeFrame) {
+//            Tender.this.timeFrame = timeFrame;
+//            return this;
+//        }
 
-        public TenderBuilder setprocurementCode(String procurementCode) {
+
+        public TenderBuilder setProcurementCode(String procurementCode) {
             Tender.this.procurementCode = procurementCode;
             return this;
-
         }
 
-        public TenderBuilder setPositionProcurementMethod(String positionProcurementMethod) {
-            Tender.this.positionProcurementMethod = positionProcurementMethod;
+        public TenderBuilder setProcurementMethod(String procurementMethod) {
+            Tender.this.procurementMethod = procurementMethod;
             return this;
 
         }
