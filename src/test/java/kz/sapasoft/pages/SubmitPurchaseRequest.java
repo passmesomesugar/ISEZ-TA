@@ -63,6 +63,39 @@ public class SubmitPurchaseRequest extends PagesManager{
         element(By.xpath("//sk-fileupload[@name=\"requestProviding\"]//input[@type=\"file\"]")).uploadFile(file);
     }
 
+    public void managmentSertification(){
+        element(Selectors.byXpath("//tbody/tr[1]//sk-select//select")).click();
+        element(Selectors.byXpath("//tbody/tr[1]//sk-select//select")).selectOptionByValue("1: true");
+        element(By.xpath("//tbody/tr[1]/td[1]//sk-fileupload//input[@type=\"file\"]")).uploadFile(file);
+    }
+    public void fillWorkExperienceTRU(){
+        element(Selectors.byXpath("//tbody/tr[2]//sk-numberbox//input")).setValue("5");
+        element(By.xpath("//tbody/tr[2]/td[1]//sk-fileupload//input[@type=\"file\"]")).uploadFile(file);
+
+    }
+
+    public void consistsInRegistry(){
+        element(Selectors.byXpath("//tbody/tr[4]//sk-select//select")).click();
+        element(Selectors.byXpath("//tbody/tr[4]//sk-select//select")).selectOptionByValue("1: true");
+        element(By.xpath("//tbody/tr[4]/td[1]//sk-fileupload//input[@type=\"file\"]")).uploadFile(file);
+    }
+
+    public void fillWorkExperience(){
+        element(Selectors.byXpath("//tbody//sk-numberbox[@name=\"workExperience\"]//input")).setValue("5");
+        element(By.xpath("//sk-fileupload[@name=\"docs\"]//input[@type=\"file\"]")).uploadFile(file);
+    }
+
+    public void saveButton(){
+        element(Selectors.byXpath("//button[@jhitranslate=\"advert.lotReq.save\"]")).scrollTo();
+        element(Selectors.byXpath("//button[@jhitranslate=\"advert.lotReq.save\"]")).click();
+    }
+
+    public void toFormDocument(){
+        element(Selectors.byXpath("//span[@jhitranslate=\"eProcGatewayApp.participation.createDocs\"]")).shouldNotBe(Condition.disabled);
+        element(Selectors.byXpath("//span[@jhitranslate=\"eProcGatewayApp.participation.createDocs\"]")).click();
+    }
+
+
 
 
 }

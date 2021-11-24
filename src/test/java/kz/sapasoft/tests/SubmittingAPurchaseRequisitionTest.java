@@ -20,12 +20,19 @@ public class SubmittingAPurchaseRequisitionTest extends BasicTestConditions{
         getSubmitPurchaseRequest().openApplication();
         getSubmitPurchaseRequest().chooseLot();
         getSubmitPurchaseRequest().applyButton();
-        getSubmitPurchaseRequest().confirmDataCheckbox();
+
         getSubmitPurchaseRequest().openLotsRequirments();
         getSubmitPurchaseRequest().fillProviderPrice();
         getSubmitPurchaseRequest().fillDescriptionRu();
         getSubmitPurchaseRequest().fillDescriptionKz();
-        //getSubmitPurchaseRequest().uploadProvidingApplication();
+        getSubmitPurchaseRequest().uploadProvidingApplication();
+        getSubmitPurchaseRequest().managmentSertification();
+        getSubmitPurchaseRequest().fillWorkExperienceTRU();
+        getSubmitPurchaseRequest().consistsInRegistry();
+        getSubmitPurchaseRequest().fillWorkExperience();
+        getSubmitPurchaseRequest().saveButton();
+        getSubmitPurchaseRequest().confirmDataCheckbox();
+        getSubmitPurchaseRequest().toFormDocument();
 
 
 
