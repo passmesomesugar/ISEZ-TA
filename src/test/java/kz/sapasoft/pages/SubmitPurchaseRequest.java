@@ -7,6 +7,7 @@ import org.openqa.selenium.By;
 import java.io.File;
 
 import static com.codeborne.selenide.Selenide.element;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class SubmitPurchaseRequest extends PagesManager{
     String providerPrice = "100";
@@ -95,7 +96,23 @@ public class SubmitPurchaseRequest extends PagesManager{
         element(Selectors.byXpath("//span[@jhitranslate=\"eProcGatewayApp.participation.createDocs\"]")).click();
     }
 
+    public void reloadStatus(){
+        sleep(5000);
+        element(Selectors.byXpath("//span[jhitranslate=\"entity.action.update\"")).click();
+    }
+
+    public void signDocuments(){
+        element(Selectors.byXpath("//button/span[@class=\"ng-tns-c27-4 ng-star-inserted\"]")).shouldBe(Condition.visible);
+        //element(Selectors.byXpath("//button/span[@class=\"ng-tns-c27-4 ng-star-inserted\"]")).click();
+    }
 
 
+    public void deleteApplication() {
+        element(Selectors.byXpath("jhitranslate=\"layouts.bid\"")).click();
+        element(Selectors.byXpath("//span[@jhitranslate=\"eProcGatewayApp.participation.title\"]")).click();
+        element(Selectors.byXpath("//a[text()=\" 115265 \"]/ancestor::tr//button[@id=\"dropdownParticipation\"]")).click();
+        element(Selectors.byXpath("//a[text()=\" 115265 \"]/ancestor::tr//a[@jhitranslate=\"participation.delete\"] ")).click();
 
+
+    }
 }

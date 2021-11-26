@@ -33,6 +33,11 @@ public class SubmittingAPurchaseRequisitionTest extends BasicTestConditions{
         getSubmitPurchaseRequest().saveButton();
         getSubmitPurchaseRequest().confirmDataCheckbox();
         getSubmitPurchaseRequest().toFormDocument();
+        getSubmitPurchaseRequest().reloadStatus();
+        getSubmitPurchaseRequest().signDocuments();
+
+        getSubmitPurchaseRequest().deleteApplication();
+
 
 
 
