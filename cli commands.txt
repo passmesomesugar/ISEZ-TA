@@ -20,6 +20,11 @@ mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Denv=t
 
 allure serve target/allure-results
 
+
+
+
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer777 -Denv=test-env  clean test
+
  
 
  
