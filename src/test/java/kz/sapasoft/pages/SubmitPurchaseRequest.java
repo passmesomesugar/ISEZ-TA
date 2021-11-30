@@ -6,15 +6,16 @@ import io.qameta.allure.Step;
 import org.openqa.selenium.By;
 
 import java.io.File;
+import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.element;
 import static com.codeborne.selenide.Selenide.sleep;
 
 public class SubmitPurchaseRequest extends PagesManager{
-    String providerPrice = "100";
-    String num= "115265";
 
-    File file = new File("src/test/resources/test.xlsx");
+
+
+    //File file = new File("src/test/resources/test.xlsx");
 
     @Step("шаг1")
     public void goToMainPage(){
@@ -22,12 +23,12 @@ public class SubmitPurchaseRequest extends PagesManager{
     }
 
     @Step("шаг2")
-    public void searchApplicationNumber(){
+    public void searchApplicationNumber(String num){
         element(Selectors.byXpath("//input[@name=\"keywordName\"]")).setValue(num);
         element(Selectors.byXpath("//button[@type=\"submit\"]")).click();
     }
     @Step("шаг3")
-    public void openApplication(){
+    public void openApplication(String num){
         element(Selectors.byXpath("//div[contains(text(),'"+num+"')]")).click();
     }
 
@@ -54,45 +55,47 @@ public class SubmitPurchaseRequest extends PagesManager{
     }
 
     @Step("шаг8")
-    public void fillProviderPrice(){
-        element(Selectors.byXpath("//sk-numberbox[@name=\"foreignPrice\"]//input")).setValue(providerPrice);
+    public void fillProviderPrice(String price){
+        element(Selectors.byXpath("//sk-numberbox[@name=\"foreignPrice\"]//input")).setValue(price);
     }
     @Step("шаг9")
-    public void fillDescriptionRu(){
-        element(Selectors.byXpath("//sk-froala-editor[@name=\"detailRu\"]//div[@role=\"application\"]/div[3]//p")).setValue("testru");
+    public void fillDescriptionRu(String ruText){
+        element(Selectors.byXpath("//sk-froala-editor[@name=\"detailRu\"]//div[@role=\"application\"]/div[3]//p")).setValue(ruText);
     }
     @Step("шаг10")
-    public void fillDescriptionKz(){
-        element(Selectors.byXpath("//sk-froala-editor[@name=\"detailKk\"]//div[@role=\"application\"]/div[3]//p")).setValue("testkz");
+    public void fillDescriptionKz(String kzText){
+        element(Selectors.byXpath("//sk-froala-editor[@name=\"detailKk\"]//div[@role=\"application\"]/div[3]//p")).setValue(kzText);
     }
     @Step("шаг11")
-    public void uploadProvidingApplication(){
+    public void uploadProvidingApplication(File file){
         element(By.xpath("//sk-fileupload[@name=\"requestProviding\"]//input[@type=\"file\"]")).uploadFile(file);
     }
     @Step("шаг12")
-    public void managmentSertification(){
+    public void managmentSertification(File file){
+        element(Selectors.byXpath("//tbody/tr[1]//sk-select//select")).scrollTo();
         element(Selectors.byXpath("//tbody/tr[1]//sk-select//select")).click();
         element(Selectors.byXpath("//tbody/tr[1]//sk-select//select")).selectOptionByValue("1: true");
         element(By.xpath("//tbody/tr[1]/td[1]//sk-fileupload//input[@type=\"file\"]")).uploadFile(file);
     }
 
     @Step("шаг13")
-    public void fillWorkExperienceTRU(){
-        element(Selectors.byXpath("//tbody/tr[2]//sk-numberbox//input")).setValue("5");
+    public void fillWorkExperienceTRU(String expTRU, File file){
+        element(Selectors.byXpath("//tbody/tr[2]//sk-numberbox//input")).setValue(expTRU);
         element(By.xpath("//tbody/tr[2]/td[1]//sk-fileupload//input[@type=\"file\"]")).uploadFile(file);
 
     }
 
     @Step("шаг14")
-    public void consistsInRegistry(){
+    public void consistsInRegistry(File file){
         element(Selectors.byXpath("//tbody/tr[4]//sk-select//select")).click();
         element(Selectors.byXpath("//tbody/tr[4]//sk-select//select")).selectOptionByValue("1: true");
         element(By.xpath("//tbody/tr[4]/td[1]//sk-fileupload//input[@type=\"file\"]")).uploadFile(file);
     }
 
     @Step("шаг15")
-    public void fillWorkExperience(){
-        element(Selectors.byXpath("//tbody//sk-numberbox[@name=\"workExperience\"]//input")).setValue("5");
+    public void fillWorkExperience(String workExp,File file){
+        element(Selectors.byXpath("//tbody//sk-numberbox[@name=\"workExperience\"]//input")).scrollTo();
+        element(Selectors.byXpath("//tbody//sk-numberbox[@name=\"workExperience\"]//input")).setValue(workExp);
         element(By.xpath("//sk-fileupload[@name=\"docs\"]//input[@type=\"file\"]")).uploadFile(file);
     }
     @Step("шаг16")
@@ -107,14 +110,15 @@ public class SubmitPurchaseRequest extends PagesManager{
     }
     @Step("шаг18")
     public void reloadStatus(){
-        element(Selectors.byXpath("//span[@jhitranslate=\"entity.action.update\"]")).click();
-        sleep(5000);
-        element(Selectors.byXpath("//span[@jhitranslate=\"entity.action.update\"]")).click();
+
+        while(element(Selectors.byXpath("//sk-multiple-signing//button/span")).is(Condition.not(Condition.exist))){
+            element(Selectors.byXpath("//span[@jhitranslate=\"entity.action.update\"]")).click();
+                sleep(2000);
+        }
     }
+
     @Step("шаг19")
     public void signDocuments(){
-       // String message = element(Selectors.byXpath("//div[@class=\"toast-content\"]/div[@class=\"toast-title\"]")).getText();
-        //System.out.println(message);
         element(Selectors.byXpath("//sk-multiple-signing//button/span")).shouldBe(Condition.exist);
         element(Selectors.byXpath("//sk-multiple-signing//button/span")).click();
         element(Selectors.byXpath("//div[@class=\"modal-content\"]//span[@jhitranslate=\"eds.getCertData\"]")).shouldBe(Condition.visible);
@@ -122,12 +126,12 @@ public class SubmitPurchaseRequest extends PagesManager{
     }
 
     @Step("шаг20")
-    public void deleteApplication() {
+    public void deleteApplication(String number) {
         element(Selectors.byXpath("//div[@class=\"modal-content\"]//span[@jhitranslate=\"entity.action.cancel\"]")).click();
         element(Selectors.byXpath("//span[@jhitranslate=\"layouts.bid\"]")).click();
         element(Selectors.byXpath("//span[@jhitranslate=\"eProcGatewayApp.participation.title\"]")).click();
-        element(Selectors.byXpath("//a[text()=\" 115265 \"]/ancestor::tr//button[@id=\"dropdownParticipation\"]")).click();
-        element(Selectors.byXpath("//a[text()=\" 115265 \"]/ancestor::tr//a[@jhitranslate=\"participation.delete\"]")).click();
+        element(Selectors.byXpath("//a[text()=\" "+number+" \"]/ancestor::tr//button[@id=\"dropdownParticipation\"]")).click();
+        element(Selectors.byXpath("//a[text()=\" "+number+" \"]/ancestor::tr//a[@jhitranslate=\"participation.delete\"]")).click();
         element(Selectors.byXpath("//span[@jhitranslate=\"entity.action.delete\"]")).click();
     }
 }
