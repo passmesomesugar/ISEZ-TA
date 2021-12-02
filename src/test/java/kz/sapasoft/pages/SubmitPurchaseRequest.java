@@ -69,6 +69,7 @@ public class SubmitPurchaseRequest extends PagesManager{
     @Step("шаг11")
     public void uploadProvidingApplication(File file){
         element(By.xpath("//sk-fileupload[@name=\"requestProviding\"]//input[@type=\"file\"]")).uploadFile(file);
+        element(By.xpath("//sk-fileupload[@name=\"requestProviding\"]//button[@class=\"button button--remove ng-star-inserted\"]")).shouldBe(Condition.visible);
     }
     @Step("шаг12")
     public void managmentSertification(File file){
@@ -76,12 +77,14 @@ public class SubmitPurchaseRequest extends PagesManager{
         element(Selectors.byXpath("//tbody/tr[1]//sk-select//select")).click();
         element(Selectors.byXpath("//tbody/tr[1]//sk-select//select")).selectOptionByValue("1: true");
         element(By.xpath("//tbody/tr[1]/td[1]//sk-fileupload//input[@type=\"file\"]")).uploadFile(file);
+        element(By.xpath("//tbody/tr[1]/td[1]//sk-fileupload//button[@class=\"button button--remove ng-star-inserted\"]")).shouldBe(Condition.visible);
     }
 
     @Step("шаг13")
     public void fillWorkExperienceTRU(String expTRU, File file){
         element(Selectors.byXpath("//tbody/tr[2]//sk-numberbox//input")).setValue(expTRU);
         element(By.xpath("//tbody/tr[2]/td[1]//sk-fileupload//input[@type=\"file\"]")).uploadFile(file);
+        element(By.xpath("//tbody/tr[2]/td[1]//sk-fileupload//button[@class=\"button button--remove ng-star-inserted\"]")).shouldBe(Condition.visible);
 
     }
 
@@ -90,6 +93,7 @@ public class SubmitPurchaseRequest extends PagesManager{
         element(Selectors.byXpath("//tbody/tr[4]//sk-select//select")).click();
         element(Selectors.byXpath("//tbody/tr[4]//sk-select//select")).selectOptionByValue("1: true");
         element(By.xpath("//tbody/tr[4]/td[1]//sk-fileupload//input[@type=\"file\"]")).uploadFile(file);
+        element(By.xpath("//tbody/tr[4]/td[1]//sk-fileupload//button[@class=\"button button--remove ng-star-inserted\"]")).shouldBe(Condition.visible);
     }
 
     @Step("шаг15")
@@ -97,15 +101,17 @@ public class SubmitPurchaseRequest extends PagesManager{
         element(Selectors.byXpath("//tbody//sk-numberbox[@name=\"workExperience\"]//input")).scrollTo();
         element(Selectors.byXpath("//tbody//sk-numberbox[@name=\"workExperience\"]//input")).setValue(workExp);
         element(By.xpath("//sk-fileupload[@name=\"docs\"]//input[@type=\"file\"]")).uploadFile(file);
+        element(By.xpath("//sk-fileupload[@name=\"docs\"]//button[@class=\"button button--remove ng-star-inserted\"]")).shouldBe(Condition.visible);
     }
     @Step("шаг16")
     public void saveButton(){
+
         element(Selectors.byXpath("//button[@jhitranslate=\"advert.lotReq.save\"]")).scrollTo();
         element(Selectors.byXpath("//button[@jhitranslate=\"advert.lotReq.save\"]")).click();
     }
     @Step("шаг17")
     public void toFormDocument(){
-        element(Selectors.byXpath("//span[@jhitranslate=\"eProcGatewayApp.participation.createDocs\"]")).shouldNotBe(Condition.disabled);
+        element(Selectors.byXpath("//span[@jhitranslate=\"eProcGatewayApp.participation.createDocs\"]")).shouldBe(Condition.exist);
         element(Selectors.byXpath("//span[@jhitranslate=\"eProcGatewayApp.participation.createDocs\"]")).click();
     }
     @Step("шаг18")
@@ -113,7 +119,7 @@ public class SubmitPurchaseRequest extends PagesManager{
 
         while(element(Selectors.byXpath("//sk-multiple-signing//button/span")).is(Condition.not(Condition.exist))){
             element(Selectors.byXpath("//span[@jhitranslate=\"entity.action.update\"]")).click();
-                sleep(2000);
+                sleep(3000);
         }
     }
 
