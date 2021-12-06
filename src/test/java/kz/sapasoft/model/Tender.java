@@ -13,6 +13,8 @@ public class Tender {
     private String deliveryAddress;
     private String incoterms;
     private String schedulePeriod;
+    private String endDate;
+    private String prepay;
 
     public String getProcurementCode() {
         return procurementCode;
@@ -56,6 +58,14 @@ public class Tender {
 
     public String getSchedulePeriod() {
         return schedulePeriod;
+    }
+
+    public String getEndDate() {
+        return endDate;
+    }
+
+    public String getPrepay() {
+        return prepay;
     }
 
     public static TenderBuilder newBuilder() {
@@ -130,8 +140,19 @@ public class Tender {
         public TenderBuilder setSchedulePeriod(String schedulePeriod) {
             Tender.this.schedulePeriod = schedulePeriod;
             return this;
-
         }
+
+        public TenderBuilder setEndDate(String endDate) {
+            Tender.this.endDate = endDate;
+            return this;
+        }
+
+
+        public TenderBuilder setPrepay(String prepay) {
+            Tender.this.prepay = prepay;
+            return this;
+        }
+
 
         public Tender build() {
             return Tender.this;

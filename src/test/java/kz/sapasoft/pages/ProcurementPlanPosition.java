@@ -1,6 +1,7 @@
 package kz.sapasoft.pages;
 
 import com.codeborne.selenide.Selectors;
+import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.element;
 
@@ -47,5 +48,36 @@ public class ProcurementPlanPosition extends PagesManager {
 
     public void setSchedulePeriod(String schedule) {
         element(Selectors.byXpath("//*[@name='schedulePeriod']//select//option[contains(@value,'" + schedule + "')]")).click();
+    }
+
+    public void setEndDate(String date) {
+        element(Selectors.byXpath("//*[@name='scheduleMonthTo']//input")).setValue(date);
+    }
+
+    public void setPrepay(String prepay) {
+        element(Selectors.byXpath("//*[@name='PREPAY']//input")).setValue(prepay);
+    }
+
+    public void setVolumeMeasurement() {
+        element(Selectors.byAttribute("title", "Килограмм")).click();
+        //selectOptionContainingText("Грамм")
+    }
+
+    public void selectVAT(String VAT) {
+        element(Selectors.byAttribute("name", "ndsSize")).click();
+        element(Selectors.byXpath("//select[contains(.,'" + VAT + "')]")).selectOptionContainingText(VAT);
+    }
+
+    public void setVolumeForYear(String year, String volume) {
+        element(Selectors.byXpath("(//*[@id='volumeByYearList']//*[@id='" + year + "']//input)[1]")).setValue(volume);
+    }
+
+    public void setPriceForYear(String year, String price) {
+        element(Selectors.byXpath("(//*[@id='volumeByYearList']//*[@id='" + year + "']//input)[2]")).setValue(price);
+    }
+
+
+    public void save() {
+        element(Selectors.byText("Сохранить")).click();
     }
 }

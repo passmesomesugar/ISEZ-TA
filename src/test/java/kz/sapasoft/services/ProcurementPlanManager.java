@@ -1,11 +1,13 @@
 package kz.sapasoft.services;
 
 import kz.sapasoft.model.ProcurementPlan;
-
+/*
+* ProcurementList ~ перечень закупок
+*
+* */
 public class ProcurementPlanManager {
 
     private ProcurementPlanManager() {
-
     }
 
     public static ProcurementPlan getProcurementList() {

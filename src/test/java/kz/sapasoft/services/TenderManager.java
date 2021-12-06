@@ -24,6 +24,8 @@ public class TenderManager {
                 .setDeliveryAddress(PropertyDataReader.getProperties(System.getProperty("procurement.position.scenario")).getProperty("procurement.delivery.address"))
                 .setIncoterms(PropertyDataReader.getProperties(System.getProperty("procurement.position.scenario")).getProperty("incoterms"))
                 .setSchedulePeriod(PropertyDataReader.getProperties(System.getProperty("procurement.position.scenario")).getProperty("schedule.period"))
+                .setEndDate(PropertyDataReader.getProperties(System.getProperty("procurement.position.scenario")).getProperty("end.date"))
+                .setPrepay(PropertyDataReader.getProperties(System.getProperty("procurement.position.scenario")).getProperty("prepay"))
                 .build();
     }
 }
