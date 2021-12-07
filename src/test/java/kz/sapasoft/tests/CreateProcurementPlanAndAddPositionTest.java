@@ -9,7 +9,7 @@ import static kz.sapasoft.services.UserManager.getCustomer;
 
 public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions {
 
-    //@Test(groups = "this", description = "")
+    @Test(groups = "this", description = "")
     void createProcurementPlanAndPositionTest() {
         getHomePage().logIn(getCustomer().getName(), getCustomer().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();

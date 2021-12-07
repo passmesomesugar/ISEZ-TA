@@ -21,7 +21,7 @@ public class SubmittingAPurchaseRequisitionTest extends BasicTestConditions{
     File file = new File("src/test/resources/test.xlsx");
 
 
-    @Test(groups = "this")
+    @Test(groups = "test")
     void SubmittingAPurchaseRequisitionTest() {
         getHomePage().logIn(getCustomer().getName(), getCustomer().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
@@ -44,7 +44,7 @@ public class SubmittingAPurchaseRequisitionTest extends BasicTestConditions{
         getSubmitPurchaseRequest().toFormDocument();
         getSubmitPurchaseRequest().reloadStatus();
         getSubmitPurchaseRequest().signDocuments();
-        getSubmitPurchaseRequest().deleteApplication(appNumber);
+        //getSubmitPurchaseRequest().deleteApplication(appNumber);
         getHomePage().logOut();
 
         //Configuration.holdBrowserOpen = true;

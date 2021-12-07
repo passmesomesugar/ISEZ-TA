@@ -23,7 +23,7 @@ allure serve target/allure-results
 
 
 
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=supplier2 -Denv=test-env  clean test
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\test.xml -Duser=supplier2 -Denv=test-env  clean test
 
  
 
