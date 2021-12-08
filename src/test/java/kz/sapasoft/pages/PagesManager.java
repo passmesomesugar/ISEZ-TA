@@ -25,6 +25,7 @@ public class PagesManager {
     private ProcurementPlanPosition procurementPlanPosition;
     private HomePage homePage;
     private ProcurementPlanPositions procurementPlanPositions;
+    private SubmitPurchaseRequest submitPurchaseRequest;
 
     public ProcurementPlan getProcurementPlanPage() {
         return procurementPlan;
@@ -46,6 +47,8 @@ public class PagesManager {
         return procurementPlanPositions;
     }
 
+    public SubmitPurchaseRequest getSubmitPurchaseRequest(){return submitPurchaseRequest;}
+
     @BeforeClass(alwaysRun = true)
     public void setUpPages() {
         logger.info("Execution started for:" + this.getClass().toString());
@@ -54,6 +57,7 @@ public class PagesManager {
         procurementPlanPosition = new ProcurementPlanPosition();
         homePage = new HomePage();
         procurementPlanPositions = new ProcurementPlanPositions();
+        submitPurchaseRequest= new SubmitPurchaseRequest();
     }
 
     @AfterClass

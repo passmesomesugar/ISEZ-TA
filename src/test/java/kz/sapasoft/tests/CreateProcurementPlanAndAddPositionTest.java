@@ -19,8 +19,10 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
         getProcurementPlanPage().setProcurementPlanType(getProcurementList().getPlanType());
         getProcurementPlanPage().setProcurementPlanTimeFrame(getProcurementList().getTimeFrame());
         getProcurementPlanPage().savePlan();
+        //some assertion here
         getProcurementPlanPage().pressActions(getProcurementList().getPlanType());
         getProcurementPlanPage().reviewProcurementPositions(getProcurementList().getPlanType());
+        //
         getProcurementPlanPositionsPage().createProcurementPlanPosition();
         getProcurementPlanPositionsPage().createNewProcurementPlanPosition();
         getProcurementPlanPositionsPage().attemptClickGWS();
@@ -35,15 +37,15 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
         getProcurementPlanPositionPage().setDeliveryAddress(getOpenTender().getDeliveryAddress());
         getProcurementPlanPositionPage().setINCOTERMS(getOpenTender().getIncoterms());
         getProcurementPlanPositionPage().setSchedulePeriod(getOpenTender().getSchedulePeriod());
-        getProcurementPlanPositionPage().setEndDate(getOpenTender().getEndDate());
-        getProcurementPlanPositionPage().setPrepay(getOpenTender().getPrepay());
-        getProcurementPlanPositionPage().setVolumeMeasurement();
-        getProcurementPlanPositionPage().selectVAT("Без НДС");
-        getProcurementPlanPositionPage().setVolumeForYear("2021", "1");
-        getProcurementPlanPositionPage().setVolumeForYear("2022", "2");
-        getProcurementPlanPositionPage().setPriceForYear("2021", "1");
-        getProcurementPlanPositionPage().setPriceForYear("2022", "1");
-        getProcurementPlanPositionPage().save();
-        sleep(30000);
+        sleep(15000);
+
+
+        // Remove to keep the system clean
+//        open(PLAN_URL);
+//        element(Selectors.byXpath("//button[text()='Действия']")).shouldHave(Condition.visible);
+//        element(Selectors.byXpath("//button[text()='Действия']")).click();
+//        element(Selectors.byXpath("//button[text()='Удалить']")).click();
+//        element(Selectors.byXpath("//span[text()='Удалить']")).click();
+
     }
 }
