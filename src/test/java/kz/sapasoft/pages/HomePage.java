@@ -7,7 +7,6 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class HomePage extends PagesManager {
 
-
     public void logIn(String user, String password) {
         open(MAIN_URL);
         logger.info("Main/home url opened for: " + this.getClass().toString());

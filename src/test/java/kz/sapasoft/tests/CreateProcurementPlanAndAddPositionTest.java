@@ -2,14 +2,13 @@ package kz.sapasoft.tests;
 
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Selenide.sleep;
 import static kz.sapasoft.services.ProcurementPlanManager.getProcurementList;
 import static kz.sapasoft.services.TenderManager.getOpenTender;
 import static kz.sapasoft.services.UserManager.getCustomer;
 
 public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions {
 
-    @Test(groups = "this", description = "")
+    @Test(groups = "this", description = "User can create plan and procurement position")
     void createProcurementPlanAndPositionTest() {
         getHomePage().logIn(getCustomer().getName(), getCustomer().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
@@ -44,6 +43,5 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
         getProcurementPlanPositionPage().setPriceForYear("2021", "1");
         getProcurementPlanPositionPage().setPriceForYear("2022", "1");
         getProcurementPlanPositionPage().save();
-        sleep(20000);
     }
 }

@@ -153,11 +153,9 @@ public class Tender {
             return this;
         }
 
-
         public Tender build() {
             return Tender.this;
         }
-
     }
 
 }
