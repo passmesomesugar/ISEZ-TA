@@ -21,6 +21,7 @@ public class HomePage extends PagesManager {
 
 
     public void logOut() {
+
         element(Selectors.byAttribute("jhitranslate", "global.menu.account.logout")).click();
     }
 }

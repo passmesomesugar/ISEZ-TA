@@ -15,7 +15,7 @@ public class BasicTestConditions extends PagesManager {
 
     @BeforeTest
     void setTimeOut() {
-        Configuration.timeout = 30000;
+        Configuration.timeout = 40000;
     }
 
     @BeforeSuite(alwaysRun = true)

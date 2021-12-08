@@ -76,8 +76,8 @@ public class ProcurementPlanPosition extends PagesManager {
         element(Selectors.byXpath("(//*[@id='volumeByYearList']//*[@id='" + year + "']//input)[2]")).setValue(price);
     }
 
-
     public void save() {
+        element(Selectors.byText("Сохранить")).scrollIntoView(true);
         element(Selectors.byText("Сохранить")).click();
     }
 }

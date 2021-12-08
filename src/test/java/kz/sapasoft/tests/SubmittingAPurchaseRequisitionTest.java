@@ -4,7 +4,6 @@ import org.testng.annotations.Test;
 
 import java.io.File;
 
-import static com.codeborne.selenide.Selenide.sleep;
 import static kz.sapasoft.services.UserManager.getCustomer;
 
 public class SubmittingAPurchaseRequisitionTest extends BasicTestConditions {
@@ -41,7 +40,7 @@ public class SubmittingAPurchaseRequisitionTest extends BasicTestConditions {
         getSubmitPurchaseRequest().reloadStatus();
         getSubmitPurchaseRequest().signDocuments();
         getSubmitPurchaseRequest().deleteApplication(appNumber);
+        getPersonalCabinetPage().openPersonalCabinet();
         getHomePage().logOut();
-        sleep(10000);
     }
 }
