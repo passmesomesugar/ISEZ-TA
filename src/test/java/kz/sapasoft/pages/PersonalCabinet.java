@@ -18,4 +18,8 @@ public class PersonalCabinet extends PagesManager {
     public void openPersonalCabinet() {
         open(PERSONAL_CABINET);
     }
+
+    public void logOut() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.account.logout")).click();
+    }
 }

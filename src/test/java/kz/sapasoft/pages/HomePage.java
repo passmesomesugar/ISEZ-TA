@@ -18,10 +18,4 @@ public class HomePage extends PagesManager {
         element(Selectors.byXpath("//*[@type='submit']")).click();
         logger.info("User name and password were submitted for:" + this.getClass().toString());
     }
-
-
-    public void logOut() {
-
-        element(Selectors.byAttribute("jhitranslate", "global.menu.account.logout")).click();
-    }
 }
