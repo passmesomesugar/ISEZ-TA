@@ -33,7 +33,6 @@ public class SubmittingAPurchaseRequisitionTest extends BasicTestConditions {
         getSubmitPurchaseRequest().reloadStatus();
         getSubmitPurchaseRequest().signDocuments();
         getSubmitPurchaseRequest().deleteApplication(getPurchaseRequisition().getAppNumber());
-        getPersonalCabinetPage().openPersonalCabinet();
         getPersonalCabinetPage().logOut();
     }
 }

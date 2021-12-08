@@ -43,5 +43,6 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
         getProcurementPlanPositionPage().setPriceForYear("2021", "1");
         getProcurementPlanPositionPage().setPriceForYear("2022", "1");
         getProcurementPlanPositionPage().save();
+        getPersonalCabinetPage().logOut();
     }
 }

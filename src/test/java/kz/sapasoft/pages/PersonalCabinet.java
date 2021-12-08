@@ -20,6 +20,7 @@ public class PersonalCabinet extends PagesManager {
     }
 
     public void logOut() {
+        open(PERSONAL_CABINET);
         element(Selectors.byAttribute("jhitranslate", "global.menu.account.logout")).click();
     }
 }
