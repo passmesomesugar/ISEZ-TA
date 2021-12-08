@@ -2,7 +2,6 @@ package kz.sapasoft.tests;
 
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Selenide.sleep;
 import static kz.sapasoft.services.ProcurementPlanManager.getProcurementList;
 import static kz.sapasoft.services.TenderManager.getOpenTender;
 import static kz.sapasoft.services.UserManager.getCustomer;
@@ -44,6 +43,6 @@ public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions
         getProcurementPlanPositionPage().setPriceForYear("2021", "1");
         getProcurementPlanPositionPage().setPriceForYear("2022", "1");
         getProcurementPlanPositionPage().save();
-        sleep(30000);
+
     }
 }
