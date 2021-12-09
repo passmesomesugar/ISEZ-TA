@@ -13,11 +13,11 @@ public class UserManager {
     }
 
     public static User getSupplierOne() {
-        return Supplier.SUPPLIER_TWO;
+        return Supplier.SUPPLIER_ONE;
     }
 
     public static User getSupplierTwo() {
-        return Supplier.SUPPLIER_ONE;
+        return Supplier.SUPPLIER_TWO;
     }
 
     private static class Customer {

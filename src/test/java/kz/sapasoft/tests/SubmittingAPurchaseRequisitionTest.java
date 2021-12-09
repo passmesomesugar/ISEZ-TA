@@ -5,13 +5,13 @@ import org.testng.annotations.Test;
 import java.io.File;
 
 import static kz.sapasoft.services.PurchaseRequisitionManager.getPurchaseRequisition;
-import static kz.sapasoft.services.UserManager.getSupplierTwo;
+import static kz.sapasoft.services.UserManager.getSupplierOne;
 
 public class SubmittingAPurchaseRequisitionTest extends BasicTestConditions {
 
     @Test(groups = "this", description = "")
     void SubmittingAPurchaseRequisitionTest() {
-        getHomePage().logIn(getSupplierTwo().getName(), getSupplierTwo().getPassword());
+        getHomePage().logIn(getSupplierOne().getName(), getSupplierOne().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
         getSubmitPurchaseRequest().goToMainPage();
         getSubmitPurchaseRequest().searchApplicationNumber(getPurchaseRequisition().getAppNumber());
