@@ -1,7 +1,6 @@
 package kz.sapasoft.pages;
 
 import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.element;
 
@@ -60,7 +59,6 @@ public class ProcurementPlanPosition extends PagesManager {
 
     public void setVolumeMeasurement() {
         element(Selectors.byAttribute("title", "Килограмм")).click();
-        //selectOptionContainingText("Грамм")
     }
 
     public void selectVAT(String VAT) {
@@ -77,7 +75,7 @@ public class ProcurementPlanPosition extends PagesManager {
     }
 
     public void save() {
-        element(Selectors.byText("Сохранить")).scrollIntoView(true);
-        element(Selectors.byText("Сохранить")).click();
+        element(Selectors.byAttribute("jhitranslate", "entity.action.save")).scrollIntoView(true);
+        element(Selectors.byAttribute("jhitranslate", "entity.action.save")).click();
     }
 }
