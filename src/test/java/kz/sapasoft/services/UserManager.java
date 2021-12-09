@@ -3,18 +3,36 @@ package kz.sapasoft.services;
 import kz.sapasoft.model.User;
 
 public class UserManager {
-    private static String currentUserEnv = System.getProperty("user");
-    private static String userName = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.name");
-    private static String password = PropertyDataReader.getProperties(currentUserEnv).getProperty("user.password");
+    private static String currentUserEnv = System.getProperty("users");
 
     private UserManager() {
     }
 
-    public static User getCustomer() {
-        return Customer.CUSTOMER;
+    public static User getCustomerOne() {
+        return Customer.CUSTOMER_ONE;
+    }
+
+    public static User getSupplierOne() {
+        return Supplier.SUPPLIER_TWO;
+    }
+
+    public static User getSupplierTwo() {
+        return Supplier.SUPPLIER_ONE;
     }
 
     private static class Customer {
-        public static final User CUSTOMER = User.newBuilder().setName(userName).setPassword(password).build();
+        public static final User CUSTOMER_ONE = User.newBuilder()
+                .setName(PropertyDataReader.getProperties(currentUserEnv).getProperty("customer.1.name"))
+                .setPassword(PropertyDataReader.getProperties(currentUserEnv).getProperty("customer.1.password")).build();
+    }
+
+    private static class Supplier {
+        public static final User SUPPLIER_ONE = User.newBuilder()
+                .setName(PropertyDataReader.getProperties(currentUserEnv).getProperty("supplier.1.name"))
+                .setPassword(PropertyDataReader.getProperties(currentUserEnv).getProperty("supplier.1.password")).build();
+
+        public static final User SUPPLIER_TWO = User.newBuilder()
+                .setName(PropertyDataReader.getProperties(currentUserEnv).getProperty("supplier.2.name"))
+                .setPassword(PropertyDataReader.getProperties(currentUserEnv).getProperty("supplier.2.password")).build();
     }
 }

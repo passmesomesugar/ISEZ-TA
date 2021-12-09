@@ -4,13 +4,13 @@ import org.testng.annotations.Test;
 
 import static kz.sapasoft.services.ProcurementPlanManager.getProcurementList;
 import static kz.sapasoft.services.TenderManager.getOpenTender;
-import static kz.sapasoft.services.UserManager.getCustomer;
+import static kz.sapasoft.services.UserManager.getCustomerOne;
 
 public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions {
 
     @Test(groups = "this", description = "User can create plan and procurement position")
     void createProcurementPlanAndPositionTest() {
-        getHomePage().logIn(getCustomer().getName(), getCustomer().getPassword());
+        getHomePage().logIn(getCustomerOne().getName(), getCustomerOne().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
         getPersonalCabinetPage().openProcurementPlan();
         getProcurementPlanPage().createNewPlan();
