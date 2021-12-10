@@ -13,7 +13,7 @@ public class PagesManager {
     public final int MINI_LOAD_PAUSE = 1500;
 
     protected static final Logger logger = LogManager.getLogger(PagesManager.class);
-    protected static final Logger logger1 = LogManager.getRootLogger(); //?? Test this
+    //protected static final Logger logger1 = LogManager.getRootLogger();
 
     public String currentUserEnv = System.getProperty("user");
     public String testingScenario = System.getProperty("procurement.plan.scenario");
@@ -47,7 +47,9 @@ public class PagesManager {
         return procurementPlanPositions;
     }
 
-    public SubmitPurchaseRequest getSubmitPurchaseRequest(){return submitPurchaseRequest;}
+    public SubmitPurchaseRequest getSubmitPurchaseRequest() {
+        return submitPurchaseRequest;
+    }
 
     @BeforeClass(alwaysRun = true)
     public void setUpPages() {
@@ -57,7 +59,7 @@ public class PagesManager {
         procurementPlanPosition = new ProcurementPlanPosition();
         homePage = new HomePage();
         procurementPlanPositions = new ProcurementPlanPositions();
-        submitPurchaseRequest= new SubmitPurchaseRequest();
+        submitPurchaseRequest = new SubmitPurchaseRequest();
     }
 
     @AfterClass
