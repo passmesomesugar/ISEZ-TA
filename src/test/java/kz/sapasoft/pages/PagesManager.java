@@ -1,10 +1,11 @@
 package kz.sapasoft.pages;
 
+import com.codeborne.selenide.WebDriverRunner;
+import kz.sapasoft.services.PropertyDataReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
-import kz.sapasoft.services.PropertyDataReader;
 
 public class PagesManager {
 
@@ -60,10 +61,13 @@ public class PagesManager {
         homePage = new HomePage();
         procurementPlanPositions = new ProcurementPlanPositions();
         submitPurchaseRequest = new SubmitPurchaseRequest();
+        logger.info("PageManager set pages:" + this.getClass().toString());
     }
 
-    @AfterClass
+    @AfterClass(alwaysRun = true)
     public void afterClassActions() {
+        WebDriverRunner.closeWebDriver();
+        logger.info("closeWebDriver() executed");
         logger.info("Execution ended for:" + this.getClass().toString());
     }
 }
