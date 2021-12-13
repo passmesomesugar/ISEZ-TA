@@ -12,7 +12,9 @@ public class PersonalCabinet extends PagesManager {
     public String PERSONAL_CABINET =
             PropertyDataReader.getProperties(currentTestingEnv).getProperty("personal.cabinet");
 
-    public SelenideElement title = element(Selectors.byAttribute("jhitranslate", "bankWarranty.titleFull"));
+    public SelenideElement warrantyTitle = element(Selectors.byAttribute("jhitranslate", "bankWarranty.titleFull"));
+
+    public SelenideElement appealTitle = element(Selectors.byAttribute("jhitranslate", "appeal.title"));
 
     public SelenideElement search = element(Selectors.byAttribute("jhitranslate", "bankWarranty.search"));
 
@@ -45,8 +47,16 @@ public class PersonalCabinet extends PagesManager {
         element(Selectors.byAttribute("jhitranslate", "criterias.tasks.titleNotSkb")).click();
     }
 
-    public void openClarifications() {
-        element(Selectors.byAttribute("jhitranslate", "criterias.tasks.titleNotSkb")).click();
+    public void openClarificationsForNPA() {
+        element(Selectors.byAttribute("jhitranslate", "npa.clarifications")).click();
+    }
+
+    public void openListRegister() {
+        element(Selectors.byAttribute("jhitranslate", "nsi.title")).click();
+    }
+
+    public void clickRequests() {
+        element(Selectors.byAttribute("jhitranslate", "nsi.subTitle1")).click();
     }
 
     public void logOut() {

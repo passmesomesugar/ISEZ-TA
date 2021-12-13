@@ -8,15 +8,13 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.element;
 import static kz.sapasoft.services.UserManager.getCustomerOne;
 
-public class ProcurementPlanAccess extends BasicTestConditions {
+public class ListRegister extends BasicTestConditions {
     @Test(groups = "smoke", description = "")
-    void procurementPlanAccess() {
+    void listRegister() {
         getHomePage().logIn(getCustomerOne().getName(), getCustomerOne().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
-        getPersonalCabinetPage().openProcurementPlan();
-        element(Selectors.byAttribute("jhitranslate", "plan.plan")).shouldHave(Condition.visible);
-        element(Selectors.byAttribute("jhitranslate", "plan.createNewPlan")).shouldHave(Condition.visible);
-        element(Selectors.byXpath("//div[contains(@class, 'table')]")).shouldHave(Condition.visible);
+        getPersonalCabinetPage().openListRegister();
+        getPersonalCabinetPage().clickRequests();
         element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
     }
 }

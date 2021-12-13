@@ -52,6 +52,7 @@ public class PagesManager {
         return submitPurchaseRequest;
     }
 
+
     @BeforeClass(alwaysRun = true)
     public void setUpPages() {
         logger.info("Execution started for:" + this.getClass().toString());

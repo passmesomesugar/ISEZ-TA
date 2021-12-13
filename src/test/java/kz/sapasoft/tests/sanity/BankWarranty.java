@@ -15,9 +15,7 @@ public class BankWarranty extends BasicTestConditions {
         getPersonalCabinetPage().openPersonalCabinet();
         getPersonalCabinetPage().openBankWarranty();
         getPersonalCabinetPage().openBankWarrantyList();
-        getPersonalCabinetPage().title.shouldHave(Condition.visible);
-        element(Selectors.byAttribute("jhitranslate", "bankWarranty.clear")).shouldHave(Condition.visible, Condition.enabled);
-        element(Selectors.byAttribute("data-cname", "textbox")).shouldHave(Condition.visible, Condition.enabled);
-        element(Selectors.byAttribute("data-cname", "select")).shouldHave(Condition.visible, Condition.enabled);
+        getPersonalCabinetPage().warrantyTitle.shouldHave(Condition.visible);
+        element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
     }
 }

@@ -14,5 +14,6 @@ public class CustomerFeedbackForm extends BasicTestConditions {
         getHomePage().logIn(getCustomerOne().getName(), getCustomerOne().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
         element(Selectors.byAttribute("jhitranslate", "eProcGatewayApp.button-title")).shouldHave(Condition.visible);
+        element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
     }
 }
