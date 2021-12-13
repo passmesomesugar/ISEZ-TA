@@ -12,6 +12,10 @@ public class UserManager {
         return Customer.CUSTOMER_ONE;
     }
 
+    public static User getCustomerTwo() {
+        return Customer.CUSTOMER_ONE;
+    }
+
     public static User getSupplierOne() {
         return Supplier.SUPPLIER_ONE;
     }
@@ -24,6 +28,11 @@ public class UserManager {
         public static final User CUSTOMER_ONE = User.newBuilder()
                 .setName(PropertyDataReader.getProperties(currentUserEnv).getProperty("customer.1.name"))
                 .setPassword(PropertyDataReader.getProperties(currentUserEnv).getProperty("customer.1.password")).build();
+
+        public static final User CUSTOMER_TWO = User.newBuilder()
+                .setName(PropertyDataReader.getProperties(currentUserEnv).getProperty("customer.2.name"))
+                .setPassword(PropertyDataReader.getProperties(currentUserEnv).getProperty("customer.2.password")).build();
+
     }
 
     private static class Supplier {

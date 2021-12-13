@@ -1,5 +1,6 @@
 package kz.sapasoft.pages;
 
+import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
 import kz.sapasoft.services.PropertyDataReader;
@@ -59,9 +60,43 @@ public class PersonalCabinet extends PagesManager {
         element(Selectors.byAttribute("jhitranslate", "nsi.subTitle1")).click();
     }
 
+    public void clickOrders() {
+        element(Selectors.byAttribute("jhitranslate", "nsi.decree.titleShort")).click();
+    }
+
+    public void clickSupplierManagement() {
+        element(Selectors.byAttribute("jhitranslate", "supplier.title")).click();
+    }
+
+    public void clickGWSCodesUnblockApplications() {
+        element(Selectors.byAttribute("jhitranslate", "nsi.truCodeManagement.truCodeApplications")).click();
+    }
+
+    public void clickProcurements() {
+        element(Selectors.byAttribute("jhitranslate", "layouts.advert")).click();
+    }
+
+    public void clickProcurementsGraph() {
+        element(Selectors.byAttribute("jhitranslate", "layouts.advertSchedule")).click();
+    }
+
+    public void clickProcurementsList() {
+        element(Selectors.byAttribute("jhitranslate", "layouts.advertList")).click();
+    }
+
+    public void clickProcurementTemplates() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.entities.commissionTemplate")).click();
+    }
+
+    public void clickESOrders() {
+        element(Selectors.byAttribute("jhitranslate", "eshopOrder.title")).click();
+    }
+
     public void logOut() {
         open(PERSONAL_CABINET);
         element(Selectors.byAttribute("jhitranslate", "global.menu.account.logout")).click();
         logger.info("log out for:" + this.getClass().toString());
     }
+
+
 }
