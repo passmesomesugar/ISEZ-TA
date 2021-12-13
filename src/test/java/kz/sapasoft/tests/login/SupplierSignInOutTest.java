@@ -4,9 +4,7 @@ import kz.sapasoft.tests.BasicTestConditions;
 import org.testng.annotations.Test;
 
 public class SupplierSignInOutTest extends BasicTestConditions {
-    @Test(groups = "smoke", description = "supplier can sign in/out")
+    @Test(groups = "1", description = "supplier can sign in/out")
     void userCanSignInOut() {
-
-
     }
 }

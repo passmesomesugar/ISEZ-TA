@@ -8,7 +8,7 @@ import static kz.sapasoft.services.UserManager.getCustomerOne;
 
 public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions {
 
-    @Test(groups = "this", description = "User can create plan and procurement position")
+    @Test(groups = "1", description = "User can create plan and procurement position")
     void createProcurementPlanAndPositionTest() {
         getHomePage().logIn(getCustomerOne().getName(), getCustomerOne().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();

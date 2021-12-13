@@ -1,9 +1,12 @@
 package kz.sapasoft.tests;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selectors;
 import org.testng.annotations.Test;
 
 import java.io.File;
 
+import static com.codeborne.selenide.Selenide.element;
 import static kz.sapasoft.services.PurchaseRequisitionManager.getPurchaseRequisition;
 import static kz.sapasoft.services.UserManager.getSupplierOne;
 
@@ -32,6 +35,7 @@ public class SubmittingAPurchaseRequisitionTest extends BasicTestConditions {
         getSubmitPurchaseRequest().toFormDocument();
         getSubmitPurchaseRequest().reloadStatus();
         getSubmitPurchaseRequest().signDocuments();
+        element(Selectors.byXpath("//div[contains(@class, 'toast-success')]")).shouldHave(Condition.appear);
         getSubmitPurchaseRequest().deleteApplication(getPurchaseRequisition().getAppNumber());
         getPersonalCabinetPage().logOut();
     }

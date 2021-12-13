@@ -7,12 +7,8 @@ import static com.codeborne.selenide.Selenide.element;
 
 public class ProcurementPlan extends PagesManager {
 
-
-    private SelenideElement createNewPlanButton =
-            element(Selectors.byXpath("//span[text()='Создать план закупок']"));
-
     public void createNewPlan() {
-        createNewPlanButton.click();
+        element(Selectors.byAttribute("jhitranslate", "plan.createNewPlan")).click();
     }
 
     public void setYear(String year) {
