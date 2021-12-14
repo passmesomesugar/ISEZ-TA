@@ -1,4 +1,4 @@
-package kz.sapasoft.tests.sanity;
+package kz.sapasoft.tests.sanity.logged_in;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
@@ -8,12 +8,17 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.element;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
-public class CustomerFeedbackForm extends BasicTestConditions {
+public class BankWarranty extends BasicTestConditions {
     @Test(groups = "smoke", description = "")
-    void feedbackForm() {
+    void bankWarranty() {
+        //Добавить проверку наличия таблицы, а так же проверку title
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
-        element(Selectors.byAttribute("jhitranslate", "eProcGatewayApp.button-title")).shouldHave(Condition.visible);
+        getPersonalCabinetPage().openBankWarranty();
+        getPersonalCabinetPage().openBankWarrantyList();
+        getPersonalCabinetPage().warrantyTitle.shouldHave(Condition.visible);
+        getPersonalCabinetPage().openBankWarrantyReport();
+        getPersonalCabinetPage().warrantyReportTitle.shouldHave(Condition.visible);
         element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
     }
 }

@@ -1,4 +1,4 @@
-package kz.sapasoft.tests.sanity;
+package kz.sapasoft.tests.sanity.logged_in;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;

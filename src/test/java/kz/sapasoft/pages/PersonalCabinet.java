@@ -1,6 +1,5 @@
 package kz.sapasoft.pages;
 
-import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
 import kz.sapasoft.services.PropertyDataReader;
@@ -14,6 +13,8 @@ public class PersonalCabinet extends PagesManager {
             PropertyDataReader.getProperties(currentTestingEnv).getProperty("personal.cabinet");
 
     public SelenideElement warrantyTitle = element(Selectors.byAttribute("jhitranslate", "bankWarranty.titleFull"));
+
+    public SelenideElement warrantyReportTitle = element(Selectors.byAttribute("jhitranslate", "bankWarranty.report.report1.title"));
 
     public SelenideElement appealTitle = element(Selectors.byAttribute("jhitranslate", "appeal.title"));
 
@@ -98,5 +99,7 @@ public class PersonalCabinet extends PagesManager {
         logger.info("log out for:" + this.getClass().toString());
     }
 
-
+    public void openBankWarrantyReport() {
+        element(Selectors.byAttribute("jhitranslate", "bankWarranty.report.title")).click();
+    }
 }

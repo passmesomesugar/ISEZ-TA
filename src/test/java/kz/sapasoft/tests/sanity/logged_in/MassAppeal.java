@@ -1,4 +1,4 @@
-package kz.sapasoft.tests.sanity;
+package kz.sapasoft.tests.sanity.logged_in;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
@@ -8,19 +8,20 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.element;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
-public class Procurement extends BasicTestConditions {
+public class MassAppeal extends BasicTestConditions {
     @Test(groups = "smoke", description = "")
-    void procurementAccess() {
+    void appealList() {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
-        getPersonalCabinetPage().clickProcurements();
-        getPersonalCabinetPage().clickProcurementsGraph();
+        getPersonalCabinetPage().openAppeal();
+        getPersonalCabinetPage().openListOfAppeals();
+        getPersonalCabinetPage().appealTitle.shouldHave(Condition.exist, Condition.visible);
         element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
-        getPersonalCabinetPage().clickProcurementsList();
+        getPersonalCabinetPage().openListOfRequests();
         element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
-        getPersonalCabinetPage().clickProcurementTemplates();
+        getPersonalCabinetPage().openClarificationsForNPA();
+        element(Selectors.byAttribute("jhitranslate", "npa.title")).shouldHave(Condition.exist, Condition.visible);
         element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
-        getPersonalCabinetPage().clickESOrders();
-        element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
+        getPersonalCabinetPage().logOut();
     }
 }
