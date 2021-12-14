@@ -1,7 +1,8 @@
-package kz.sapasoft.tests;
+package kz.sapasoft.tests.advanced;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
+import kz.sapasoft.tests.BasicTestConditions;
 import org.testng.annotations.Test;
 
 import java.io.File;
@@ -12,7 +13,7 @@ import static kz.sapasoft.services.UserManager.getSupplierOne;
 
 public class SubmittingAPurchaseRequisitionTest extends BasicTestConditions {
 
-    @Test(groups = "1", description = "")
+    @Test(groups = "this", description = "")
     void SubmittingAPurchaseRequisitionTest() {
         getHomePage().logIn(getSupplierOne().getName(), getSupplierOne().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();

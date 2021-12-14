@@ -13,6 +13,8 @@ public class PagesManager {
     public final int MICRO_LOAD_PAUSE = 700;
     public final int MINI_LOAD_PAUSE = 1500;
 
+    public static final String TEST_DATA_FILE_NAME = "test-data";
+
     protected static final Logger logger = LogManager.getLogger(PagesManager.class);
     //protected static final Logger logger1 = LogManager.getRootLogger();
 

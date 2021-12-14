@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.element;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
 public class Procurements extends BasicTestConditions {
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "1", description = "")
     void procurementAccess() {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();

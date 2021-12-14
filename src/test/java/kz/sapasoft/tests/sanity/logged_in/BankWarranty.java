@@ -9,9 +9,8 @@ import static com.codeborne.selenide.Selenide.element;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
 public class BankWarranty extends BasicTestConditions {
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "1", description = "")
     void bankWarranty() {
-        //Добавить проверку наличия таблицы, а так же проверку title
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
         getPersonalCabinetPage().openBankWarranty();

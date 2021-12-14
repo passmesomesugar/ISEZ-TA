@@ -23,7 +23,7 @@ allure serve target/allure-results
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Dusers=userbase -Denv=test-env -Dpurchase.requisition.scenario=purchase.requisition.scenario.1 clean test
 
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Dusers=userbase -Denv=test-env -Dprocurement.plan.scenario=procurement.plan.scenario.2 -Dprocurement.position.scenario=procurement.position.scenario.1 -Dpurchase.requisition.scenario=purchase.requisition.scenario.1 clean test
-
  
-
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Dusers=userbase -Denv=test-env -Dprocurement.position.scenario=procurement.position.scenario.1 clean test
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Dusers=userbase -Denv=test-env clean test
  
