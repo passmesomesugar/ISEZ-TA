@@ -1,15 +1,17 @@
-package kz.sapasoft.tests;
+package kz.sapasoft.tests.advanced;
 
+import kz.sapasoft.tests.BasicTestConditions;
 import org.testng.annotations.Test;
 
 import static kz.sapasoft.services.ProcurementPlanManager.getProcurementList;
 import static kz.sapasoft.services.TenderManager.getOpenTender;
 import static kz.sapasoft.services.UserManager.getCustomerOne;
 
-public class CreateProcurementPlanAndAddPositionTest extends BasicTestConditions {
+/*Проверка создания перечня и позиции*/
+public class CreateProcurementPlanListAndAddPositionTest extends BasicTestConditions {
 
-    @Test(groups = "1", description = "User can create plan and procurement position")
-    void createProcurementPlanAndPositionTest() {
+    @Test(groups = "1", description = "User can create procurement plan ~ list and procurement position")
+    void createProcurementPlanListAndPositionTest() {
         getHomePage().logIn(getCustomerOne().getName(), getCustomerOne().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
         getPersonalCabinetPage().openProcurementPlan();

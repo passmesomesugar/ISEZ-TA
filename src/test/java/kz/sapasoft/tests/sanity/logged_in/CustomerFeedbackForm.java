@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.element;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
 public class CustomerFeedbackForm extends BasicTestConditions {
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "ready", description = "")
     void feedbackForm() {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();

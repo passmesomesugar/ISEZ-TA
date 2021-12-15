@@ -9,16 +9,21 @@ import static com.codeborne.selenide.Selenide.element;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
 public class BankWarranty extends BasicTestConditions {
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "ready", description = "smoke testing of bank warranty section display")
     void bankWarranty() {
-        //Добавить проверку наличия таблицы, а так же проверку title
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
         getPersonalCabinetPage().openBankWarranty();
+
         getPersonalCabinetPage().openBankWarrantyList();
         getPersonalCabinetPage().warrantyTitle.shouldHave(Condition.visible);
+        checkIfNoErrorIsDisplayed();
+        checkTableInPageBody();
+
         getPersonalCabinetPage().openBankWarrantyReport();
         getPersonalCabinetPage().warrantyReportTitle.shouldHave(Condition.visible);
-        element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
+        checkIfNoErrorIsDisplayed();
+        checkTableInPageBody();
+
     }
 }

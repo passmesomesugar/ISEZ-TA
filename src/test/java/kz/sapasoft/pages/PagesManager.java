@@ -1,5 +1,8 @@
 package kz.sapasoft.pages;
 
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selectors;
+import com.codeborne.selenide.SelenideElement;
 import com.codeborne.selenide.WebDriverRunner;
 import kz.sapasoft.services.PropertyDataReader;
 import org.apache.logging.log4j.LogManager;
@@ -7,11 +10,14 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
-public class PagesManager {
+import static com.codeborne.selenide.Selenide.element;
 
+public class PagesManager {
     public final int LOAD_PAUSE = 4000;
     public final int MICRO_LOAD_PAUSE = 700;
     public final int MINI_LOAD_PAUSE = 1500;
+
+    public static final String TEST_DATA_FILE_NAME = "test-data";
 
     protected static final Logger logger = LogManager.getLogger(PagesManager.class);
     //protected static final Logger logger1 = LogManager.getRootLogger();
@@ -70,5 +76,17 @@ public class PagesManager {
         WebDriverRunner.closeWebDriver();
         logger.info("closeWebDriver() executed");
         logger.info("Execution ended for:" + this.getClass().toString());
+    }
+
+    public void checkIfNoErrorIsDisplayed() {
+        element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
+    }
+
+    public void checkIfSuccessIsDisplayed() {
+        element(Selectors.byXpath("//div[contains(@class, 'toast-success')]")).shouldNot(Condition.appear);
+    }
+
+    public void checkTableInPageBody() {
+        element(Selectors.byXpath("//div[contains(@class, 'table')]")).shouldHave(Condition.exist);
     }
 }

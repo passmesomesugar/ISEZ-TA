@@ -1,7 +1,8 @@
-package kz.sapasoft.tests;
+package kz.sapasoft.tests.advanced;
 
 import com.codeborne.selenide.Condition;
 import com.codeborne.selenide.Selectors;
+import kz.sapasoft.tests.BasicTestConditions;
 import org.testng.annotations.Test;
 
 import java.io.File;

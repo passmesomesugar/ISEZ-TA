@@ -44,8 +44,5 @@ public class ProcurementPlan {
         public ProcurementPlan build() {
             return ProcurementPlan.this;
         }
-
     }
-
-
 }
