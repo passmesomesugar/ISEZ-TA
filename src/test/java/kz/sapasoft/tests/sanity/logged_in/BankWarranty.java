@@ -14,12 +14,16 @@ public class BankWarranty extends BasicTestConditions {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
         getPersonalCabinetPage().openBankWarranty();
+
         getPersonalCabinetPage().openBankWarrantyList();
         getPersonalCabinetPage().warrantyTitle.shouldHave(Condition.visible);
-        element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
+        checkIfNoErrorIsDisplayed();
+        checkTableInPageBody();
+
         getPersonalCabinetPage().openBankWarrantyReport();
         getPersonalCabinetPage().warrantyReportTitle.shouldHave(Condition.visible);
-        element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
-        getPersonalCabinetPage().randomCSS_ContainsTable_in_ClassName.shouldHave(Condition.exist);
+        checkIfNoErrorIsDisplayed();
+        checkTableInPageBody();
+
     }
 }

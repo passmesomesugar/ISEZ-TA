@@ -12,7 +12,6 @@ import java.util.logging.Level;
 
 public class BasicTestConditions extends PagesManager {
 
-
     @BeforeSuite(alwaysRun = true)
     void genesis() {
         Configuration.browserSize = "1920x1080";

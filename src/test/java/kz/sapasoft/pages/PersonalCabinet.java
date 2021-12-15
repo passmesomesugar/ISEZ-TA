@@ -1,5 +1,6 @@
 package kz.sapasoft.pages;
 
+import com.codeborne.selenide.Conditional;
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
 import kz.sapasoft.services.PropertyDataReader;
@@ -22,6 +23,16 @@ public class PersonalCabinet extends PagesManager {
 
     public SelenideElement randomCSS_ContainsTable_in_ClassName = element(Selectors.byXpath("//div[contains(@class, 'table')]"));
 
+    public SelenideElement appealReportsTitle = element(Selectors.byAttribute("jhitranslate", "appeal.reportTitle"));
+
+    public SelenideElement criteriaSettingsTitle = element(Selectors.byAttribute("jhitranslate", "criterias.setting.settingMCTitle"));
+
+    public SelenideElement procurementMonitoringAndAnalysisTitle = element(Selectors.byAttribute("jhitranslate", "criterias.monitoring.title"));
+
+    public SelenideElement appealsTaskListTitle = element(Selectors.byXpath("//h2//span[@jhitranslate='criterias.tasks.title']"));
+
+    public SelenideElement npaTitle = element(Selectors.byAttribute("jhitranslate", "npa.title"));
+
     public void openProcurementPlan() {
         element(Selectors.byAttribute("jhitranslate", "layouts.planAdvert")).click();
     }
@@ -38,7 +49,7 @@ public class PersonalCabinet extends PagesManager {
         element(Selectors.byAttribute("jhitranslate", "bankWarranty.list")).click();
     }
 
-    public void openAppeal() {
+    public void openAppeals() {
         element(Selectors.byAttribute("jhitranslate", "appeal.title")).click();
     }
 
@@ -106,6 +117,21 @@ public class PersonalCabinet extends PagesManager {
 
     public void clickGWSCodesManagement() {
         element(Selectors.byAttribute("jhitranslate", "nsi.truCodeManagement.title")).click();
-        //<span _ngcontent-lnc-c15="" jhitranslate="nsi.truCodeManagement.title">Управление кодами ЕНС ТРУ</span>
+    }
+
+    public void openAppealReports() {
+        element(Selectors.byAttribute("jhitranslate", "appeal.reportTitle")).click();
+    }
+
+    public void openCriteriaSettings() {
+        element(Selectors.byAttribute("jhitranslate", "criterias.setting.settingMCTitleShort")).click();
+    }
+
+    public void openProcurementMonitoringAndAnalysis() {
+        element(Selectors.byAttribute("jhitranslate", "criterias.monitoring.title")).click();
+    }
+
+    public void openAppealsTaskList() {
+        element(Selectors.byXpath("//li//*[@jhitranslate='criterias.tasks.title']")).click();
     }
 }
