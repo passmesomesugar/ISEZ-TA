@@ -6,7 +6,7 @@ import org.testng.annotations.Test;
 /*Проверка создания основного плана*/
 
 public class CreateProcurementPlanMainAndAddPositionTest extends BasicTestConditions {
-    @Test(groups = "this", description = "User can create procurement plan ~ main and procurement position")
+    @Test(groups = "1", description = "User can create procurement plan ~ main and procurement position")
     void createProcurementPlanMainAndPositionTest() {
     }
 }

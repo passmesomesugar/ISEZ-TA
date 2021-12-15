@@ -13,7 +13,7 @@ import static kz.sapasoft.services.UserManager.getSupplierOne;
 
 public class SubmittingAPurchaseRequisitionTest extends BasicTestConditions {
 
-    @Test(groups = "this", description = "")
+    @Test(groups = "1", description = "")
     void SubmittingAPurchaseRequisitionTest() {
         getHomePage().logIn(getSupplierOne().getName(), getSupplierOne().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();

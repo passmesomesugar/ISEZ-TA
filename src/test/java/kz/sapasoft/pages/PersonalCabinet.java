@@ -20,6 +20,7 @@ public class PersonalCabinet extends PagesManager {
 
     public SelenideElement search = element(Selectors.byAttribute("jhitranslate", "bankWarranty.search"));
 
+    public SelenideElement randomCSS_ContainsTable_in_ClassName = element(Selectors.byXpath("//div[contains(@class, 'table')]"));
 
     public void openProcurementPlan() {
         element(Selectors.byAttribute("jhitranslate", "layouts.planAdvert")).click();
@@ -69,7 +70,7 @@ public class PersonalCabinet extends PagesManager {
         element(Selectors.byAttribute("jhitranslate", "supplier.title")).click();
     }
 
-    public void clickGWSCodesUnblockApplications() {
+    public void clickGWSCodesUnlockApplications() {
         element(Selectors.byAttribute("jhitranslate", "nsi.truCodeManagement.truCodeApplications")).click();
     }
 
@@ -101,5 +102,10 @@ public class PersonalCabinet extends PagesManager {
 
     public void openBankWarrantyReport() {
         element(Selectors.byAttribute("jhitranslate", "bankWarranty.report.title")).click();
+    }
+
+    public void clickGWSCodesManagement() {
+        element(Selectors.byAttribute("jhitranslate", "nsi.truCodeManagement.title")).click();
+        //<span _ngcontent-lnc-c15="" jhitranslate="nsi.truCodeManagement.title">Управление кодами ЕНС ТРУ</span>
     }
 }
