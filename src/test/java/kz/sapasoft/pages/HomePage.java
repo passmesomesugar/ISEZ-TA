@@ -1,6 +1,7 @@
 package kz.sapasoft.pages;
 
 import com.codeborne.selenide.Selectors;
+import com.codeborne.selenide.SelenideElement;
 
 import static com.codeborne.selenide.Selenide.element;
 import static com.codeborne.selenide.Selenide.open;
@@ -12,10 +13,11 @@ public class HomePage extends PagesManager {
         element(Selectors.byXpath("//ul[@class='m-list m-list--nav']/li/a[@jhitranslate='main.news']")).click();
     }
 
+    public SelenideElement newsRow=element(Selectors.byXpath("//div[@class='news__item ng-star-inserted']"));
+
     public void openRegistry() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.registry']")).click();
     }
-
 
     public void chooseRegistry() {
         element(Selectors.byXpath("//div[@class='skDeleteBtn']/select")).click();
@@ -26,6 +28,8 @@ public class HomePage extends PagesManager {
         element(Selectors.byXpath("//span[@jhitranslate='eProcGatewayApp.planItem.searchParam.search']")).click();
     }
 
+    public SelenideElement registryResult=element(Selectors.byXpath("//tbody/tr[2]"));
+
     public void openParticipantsDirectory() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.participantsDirectory']")).click();
     }
@@ -34,25 +38,86 @@ public class HomePage extends PagesManager {
         element(Selectors.byXpath("//span[@jhitranslate='eProcGatewayApp.planItem.searchParam.search']")).click();
     }
 
+    public SelenideElement searchParticipantResult=element(Selectors.byXpath("//tbody/tr/td/a"));
+
     public void openSignatureVerification() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.signingVerification']")).click();
     }
+
+    public SelenideElement title=element(Selectors.byXpath("//sk-document-signing-info//h2")); //для проверки отображения результата нужен номер документа, пока проверяю что есть заголовок
 
     public void openFAQ() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.faq']")).click();
     }
 
+    public SelenideElement faqInfo=element(Selectors.byXpath("//div[@class='faq-list__item ng-star-inserted']"));
+
     public void openSearchLots() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.searchLots']")).click();
     }
+
+    public void chooseLots() {
+        element(Selectors.byXpath("//li/label[@for='lot']")).click();
+    }
+
+    public SelenideElement lotsList=element(Selectors.byXpath("//sk-search-result/div/div"));
+
+    public void choosePurchases() {
+        element(Selectors.byXpath("//li/label[@for='advert']")).click();
+    }
+
+    public SelenideElement purchasesList=element(Selectors.byXpath("//sk-search-result/div/div"));
+
+    public void chooseContracts(){
+        element(Selectors.byXpath("//li/label[@for='contractCard']")).click();
+    }
+
+    public SelenideElement contractsList=element(Selectors.byXpath("//sk-search-result/div/div"));
 
     public void openSearchPlans() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.searchPlans']")).click();
     }
 
+    public void exportPlans() {
+        element(Selectors.byXpath("//a[@jhitranslate='layouts.planExport']")).click();
+    }
+
+    public SelenideElement exportInfo=element(Selectors.byXpath("//tbody/tr"));
+
+    public void yearPlan() {
+        element(Selectors.byXpath("//a[@jhitranslate='layouts.consolidatedYearPlan']")).click();
+    }
+
+    public SelenideElement yearPlanInfo=element(Selectors.byXpath("//tbody/tr"));
+
+    public void longTermPlan() {
+        element(Selectors.byXpath("//a[@jhitranslate='layouts.consolidatedPlan']")).click();
+    }
+
+    public SelenideElement longTermPlanInfo=element(Selectors.byXpath("//tbody/tr"));
+
     public void openRegulations() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.regulations']")).click();
     }
+
+    public SelenideElement regulationsInfo=element(Selectors.byXpath("//div[@class='regulation-list__item ng-star-inserted']"));
+
+    public void chooseManual(){
+        element(Selectors.byXpath("//div[@class='regulation-tab mr-4 ng-star-inserted'][1]")).click();
+    }
+
+    public void chooseVideo(){
+        element(Selectors.byXpath("//div[@class='regulation-tab mr-4 ng-star-inserted'][2]")).click();
+        }
+    public void chooseDirectories(){
+        element(Selectors.byXpath("//div[@class='regulation-tab mr-4 ng-star-inserted'][3]")).click();
+            }
+    public void chooseStandarts(){
+        element(Selectors.byXpath("//div[@class='regulation-tab mr-4 ng-star-inserted'][4]")).click();
+                }
+    public void chooseOther(){
+        element(Selectors.byXpath("//div[@class='regulation-tab mr-4 ng-star-inserted'][5]")).click();
+                    }
 
     public void openKmz() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.kmz']")).click();
@@ -62,6 +127,13 @@ public class HomePage extends PagesManager {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.categories']")).click();
     }
 
+    public SelenideElement holdingCategoriesInfo= element(Selectors.byXpath("//tbody/tr"));
+
+    public void chooseZksSuppliers() {
+        element(Selectors.byXpath("//a[@jhitranslate='categories.tab2']")).click();
+    }
+
+    public SelenideElement zksSuppliersInfo= element(Selectors.byXpath("//div[@class='m-sidebar__layout m-sidebar__layout--found-item ng-star-inserted']"));
 
     public void logIn(String user, String password) {
         open(MAIN_URL);
@@ -73,4 +145,6 @@ public class HomePage extends PagesManager {
         element(Selectors.byXpath("//*[@type='submit']")).click();
         logger.info("User name and password were submitted for:" + this.getClass().toString());
     }
+
+
 }
