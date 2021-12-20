@@ -8,7 +8,7 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.element;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
-public class ProcurementPlanAccess extends BasicTestConditions {
+public class ProcurementPlanSanity extends BasicTestConditions {
     @Test(groups = "smoke", description = "")
     void procurementPlanAccess() {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
@@ -16,7 +16,7 @@ public class ProcurementPlanAccess extends BasicTestConditions {
         getPersonalCabinetPage().openProcurementPlan();
         element(Selectors.byAttribute("jhitranslate", "plan.plan")).shouldHave(Condition.visible);
         element(Selectors.byAttribute("jhitranslate", "plan.createNewPlan")).shouldHave(Condition.visible);
-        element(Selectors.byXpath("//div[contains(@class, 'table')]")).shouldHave(Condition.visible);
-        element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
+        checkThatPageBodyHasTable();
+        checkIfNoErrorIsDisplayed();
     }
 }

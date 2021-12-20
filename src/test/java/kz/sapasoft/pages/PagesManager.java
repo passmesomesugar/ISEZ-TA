@@ -1,9 +1,6 @@
 package kz.sapasoft.pages;
 
-import com.codeborne.selenide.Condition;
-import com.codeborne.selenide.Selectors;
-import com.codeborne.selenide.SelenideElement;
-import com.codeborne.selenide.WebDriverRunner;
+import com.codeborne.selenide.*;
 import kz.sapasoft.services.PropertyDataReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -79,14 +76,14 @@ public class PagesManager {
     }
 
     public void checkIfNoErrorIsDisplayed() {
-        element(Selectors.byXpath("//div[contains(@class, 'toast-error')]")).shouldNot(Condition.appear);
+        element(Selectors.byXpath("//div[contains(@class, 'error')]")).shouldNotBe(Condition.visible);
     }
 
     public void checkIfSuccessIsDisplayed() {
-        element(Selectors.byXpath("//div[contains(@class, 'toast-success')]")).shouldNot(Condition.appear);
+        element(Selectors.byXpath("//div[contains(@class, 'toast-success')]")).shouldNot(Condition.visible);
     }
 
-    public void checkTableInPageBody() {
+    public void checkThatPageBodyHasTable() {
         element(Selectors.byXpath("//div[contains(@class, 'table')]")).shouldHave(Condition.exist);
     }
 }
