@@ -364,4 +364,96 @@ public class PersonalCabinet extends PagesManager {
     public void openAddNonResident() {
         element(Selectors.byAttribute("jhitranslate", "layouts.addNoResident")).click();
     }
+
+    public void openPriceManagement() {
+        element(Selectors.byAttribute("jhitranslate", "priceManagement.title")).click();
+    }
+
+    public void openPriceList() {
+        element(Selectors.byAttribute("jhitranslate", "priceManagement.priceList.title")).click();
+    }
+
+    public void openMarketingConclusions() {
+        element(Selectors.byAttribute("jhitranslate", "marketingСonclusions.title")).click();
+    }
+
+    public void openPriceBase() {
+        element(Selectors.byAttribute("jhitranslate", "priceManagement.priceBase.title")).click();
+    }
+
+    public void openReportOnProcurementPlan() {
+        element(Selectors.byAttribute("jhitranslate", "priceManagement.exceededPrice.shortTitle")).click();
+    }
+
+    public void openProcurementPlanCorrections() {
+        element(Selectors.byAttribute("jhitranslate", "priceManagement.economyPrice.shortTitle")).click();
+    }
+
+    public void openReportOnPriceList() {
+        element(Selectors.byAttribute("jhitranslate", "priceManagement.reports.title")).click();
+    }
+
+    public void openPriceListCorrections() {
+        element(Selectors.byAttribute("jhitranslate", "priceManagement.edit.title")).click();
+    }
+
+    public void openConsolidatedProcurementPlan() {
+        element(Selectors.byAttribute("jhitranslate", "priceManagement.consolidated-procurement-plan.title")).click();
+    }
+
+    public void openRegisterOfPriceSuppliersAndTheirNomenclature() {
+        element(Selectors.byAttribute("jhitranslate", "priceNomenclature.title")).click();
+    }
+
+
+    public void openGWSgroups() {
+        element(Selectors.byAttribute("jhitranslate", "truGroup.title")).click();
+    }
+
+
+    public void openCommercialOffersOfSuppliers() {
+        element(Selectors.byAttribute("jhitranslate", "commercialOffers.suppliersTitle")).click();
+    }
+
+    public void openPriceManagementReports() {
+        element(Selectors.byAttribute("jhitranslate", "priceNomenclature.reports")).click();
+    }
+
+    public void openUnifiedListGWS() {
+        element(Selectors.byAttribute("jhitranslate", "unifiedTruList.title")).click();
+    }
+
+
+    public void openFinancialQuotas() {
+        element(Selectors.byAttribute("jhitranslate", "commercialOffers.title")).click();
+    }
+
+    public void openListOfApplicationsForInclusionInTheUnifiedList() {
+        element(Selectors.byAttribute("jhitranslate", "unifiedTruList.applicationList.title")).click();
+    }
+
+
+    public void openpriceCatalog() {
+        element(Selectors.byAttribute("jhitranslate", "truGroup.priceCatalog.title")).click();
+    }
+
+    public void openPricesCatalogueReport() {
+        element(Selectors.byAttribute("jhitranslate", "priceListReport.title")).click();
+    }
+
+    public void openReceivedPriceInformation() {
+        element(Selectors.byAttribute("jhitranslate", "receivedPricesInformation.title")).click();
+    }
+
+    public void openPriceAnalyticsByTimeAndCompany() {
+        element(Selectors.byAttribute("jhitranslate", "priceAnalyticsReport.title")).click();
+    }
+
+    public void openAccessToTheGWSPriceCatalog() {
+        element(Selectors.byAttribute("jhitranslate", "truGroup.priceCatalog.accessTitle")).click();
+    }
+
+    public void openInflationIndex() {
+        element(Selectors.byAttribute("jhitranslate", "truGroup.priceAnalytics.inflationIndex")).click();
+    }
 }
