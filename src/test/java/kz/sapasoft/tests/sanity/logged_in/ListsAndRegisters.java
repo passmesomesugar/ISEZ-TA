@@ -20,40 +20,40 @@ public class ListsAndRegisters extends BasicTestConditions {
         getPersonalCabinetPage().clickListsRegistersRequests();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().listsRegistersRequestsTitle.shouldHave(Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().clickOrders();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().ordersTitle.shouldHave(Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().clickSupplierManagement();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().supplierManagementTitle.shouldHave(Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
         getPersonalCabinetPage().openListsRegisters();
 
         getPersonalCabinetPage().clickGWSCodesManagement();
         checkIfNoErrorIsDisplayed();
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
         ElementsCollection tabs = elements(Selectors.byAttribute("role", "tab"));
         tabs.get(1).click();
         checkIfNoErrorIsDisplayed();
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
         tabs.get(2).click();
         checkIfNoErrorIsDisplayed();
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
         tabs.get(3).click();
         checkIfNoErrorIsDisplayed();
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
         tabs.get(0).click();
         checkIfNoErrorIsDisplayed();
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openListsRegisters();
         getPersonalCabinetPage().clickGWSCodesUnlockApplications();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().GWSCodesUnlockApplicationsTitle.shouldHave(Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
     }
 }

@@ -17,31 +17,31 @@ public class Appeals extends BasicTestConditions {
         getPersonalCabinetPage().openListOfAppeals();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().appealTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openAppealReports();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().appealReportsTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openCriteriaSettings();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().criteriaSettingsTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openProcurementMonitoringAndAnalysis();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().procurementMonitoringAndAnalysisTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openAppealsTaskList();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().appealsTaskListTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openClarificationsForNPA();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().npaTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
     }
 }

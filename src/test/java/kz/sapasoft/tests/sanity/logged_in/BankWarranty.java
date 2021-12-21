@@ -18,12 +18,11 @@ public class BankWarranty extends BasicTestConditions {
         getPersonalCabinetPage().openBankWarrantyList();
         getPersonalCabinetPage().warrantyTitle.shouldHave(Condition.visible);
         checkIfNoErrorIsDisplayed();
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openBankWarrantyReport();
         getPersonalCabinetPage().warrantyReportTitle.shouldHave(Condition.visible);
         checkIfNoErrorIsDisplayed();
-        checkThatPageBodyHasTable();
-
+        checkIfPageBodyHasTable();
     }
 }

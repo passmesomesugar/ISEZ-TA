@@ -17,16 +17,16 @@ public class Proposals extends BasicTestConditions {
         getPersonalCabinetPage().openSuggestionsAndRemarks();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().suggestionsAndRemarksTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openListOfProposals();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().listOfProposalsTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openListOfProposalsForSelection();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().listOfProposalsForSelectionTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
     }
 }

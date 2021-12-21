@@ -16,7 +16,7 @@ public class ProcurementPlanSanity extends BasicTestConditions {
         getPersonalCabinetPage().openProcurementPlan();
         element(Selectors.byAttribute("jhitranslate", "plan.plan")).shouldHave(Condition.visible);
         element(Selectors.byAttribute("jhitranslate", "plan.createNewPlan")).shouldHave(Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
         checkIfNoErrorIsDisplayed();
     }
 }

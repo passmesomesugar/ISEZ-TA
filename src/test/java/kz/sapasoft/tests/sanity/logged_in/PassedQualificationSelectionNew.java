@@ -7,7 +7,6 @@ import kz.sapasoft.tests.BasicTestConditions;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.elements;
-import static com.codeborne.selenide.Selenide.sleep;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
 public class PassedQualificationSelectionNew extends BasicTestConditions {
@@ -21,7 +20,7 @@ public class PassedQualificationSelectionNew extends BasicTestConditions {
         getPersonalCabinetPage().openTasks();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().tasksTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openSupplierRecord();
         checkIfNoErrorIsDisplayed();
@@ -29,28 +28,28 @@ public class PassedQualificationSelectionNew extends BasicTestConditions {
         getPersonalCabinetPage().openAuditorsAssessment();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().potentialSupplierSatisfactionRate.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openReports();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().reportsTitle.shouldHave(Condition.exist, Condition.visible);
         ElementsCollection elementsCollection = elements(Selectors.byXpath("//*[@jhitranslate='components.select.selectItem']/../*"));
         elementsCollection.get(1).click();
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
         elementsCollection.get(2).click();
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
         elementsCollection.get(3).click();
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
         elementsCollection.get(5).click();
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
         elementsCollection.get(6).click();
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
         elementsCollection.get(7).click();
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openMonitoring();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().monitoringTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
     }
 }

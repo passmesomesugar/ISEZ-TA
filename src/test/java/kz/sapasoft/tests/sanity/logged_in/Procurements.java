@@ -17,21 +17,21 @@ public class Procurements extends BasicTestConditions {
         getPersonalCabinetPage().clickProcurementsGraph();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().procurementGraphTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().clickProcurementsList();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().procurementListsTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().clickProcurementTemplates();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().procurementTemplatesTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().clickElectronicShopOrders();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().electronicShopOrdersTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
     }
 }

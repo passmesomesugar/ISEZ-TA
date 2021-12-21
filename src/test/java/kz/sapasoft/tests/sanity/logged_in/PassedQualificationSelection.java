@@ -17,11 +17,11 @@ public class PassedQualificationSelection extends BasicTestConditions {
         getPersonalCabinetPage().openApplications();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().applicationsTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openRequestsForCommercialOffers();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().requestsForCommercialOffersTitle.shouldHave(Condition.exist, Condition.visible);
-        checkThatPageBodyHasTable();
+        checkIfPageBodyHasTable();
     }
 }

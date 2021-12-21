@@ -83,7 +83,7 @@ public class PagesManager {
         element(Selectors.byXpath("//div[contains(@class, 'toast-success')]")).shouldNot(Condition.visible);
     }
 
-    public void checkThatPageBodyHasTable() {
+    public void checkIfPageBodyHasTable() {
         element(Selectors.byXpath("//div[contains(@class, 'table')]")).shouldHave(Condition.exist);
     }
 }
