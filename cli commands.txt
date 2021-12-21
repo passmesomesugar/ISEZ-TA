@@ -29,4 +29,7 @@ mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Dusers=userbase -Denv=
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Dusers=userbase -Denv=test-env -Dselenide.headless=true clean test
 
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Dusers=userbase -Denv=test-env clean test
+
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\test.xml -Denv=test-env clean test
+
  
