@@ -9,7 +9,7 @@ import org.testng.annotations.Test;
 import static com.codeborne.selenide.Selenide.element;
 import static com.codeborne.selenide.Selenide.open;
 
-public class LoggedOutTest  extends BasicTestConditions{
+public class LoggedOutTest extends BasicTestConditions {
 
 
     @Test(groups = "test", description = "")
@@ -19,7 +19,7 @@ public class LoggedOutTest  extends BasicTestConditions{
         getHomePage().newsRow.shouldBe(Condition.exist);
     }
 
-    @Test (groups = "test", description = "")
+    @Test(groups = "test", description = "")
     public void registry() {
         open(MAIN_URL);
         getHomePage().openRegistry();
