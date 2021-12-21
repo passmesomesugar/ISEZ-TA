@@ -4,25 +4,24 @@ import com.codeborne.selenide.Condition;
 import kz.sapasoft.tests.BasicTestConditions;
 import org.testng.annotations.Test;
 
-import static com.codeborne.selenide.Selenide.element;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
-public class BankWarranty extends BasicTestConditions {
-    @Test(groups = "smoke", description = "smoke testing of bank warranty section display")
-    void bankWarranty() {
+public class PassedQualificationSelection extends BasicTestConditions {
+    @Test(groups = "smoke")
+    void qualifiedCheck() {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
-        getPersonalCabinetPage().openBankWarranty();
+        getPersonalCabinetPage().openQualified();
         checkIfNoErrorIsDisplayed();
 
-        getPersonalCabinetPage().openBankWarrantyList();
-        getPersonalCabinetPage().warrantyTitle.shouldHave(Condition.visible);
+        getPersonalCabinetPage().openApplications();
         checkIfNoErrorIsDisplayed();
+        getPersonalCabinetPage().applicationsTitle.shouldHave(Condition.exist, Condition.visible);
         checkIfPageBodyHasTable();
 
-        getPersonalCabinetPage().openBankWarrantyReport();
-        getPersonalCabinetPage().warrantyReportTitle.shouldHave(Condition.visible);
+        getPersonalCabinetPage().openRequestsForCommercialOffers();
         checkIfNoErrorIsDisplayed();
+        getPersonalCabinetPage().requestsForCommercialOffersTitle.shouldHave(Condition.exist, Condition.visible);
         checkIfPageBodyHasTable();
     }
 }

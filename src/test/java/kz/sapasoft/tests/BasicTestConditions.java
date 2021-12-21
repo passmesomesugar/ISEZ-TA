@@ -15,7 +15,7 @@ public class BasicTestConditions extends PagesManager {
     @BeforeSuite(alwaysRun = true)
     void genesis() {
         Configuration.browserSize = "1920x1080";
-        Configuration.timeout = 15000;
+        //Configuration.timeout = 15000;
         SelenideLogger.addListener("AllureSelenide",
                 new AllureSelenide().enableLogs(LogType.BROWSER, Level.ALL)
         );

@@ -33,6 +33,44 @@ public class PersonalCabinet extends PagesManager {
 
     public SelenideElement npaTitle = element(Selectors.byAttribute("jhitranslate", "npa.title"));
 
+    public SelenideElement listsRegistersRequestsTitle = element(Selectors.byAttribute("jhitranslate", "nsi.claim.title"));
+
+    public SelenideElement ordersTitle = element(Selectors.byAttribute("jhitranslate", "nsi.decree.title"));
+
+    public SelenideElement supplierManagementTitle = element(Selectors.byXpath("//h2/span[@jhitranslate='supplier.title']"));
+
+    public SelenideElement GWSCodesUnlockApplicationsTitle = element(Selectors.byAttribute("jhitranslate", "nsi.truCodeManagement.truCodeApplications"));
+
+    public SelenideElement suggestionsAndRemarksTitle = element(Selectors.byAttribute("jhitranslate", "eProcGatewayApp.discussion.home.user-title"));
+
+    public SelenideElement listOfProposalsTitle = element(Selectors.byAttribute("jhitranslate", "eProcGatewayApp.participation.title"));
+
+    public SelenideElement listOfProposalsForSelectionTitle = element(Selectors.byAttribute("jhitranslate", "applications.title"));
+
+    public SelenideElement applicationsTitle = element(Selectors.byAttribute("jhitranslate", "pko.application.title"));
+
+    public SelenideElement requestsForCommercialOffersTitle = element(Selectors.byAttribute("jhitranslate", "pko.commercialOffer.title"));
+
+    public SelenideElement tasksTitle = element(Selectors.byAttribute("jhitranslate", "newPko.executions.title"));
+
+    public SelenideElement potentialSupplierSatisfactionRate = element(Selectors.byAttribute("jhitranslate", "pkoCabinet.supplierRate.title"));
+
+    public SelenideElement reportsTitle = element(Selectors.byAttribute("jhitranslate", "pko.absent.title"));
+
+    public SelenideElement monitoringTitle = element(Selectors.byAttribute("jhitranslate", "newPko.monitoring.fullTitle"));
+
+    public SelenideElement procurementGraphTitle = element(Selectors.byAttribute("jhitranslate", "eProcGatewayApp.procurementSchedule.title"));
+
+    public SelenideElement procurementListsTitle = element(Selectors.byAttribute("jhitranslate", "eProcGatewayApp.advert.home.title-adverts"));
+
+    public SelenideElement procurementTemplatesTitle = element(Selectors.byAttribute("jhitranslate", "eProcGatewayApp.commissionTemplate.home.title"));
+
+    public SelenideElement electronicShopOrdersTitle = element(Selectors.byAttribute("jhitranslate", "eshopOrder.title"));
+
+    public SelenideElement registrationRequestsTitle = element(Selectors.byAttribute("jhitranslate", "eProcGatewayApp.companyRegRequest.home.title"));
+    public SelenideElement manageUsersTitle = element(Selectors.byAttribute("jhitranslate", "userManagement.home.title"));
+    ;
+
     public void openProcurementPlan() {
         element(Selectors.byAttribute("jhitranslate", "layouts.planAdvert")).click();
     }
@@ -65,11 +103,12 @@ public class PersonalCabinet extends PagesManager {
         element(Selectors.byAttribute("jhitranslate", "npa.clarifications")).click();
     }
 
-    public void openListRegister() {
+    public void openListsRegisters() {
         element(Selectors.byAttribute("jhitranslate", "nsi.title")).click();
+        logger.info("openListRegister");
     }
 
-    public void clickRequests() {
+    public void clickListsRegistersRequests() {
         element(Selectors.byAttribute("jhitranslate", "nsi.subTitle1")).click();
     }
 
@@ -78,7 +117,7 @@ public class PersonalCabinet extends PagesManager {
     }
 
     public void clickSupplierManagement() {
-        element(Selectors.byAttribute("jhitranslate", "supplier.title")).click();
+        element(Selectors.byXpath("//*[contains(@routerlink,'nsi')]//*[@jhitranslate='supplier.title']")).click();
     }
 
     public void clickGWSCodesUnlockApplications() {
@@ -101,7 +140,7 @@ public class PersonalCabinet extends PagesManager {
         element(Selectors.byAttribute("jhitranslate", "global.menu.entities.commissionTemplate")).click();
     }
 
-    public void clickESOrders() {
+    public void clickElectronicShopOrders() {
         element(Selectors.byAttribute("jhitranslate", "eshopOrder.title")).click();
     }
 
@@ -133,5 +172,196 @@ public class PersonalCabinet extends PagesManager {
 
     public void openAppealsTaskList() {
         element(Selectors.byXpath("//li//*[@jhitranslate='criterias.tasks.title']")).click();
+    }
+
+    public void openProposals() {
+        element(Selectors.byAttribute("jhitranslate", "layouts.bid")).click();
+    }
+
+    public void openSuggestionsAndRemarks() {
+        element(Selectors.byAttribute("jhitranslate", "eProcGatewayApp.discussion.home.user-title")).click();
+    }
+
+    public void openListOfProposals() {
+        element(Selectors.byAttribute("jhitranslate", "eProcGatewayApp.participation.title")).click();
+    }
+
+    public void openListOfProposalsForSelection() {
+        element(Selectors.byAttribute("jhitranslate", "applications.title")).click();
+    }
+
+    public void openQualified() {
+        element(Selectors.byAttribute("jhitranslate", "pko.title")).click();
+    }
+
+    public void openApplications() {
+        element(Selectors.byAttribute("jhitranslate", "pko.application.title")).click();
+    }
+
+    public void openRequestsForCommercialOffers() {
+        element(Selectors.byAttribute("jhitranslate", "pko.commercialOffer.title")).click();
+    }
+
+    public void openQualifiedNew() {
+        element(Selectors.byAttribute("jhitranslate", "newPko.title")).click();
+    }
+
+    public void openTasks() {
+        element(Selectors.byAttribute("jhitranslate", "newPko.executions.title")).click();
+    }
+
+    public void openSupplierRecord() {
+        element(Selectors.byAttribute("jhitranslate", "pkoSupplierExclusion.title")).click();
+    }
+
+    public void openAuditorsAssessment() {
+        element(Selectors.byAttribute("jhitranslate", "newPko.auditorRating.title")).click();
+    }
+
+    public void openReports() {
+        element(Selectors.byAttribute("jhitranslate", "newPko.reports.title")).click();
+    }
+
+    public void openMonitoring() {
+        element(Selectors.byAttribute("jhitranslate", "newPko.monitoring.title")).click();
+    }
+
+    public void openQualificationSelectionCabinet() {
+        element(Selectors.byAttribute("jhitranslate", "newPko.cabinet")).click();
+    }
+
+    public void openRegistrationRequests() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.entities.companyRegRequest")).click();
+    }
+
+    public void openAdministration() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.admin.main")).click();
+    }
+
+    public void openManagingUsers() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.admin.userManagement")).click();
+    }
+
+    public void openManagePlanning() {
+        element(Selectors.byAttribute("jhitranslate", "plan.planManagement.title")).click();
+    }
+
+    public void openManageCompanies() {
+        element(Selectors.byAttribute("jhitranslate", "company.title")).click();
+    }
+
+    public void openCalendar() {
+        element(Selectors.byAttribute("jhitranslate", "weekendHoliday.title")).click();
+    }
+
+    public void openTaskExecutionDate() {
+        element(Selectors.byAttribute("jhitranslate", "pko.deadline.title")).click();
+    }
+
+    public void openReferences() {
+        element(Selectors.byAttribute("jhitranslate", "dictionaryEditor.title")).click();
+
+    }
+
+    public void openSupplierManagement() {
+        element(Selectors.byAttribute("jhitranslate", "supplier.title")).click();
+
+    }
+
+    public void openProcedureTransfer() {
+        element(Selectors.byAttribute("jhitranslate", "advert.management.title")).click();
+    }
+
+    public void openTransferredProcurements() {
+        element(Selectors.byAttribute("jhitranslate", "advert.management.transfer")).click();
+    }
+
+    public void openNotificationsSettings() {
+        element(Selectors.byAttribute("jhitranslate", "customizeNotifications.shorTitle")).click();
+    }
+
+    public void OpenUnifiedNomenclatureDirectoryofGoodsWorksServices() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.admin.ensTru")).click();
+    }
+
+    public void openApproval() {
+        element(Selectors.byAttribute("jhitranslate", "workFlow.document.title")).click();
+    }
+
+    public void openApprovalRoutesTemplates() {
+        element(Selectors.byAttribute("jhitranslate", "workFlow.template.title")).click();
+    }
+
+
+    public void openDocumentsApproval() {
+        element(Selectors.byAttribute("jhitranslate", "workFlow.title")).click();
+    }
+
+    public void openContracts() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.contract.title")).click();
+    }
+
+    public void openContractsGlobalTemplates() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.contract.contractGlobalTemplate")).click();
+    }
+
+    public void openCustomersIndividualTemplates() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.contract.individualCustomerTemplate")).click();
+    }
+
+
+    public void openContractTemplates() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.contract.contractTemplate")).click();
+    }
+
+    public void openListOfContracts() {
+        element(Selectors.byAttribute("jhitranslate", "contractCard.title")).click();
+    }
+
+    public void openListOfActs() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.contract.actList")).click();
+    }
+
+    public void openCompanysUsers() {
+        element(Selectors.byAttribute("jhitranslate", "userManagement.home.companyUsersTitle")).click();
+    }
+
+    public void openCompanysProfile() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.account.companyProfile")).click();
+    }
+
+    public void openPurchasingCategorySystemPositions() {
+        element(Selectors.byAttribute("jhitranslate", "zksSetting.menu")).click();
+    }
+
+    public void openDocuments() {
+        element(Selectors.byXpath("//*[@id='company-profile-menu']//..//li//*[@jhitranslate='eProcGatewayApp.tenderDocument.mydocuments']")).click();
+    }
+
+    public void openOrganizer() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.entities.organizer")).click();
+    }
+
+    public void openPlaceOfProcurementAndDelivery() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.entities.companyProcurementAddress")).click();
+    }
+
+
+    public void openRegistrationData() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.entities.companyRegistrationData")).click();
+    }
+
+
+    public void openOrganizationalStructure() {
+        element(Selectors.byAttribute("jhitranslate", "divisions.title")).click();
+    }
+
+
+    public void openBranchOffices() {
+        element(Selectors.byAttribute("jhitranslate", "layouts.branches")).click();
+    }
+
+    public void openAddNonResident() {
+        element(Selectors.byAttribute("jhitranslate", "layouts.addNoResident")).click();
     }
 }

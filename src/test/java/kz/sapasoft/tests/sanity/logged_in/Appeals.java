@@ -7,42 +7,41 @@ import org.testng.annotations.Test;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
 public class Appeals extends BasicTestConditions {
-    @Test(groups = "this", description = "")
+    @Test(groups = "smoke", description = "")
     void appealsCheck() {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
         getPersonalCabinetPage().openAppeals();
+        checkIfNoErrorIsDisplayed();
 
         getPersonalCabinetPage().openListOfAppeals();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().appealTitle.shouldHave(Condition.exist, Condition.visible);
-        checkTableInPageBody();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openAppealReports();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().appealReportsTitle.shouldHave(Condition.exist, Condition.visible);
-        checkTableInPageBody();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openCriteriaSettings();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().criteriaSettingsTitle.shouldHave(Condition.exist, Condition.visible);
-        checkTableInPageBody();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openProcurementMonitoringAndAnalysis();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().procurementMonitoringAndAnalysisTitle.shouldHave(Condition.exist, Condition.visible);
-        checkTableInPageBody();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openAppealsTaskList();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().appealsTaskListTitle.shouldHave(Condition.exist, Condition.visible);
-        checkTableInPageBody();
+        checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openClarificationsForNPA();
         checkIfNoErrorIsDisplayed();
         getPersonalCabinetPage().npaTitle.shouldHave(Condition.exist, Condition.visible);
-        checkTableInPageBody();
-
-        getPersonalCabinetPage().logOut();
+        checkIfPageBodyHasTable();
     }
 }
