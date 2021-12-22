@@ -499,7 +499,7 @@ public class PersonalCabinet extends PagesManager {
         element(Selectors.byAttribute("jhitranslate", "reports.titleSubmission")).click();
     }
 
-    public void openPlanExectuionReport() {
+    public void openPlanExecutionReport() {
         element(Selectors.byAttribute("jhitranslate", "layouts.planExecutionReport")).click();
     }
 
