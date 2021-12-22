@@ -294,7 +294,7 @@ public class PersonalCabinet extends PagesManager {
 
 
     public void openDocumentsApproval() {
-        element(Selectors.byAttribute("jhitranslate", "workFlow.title")).click();
+        element(Selectors.byXpath("//*[@id='kuz-menu']//..//..//*[@jhitranslate='workFlow.title']")).click();
     }
 
     public void openContracts() {
@@ -455,5 +455,63 @@ public class PersonalCabinet extends PagesManager {
 
     public void openInflationIndex() {
         element(Selectors.byAttribute("jhitranslate", "truGroup.priceAnalytics.inflationIndex")).click();
+    }
+
+    public void openKUZ() {
+        element(Selectors.byAttribute("jhitranslate", "kuz.title")).click();
+    }
+
+    public void openListOfCategories() {
+        element(Selectors.byAttribute("jhitranslate", "kuz.ppk.title")).click();
+
+    }
+
+    public void openZKS() {
+        element(Selectors.byAttribute("jhitranslate", "kuz.strategies.title")).click();
+    }
+
+    public void GWSCodesManagement() {
+        element(Selectors.byAttribute("jhitranslate", "kuz.locks.title")).click();
+
+    }
+
+    public void openMethodology() {
+        element(Selectors.byAttribute("jhitranslate", "kuz.regulation.title")).click();
+    }
+
+    public void openSupplierSelection() {
+        element(Selectors.byAttribute("jhitranslate", "announcement.title")).click();
+    }
+
+    public void openPersonalCabinetReports() {
+        element(Selectors.byAttribute("jhitranslate", "reports.reports")).click();
+    }
+
+    public void openReportsExports() {
+        element(Selectors.byAttribute("jhitranslate", "reports.titleExport")).click();
+    }
+
+    public void openReportSubmissionDeadline() {
+        element(Selectors.byAttribute("jhitranslate", "reports.titleDeadlines")).click();
+    }
+
+    public void openReportSubmission() {
+        element(Selectors.byAttribute("jhitranslate", "reports.titleSubmission")).click();
+    }
+
+    public void openPlanExectuionReport() {
+        element(Selectors.byAttribute("jhitranslate", "layouts.planExecutionReport")).click();
+    }
+
+    public void openArchive() {
+        element(Selectors.byAttribute("jhitranslate", "mzso.title")).click();
+    }
+
+    public void openArchiveProcurementPlan() {
+        element(Selectors.byAttribute("jhitranslate", "mzso.plan.title")).click();
+    }
+
+    public void openArchiveContracts() {
+        element(Selectors.byAttribute("jhitranslate", "mzso.contract.title")).click();
     }
 }

@@ -6,11 +6,10 @@ import kz.sapasoft.tests.BasicTestConditions;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.elements;
-import static com.codeborne.selenide.Selenide.sleep;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
 public class PriceManagement extends BasicTestConditions {
-    @Test(groups = "this")
+    @Test(groups = "smoke")
     void priceManagementSanity() {
 
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
