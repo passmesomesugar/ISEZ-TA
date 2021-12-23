@@ -294,7 +294,7 @@ public class PersonalCabinet extends PagesManager {
 
 
     public void openDocumentsApproval() {
-        element(Selectors.byXpath("//*[@id='kuz-menu']//..//..//*[@jhitranslate='workFlow.title']")).click();
+        element(Selectors.byXpath("//*[@id='purchase-menu']//..//..//*[@jhitranslate='workFlow.title']")).click();
     }
 
     public void openContracts() {
@@ -513,5 +513,55 @@ public class PersonalCabinet extends PagesManager {
 
     public void openArchiveContracts() {
         element(Selectors.byAttribute("jhitranslate", "mzso.contract.title")).click();
+    }
+
+    public void openPQSAdministration() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.entities.pko-administration")).click();
+    }
+
+    public void openConstructor() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.pkoAdministration.constructor")).click();
+    }
+
+    public void openCategoryReference() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.pkoAdministration.categoryDictionary")).click();
+    }
+
+
+    public void openRequirementsReference() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.pkoAdministration.requirementsDictionary")).click();
+    }
+
+    public void openAttributeReference() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.pkoAdministration.attributesDictionary")).click();
+    }
+
+    public void changeOfRate() {
+        element(Selectors.byAttribute("jhitranslate", "pko.tariff.title")).click();
+    }
+
+    public void openStrategicPartnersList() {
+        element(Selectors.byAttribute("jhitranslate", "strategicPartners.title")).click();
+    }
+
+    public void openTaskExecutionPeriod() {
+        element(Selectors.byAttribute("jhitranslate", "newPko.deadlineControl.title")).click();
+    }
+
+    public void openReferencesInAdministration() {
+        element(Selectors.byXpath("//*[@id='pko-administration-menu']//..//..//*[@jhitranslate='dictionaryEditor.title']"));
+    }
+
+    public void openSurvey() {
+        element(Selectors.byAttribute("jhitranslate", "poll.title")).click();
+    }
+
+    public void openQuestionnaire() {
+        element(Selectors.byAttribute("jhitranslate", "poll.questionnaire.title")).click();
+    }
+
+    public void openLocalContent() {
+        //<span _ngcontent-yvi-c15="" jhitranslate="kmz.title">КМС</span>
+        element(Selectors.byAttribute("jhitranslate", "kmz.title")).click();
     }
 }

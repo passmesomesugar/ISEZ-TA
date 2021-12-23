@@ -5,12 +5,15 @@ import org.testng.annotations.Test;
 
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
-public class _LocalContent extends BasicTestConditions {
-    @Test
-    void localContentSanity() {
+public class Survey extends BasicTestConditions {
+
+    @Test(groups = "smoke")
+    void pollSanity() {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
-
-
+        getPersonalCabinetPage().openSurvey();
+        getPersonalCabinetPage().openQuestionnaire();
+        checkIfNoErrorIsDisplayed();
+        checkIfPageBodyHasTable();
     }
 }

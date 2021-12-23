@@ -5,18 +5,12 @@ import org.testng.annotations.Test;
 
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
-public class Approval extends BasicTestConditions {
+public class LocalContent extends BasicTestConditions {
     @Test(groups = "smoke")
-    void checkApproval() {
+    void localContentSanity() {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
-        getPersonalCabinetPage().openApproval();
-        checkIfNoErrorIsDisplayed();
-
-        getPersonalCabinetPage().openApprovalRoutesTemplates();
-        checkIfNoErrorIsDisplayed();
-
-        getPersonalCabinetPage().openDocumentsApproval();
+        getPersonalCabinetPage().openLocalContent();
         checkIfNoErrorIsDisplayed();
     }
 }
