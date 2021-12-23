@@ -68,8 +68,10 @@ public class PersonalCabinet extends PagesManager {
     public SelenideElement electronicShopOrdersTitle = element(Selectors.byAttribute("jhitranslate", "eshopOrder.title"));
 
     public SelenideElement registrationRequestsTitle = element(Selectors.byAttribute("jhitranslate", "eProcGatewayApp.companyRegRequest.home.title"));
+
     public SelenideElement manageUsersTitle = element(Selectors.byAttribute("jhitranslate", "userManagement.home.title"));
-    ;
+
+    public SelenideElement aboutCompany = element(Selectors.byAttribute("jhitranslate", "layouts.aboutCompany"));
 
     public void openProcurementPlan() {
         element(Selectors.byAttribute("jhitranslate", "layouts.planAdvert")).click();
@@ -561,7 +563,27 @@ public class PersonalCabinet extends PagesManager {
     }
 
     public void openLocalContent() {
-        //<span _ngcontent-yvi-c15="" jhitranslate="kmz.title">КМС</span>
         element(Selectors.byAttribute("jhitranslate", "kmz.title")).click();
+    }
+
+    public void openNotifications() {
+        element(Selectors.byAttribute("jhitranslate", "layouts.notifications")).click();
+    }
+
+    public void openProfileSettings() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.account.settings")).click();
+    }
+
+    public void openPassword() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.account.password")).click();
+    }
+
+    public void openDocumentsInPersonalCabinet() {
+        element(Selectors.byAttribute("jhitranslate", "eProcGatewayApp.tenderDocument.mydocuments")).click();
+    }
+
+    public void openAboutCompany() {
+        element(Selectors.byAttribute("jhitranslate", "layouts.aboutCompany")).click();
+        //<button _ngcontent-yvi-c15="" class="button button--action-small button--action-small-active" jhitranslate="layouts.aboutCompany" type="button">О компании</button>
     }
 }
