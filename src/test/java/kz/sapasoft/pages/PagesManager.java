@@ -8,6 +8,7 @@ import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
 import static com.codeborne.selenide.Selenide.element;
+import static com.codeborne.selenide.Selenide.sleep;
 
 public class PagesManager {
     public final int LOAD_PAUSE = 4000;
@@ -70,6 +71,8 @@ public class PagesManager {
 
     @AfterClass(alwaysRun = true)
     public void afterClassActions() {
+        sleep(1000);
+        checkIfNoErrorIsDisplayed(); /* If error message appears just before test is shutdown*/
         WebDriverRunner.closeWebDriver();
         logger.info("closeWebDriver() executed");
         logger.info("Execution ended for:" + this.getClass().toString());
