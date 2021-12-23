@@ -9,7 +9,7 @@ import static com.codeborne.selenide.Selenide.elements;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
 public class PassedQualificationSelectionPersonalCabinet extends BasicTestConditions {
-    @Test(groups = "this")
+    @Test(groups = "smoke")
     void passedQualificationSelectionCabinetCheck() {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();

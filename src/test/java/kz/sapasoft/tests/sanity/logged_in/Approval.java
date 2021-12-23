@@ -16,7 +16,7 @@ public class Approval extends BasicTestConditions {
         getPersonalCabinetPage().openApprovalRoutesTemplates();
         checkIfNoErrorIsDisplayed();
 
-        getPersonalCabinetPage().openDocumentsApproval();
+        getPersonalCabinetPage().openDocumentsApprovalForApproval();
         checkIfNoErrorIsDisplayed();
     }
 }

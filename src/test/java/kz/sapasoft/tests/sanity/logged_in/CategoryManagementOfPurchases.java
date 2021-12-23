@@ -10,7 +10,7 @@ public class CategoryManagementOfPurchases extends BasicTestConditions {
     void categoryManagementOfPurchasesSanity() {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
-        getPersonalCabinetPage().openKUZ();
+        getPersonalCabinetPage().openCMP();
         checkIfNoErrorIsDisplayed();
 
         getPersonalCabinetPage().openListOfCategories();

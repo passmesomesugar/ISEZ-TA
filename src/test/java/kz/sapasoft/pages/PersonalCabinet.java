@@ -296,7 +296,7 @@ public class PersonalCabinet extends PagesManager {
 
 
     public void openDocumentsApproval() {
-        element(Selectors.byXpath("//*[@id='purchase-menu']//..//..//*[@jhitranslate='workFlow.title']")).click();
+        element(Selectors.byXpath("//*[@id='kuz-menu']//..//*[@jhitranslate='workFlow.title']")).click();
     }
 
     public void openContracts() {
@@ -459,7 +459,7 @@ public class PersonalCabinet extends PagesManager {
         element(Selectors.byAttribute("jhitranslate", "truGroup.priceAnalytics.inflationIndex")).click();
     }
 
-    public void openKUZ() {
+    public void openCMP() {
         element(Selectors.byAttribute("jhitranslate", "kuz.title")).click();
     }
 
@@ -584,6 +584,9 @@ public class PersonalCabinet extends PagesManager {
 
     public void openAboutCompany() {
         element(Selectors.byAttribute("jhitranslate", "layouts.aboutCompany")).click();
-        //<button _ngcontent-yvi-c15="" class="button button--action-small button--action-small-active" jhitranslate="layouts.aboutCompany" type="button">О компании</button>
+    }
+
+    public void openDocumentsApprovalForApproval() {
+        element(Selectors.byXpath("//*[@id='purchase-menu']//..//..//*[@jhitranslate='workFlow.title']")).click();
     }
 }

@@ -1,32 +1,8 @@
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\smoke.xml clean test
-
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Denv=test-env clean test
-
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Denv=test-env-for-customer clean test
-
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Denv=test-env clean test
-
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\regress.xml -Duser=customer -Denv=test-env clean test
-
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Dheadless=true -Denv=test-env clean test
-
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Dkeys=keys -Denv=test-env clean test
-
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\smoke.xml -Duser=customer -Denv=test-env clean test
-
-//mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Duser=customer -Denv=test-env -Dscenario=procurement.plan.scenario.1 -Dposition.scenario=procurement.position.scenario.1 clean test
-
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Dusers=userbase -Denv=test-env -Dprocurement.plan.scenario=procurement.plan.scenario.2 -Dprocurement.position.scenario=procurement.position.scenario.1 clean test
-
-allure serve target/allure-results
-
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Dusers=userbase -Denv=test-env -Dpurchase.requisition.scenario=purchase.requisition.scenario.1 clean test
-
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Dusers=userbase -Denv=test-env -Dprocurement.plan.scenario=procurement.plan.scenario.2 -Dprocurement.position.scenario=procurement.position.scenario.1 -Dpurchase.requisition.scenario=purchase.requisition.scenario.1 clean test
- 
-mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Dusers=userbase -Denv=test-env -Dprocurement.position.scenario=procurement.position.scenario.1 clean test
-
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Dusers=userbase -Denv=test-env -Dselenide.headless=true clean test
 
 mvn -Dsurefire.suiteXmlFiles=src\test\resources\this.xml -Dusers=userbase -Denv=test-env clean test
+
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\smoke.xml -Dusers=userbase -Denv=test-env -Dselenide.headless=true clean test
+
+mvn -Dsurefire.suiteXmlFiles=src\test\resources\smoke.xml -Dusers=userbase -Denv=test-env clean test
  
