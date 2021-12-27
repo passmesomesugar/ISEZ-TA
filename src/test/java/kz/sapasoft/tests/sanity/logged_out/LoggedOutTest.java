@@ -1,126 +1,117 @@
 package kz.sapasoft.tests.sanity.logged_out;
 
 import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Configuration;
 import com.codeborne.selenide.Selectors;
+import kz.sapasoft.tests.BasicTestConditions;
 import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.element;
 import static com.codeborne.selenide.Selenide.open;
 
-public class LoggedOutTest {
+public class LoggedOutTest extends BasicTestConditions {
 
 
-        @Test
-        public void news(){
-            open("http://dev10.sapasoft.kz/#/ext");
-            element(Selectors.byXpath("//ul[@class=\"m-list m-list--nav\"]/li/a[@jhitranslate=\"main.news\"]")).click();
-            element(Selectors.byXpath("//div[@class=\"news__item ng-star-inserted\"]")).shouldBe(Condition.exist);
+    @Test(groups = "test", description = "")
+    public void news() {
+        open(MAIN_URL);
+        getHomePage().openNews();
+        getHomePage().newsRow.shouldBe(Condition.exist);
+    }
 
-        }
+    @Test(groups = "test", description = "")
+    public void registry() {
+        open(MAIN_URL);
+        getHomePage().openRegistry();
+        getHomePage().chooseRegistry();
+        getHomePage().searchRegistry();
+        getHomePage().registryResult.shouldBe(Condition.visible);
 
-        @Test
-        public void registry(){
-            open("http://dev10.sapasoft.kz/#/ext");
-            element(Selectors.byXpath("//a[@jhitranslate='layouts.registry']")).click();
-            element(Selectors.byXpath("//div[@class='skDeleteBtn']/select")).click();
-            element(Selectors.byXpath("//div[@class='skDeleteBtn']/select/option[contains(@value, '1: GENUINE_SUPPLIER')]")).click();
-            element(Selectors.byXpath("//span[@jhitranslate=\"eProcGatewayApp.planItem.searchParam.search\"]")).click();
-            element(Selectors.byXpath("//tbody/tr/td/a")).shouldBe(Condition.visible);
-            // Configuration.holdBrowserOpen = true;
+    }
 
-        }
+    @Test(groups = "test", description = "")
+    public void participantDirectory() {
+        open(MAIN_URL);
+        getHomePage().openParticipantsDirectory();
+        getHomePage().searchParticipant();
+        getHomePage().searchParticipantResult.shouldBe(Condition.visible);
+    }
 
-        @Test
-        public void participantDirectory(){
-            open("http://dev10.sapasoft.kz/#/ext");
-            element(Selectors.byXpath("//a[@jhitranslate=\"layouts.participantsDirectory\"]")).click();
-            element(Selectors.byXpath("//h2[@jhitranslate=\"participants.title\"]")).shouldBe(Condition.visible);
-            element(Selectors.byXpath("//span[@jhitranslate=\"eProcGatewayApp.planItem.searchParam.search\"]")).click();
-            element(Selectors.byXpath("//tbody/tr/td/a")).shouldBe(Condition.visible);
-        }
+    @Test(groups = "test", description = "")
+    public void signatureVerification() {
+        open(MAIN_URL);
+        getHomePage().openSignatureVerification();
+        getHomePage().title.shouldBe(Condition.visible);
 
-        @Test
-        public void signatureVerification(){
-            open("http://dev10.sapasoft.kz/#/ext");
-            element(Selectors.byXpath("//a[@jhitranslate=\"layouts.signingVerification\"]")).click();
-            element(Selectors.byXpath("//sk-document-signing-info//h2")).shouldBe(Condition.visible);
+    }
 
-        }
+    @Test(groups = "test", description = "")
+    public void Faq() {
+        open(MAIN_URL);
+        getHomePage().openFAQ();
+        getHomePage().faqInfo.shouldBe(Condition.visible);
 
-        @Test
-        public void Faq(){
-            open("http://dev10.sapasoft.kz/#/ext");
-            element(Selectors.byXpath("//a[@jhitranslate=\"layouts.faq\"]")).click();
-            // element(Selectors.byXpath("//div[@jhitranslate=\"faq.title\"]")).shouldBe(Condition.visible);
-            element(Selectors.byXpath("//div[@class=\"faq-list__item ng-star-inserted\"]")).shouldBe(Condition.visible);
+    }
 
-        }
+    @Test(groups = "test", description = "")
+    public void searchLots() {
+        open(MAIN_URL);
+        getHomePage().openSearchLots();
+        getHomePage().chooseLots();
+        getHomePage().lotsList.shouldBe(Condition.visible);
+        getHomePage().choosePurchases();
+        getHomePage().purchasesList.shouldBe(Condition.visible);
+        getHomePage().chooseContracts();
+        getHomePage().contractsList.shouldBe(Condition.visible);
 
-        @Test
-        public void searchLots(){
-            open("http://dev10.sapasoft.kz/#/ext");
-            element(Selectors.byXpath("//a[@jhitranslate=\"layouts.searchLots\"]")).click();
-            element(Selectors.byXpath("//li/label[@for=\"lot\"]")).click();
-            element(Selectors.byXpath("//sk-search-result/div/div")).shouldBe(Condition.visible);
-            element(Selectors.byXpath("//li/label[@for=\"advert\"]")).click();
-            element(Selectors.byXpath("//sk-search-result/div/div")).shouldBe(Condition.visible);
-            element(Selectors.byXpath("//li/label[@for=\"contractCard\"]")).click();
-            element(Selectors.byXpath("//sk-search-result/div/div")).shouldBe(Condition.visible);
+    }
 
-        }
+    @Test(groups = "test", description = "")
+    public void searchPlans() {
+        open(MAIN_URL);
+        getHomePage().openSearchPlans();
+        getHomePage().exportPlans();
+        getHomePage().exportInfo.shouldBe(Condition.visible);
+        getHomePage().openSearchPlans();
+        getHomePage().yearPlan();
+        getHomePage().yearPlanInfo.shouldBe(Condition.visible);
+        getHomePage().openSearchPlans();
+        getHomePage().longTermPlan();
+        getHomePage().longTermPlanInfo.shouldBe(Condition.visible);
 
-        @Test
-        public void searchPlans(){
-            open("http://dev10.sapasoft.kz/#/ext");
-            element(Selectors.byXpath("//a[@jhitranslate=\"layouts.searchPlans\"]")).click();
-            element(Selectors.byXpath("//a[@jhitranslate=\"layouts.planExport\"]")).click();
-            element(Selectors.byXpath("//tbody/tr")).shouldBe(Condition.visible);
-            element(Selectors.byXpath("//a[@jhitranslate=\"layouts.searchPlans\"]")).click();
-            element(Selectors.byXpath("//a[@jhitranslate=\"layouts.consolidatedYearPlan\"]")).click();
-            element(Selectors.byXpath("//tbody/tr")).shouldBe(Condition.visible);
-            element(Selectors.byXpath("//a[@jhitranslate=\"layouts.searchPlans\"]")).click();
-            element(Selectors.byXpath("//a[@jhitranslate=\"layouts.consolidatedPlan\"]")).click();
-            element(Selectors.byXpath("//tbody/tr")).shouldBe(Condition.visible);
-            //Configuration.holdBrowserOpen = true;
+    }
 
-        }
+    @Test(groups = "test", description = "")
+    public void regulations() {
+        open(MAIN_URL);
+        getHomePage().openRegulations();
+        getHomePage().regulationsInfo.shouldBe(Condition.visible);
+        getHomePage().chooseManual();
+        getHomePage().regulationsInfo.shouldBe(Condition.visible);
+        getHomePage().chooseVideo();
+        getHomePage().regulationsInfo.shouldBe(Condition.visible);
+        getHomePage().chooseDirectories();
+        getHomePage().regulationsInfo.shouldBe(Condition.visible);
+        getHomePage().chooseStandarts();
+        getHomePage().regulationsInfo.shouldBe(Condition.visible);
+        getHomePage().chooseOther();
+        getHomePage().regulationsInfo.shouldBe(Condition.visible);
 
-        @Test
-        public void regulations(){
-            open("http://dev10.sapasoft.kz/#/ext");
-            element(Selectors.byXpath("//a[@jhitranslate=\"layouts.regulations\"]")).click();
-            element(Selectors.byXpath("//div[@jhitranslate=\"regulation.title\"]")).shouldBe(Condition.visible);
-            element(Selectors.byXpath("//div[@class=\"regulation-list__item ng-star-inserted\"]")).shouldBe(Condition.visible);
-            element(Selectors.byXpath("//div[@class=\"regulation-tab mr-4 ng-star-inserted\"][1]")).click();
-            element(Selectors.byXpath("//div[@class=\"regulation-list__item ng-star-inserted\"]")).shouldBe(Condition.visible);
-            element(Selectors.byXpath("//div[@class=\"regulation-tab mr-4 ng-star-inserted\"][2]")).click();
-            element(Selectors.byXpath("//div[@class=\"regulation-list__item ng-star-inserted\"]")).shouldBe(Condition.visible);
-            element(Selectors.byXpath("//div[@class=\"regulation-tab mr-4 ng-star-inserted\"][3]")).click();
-            element(Selectors.byXpath("//div[@class=\"regulation-list__item ng-star-inserted\"]")).shouldBe(Condition.visible);
-            element(Selectors.byXpath("//div[@class=\"regulation-tab mr-4 ng-star-inserted\"][4]")).click();
-            element(Selectors.byXpath("//div[@class=\"regulation-list__item ng-star-inserted\"]")).shouldBe(Condition.visible);
-            element(Selectors.byXpath("//div[@class=\"regulation-tab mr-4 ng-star-inserted\"][5]")).click();
-            element(Selectors.byXpath("//div[@class=\"regulation-list__item ng-star-inserted\"]")).shouldBe(Condition.visible);
+    }
 
-        }
+    @Test(groups = "test", description = "")
+    public void kmz() {
+        open(MAIN_URL);
+        getHomePage().openKmz();
+    }
 
-        @Test
-        public void kmz(){
-            open("http://dev10.sapasoft.kz/#/ext");
-            element(Selectors.byXpath("//a[@jhitranslate=\"layouts.kmz\"]")).click();
-
-
-
-
-        }
-
-        @Test
-        public void categories(){
-            open("http://dev10.sapasoft.kz/#/ext");
-            element(Selectors.byXpath("//a[@jhitranslate=\"layouts.categories\"]")).click();
-            element(Selectors.byXpath("//tbody/tr")).shouldBe(Condition.visible);
-            element(Selectors.byXpath("//a[@jhitranslate=\"categories.tab2\"]")).click();
-            element(Selectors.byXpath("//div[@class=\"m-sidebar__layout m-sidebar__layout--found-item ng-star-inserted\"]")).shouldBe(Condition.visible);
-        }
+    @Test(groups = "test", description = "")
+    public void categories() {
+        open(MAIN_URL);
+        getHomePage().openCategories();
+        getHomePage().holdingCategoriesInfo.shouldBe(Condition.visible);
+        getHomePage().chooseZksSuppliers();
+        getHomePage().zksSuppliersInfo.shouldBe(Condition.visible);
+    }
 
 }
