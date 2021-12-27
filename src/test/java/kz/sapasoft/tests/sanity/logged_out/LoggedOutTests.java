@@ -6,8 +6,7 @@ import org.testng.annotations.Test;
 
 import static com.codeborne.selenide.Selenide.open;
 
-public class LoggedOutTest extends BasicTestConditions {
-
+public class LoggedOutTests extends BasicTestConditions {
 
     @Test(groups = "smoke", description = "")
     public void news() {
