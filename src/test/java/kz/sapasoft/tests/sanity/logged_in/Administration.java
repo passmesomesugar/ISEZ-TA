@@ -7,7 +7,7 @@ import org.testng.annotations.Test;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
 public class Administration extends BasicTestConditions {
-    @Test(groups = "smoke")
+    @Test(groups = "this")
     void checkAdmin() {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
@@ -20,7 +20,6 @@ public class Administration extends BasicTestConditions {
         checkIfPageBodyHasTable();
 
         getPersonalCabinetPage().openManagePlanning();
-        //add title checks
         checkIfNoErrorIsDisplayed();
 
         getPersonalCabinetPage().openManageCompanies();

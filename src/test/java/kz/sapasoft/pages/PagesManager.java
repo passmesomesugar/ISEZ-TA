@@ -80,6 +80,7 @@ public class PagesManager {
 
     public void checkIfNoErrorIsDisplayed() {
         element(Selectors.byXpath("//div[contains(@class, 'error')]")).shouldNotBe(Condition.visible);
+        logger.info("checkIfNoErrorIsDisplayed");
     }
 
     public void checkIfSuccessIsDisplayed() {
@@ -88,5 +89,6 @@ public class PagesManager {
 
     public void checkIfPageBodyHasTable() {
         element(Selectors.byXpath("//div[contains(@class, 'table')]")).shouldHave(Condition.exist);
+        logger.info("checkIfPageBodyHasTable");
     }
 }
