@@ -125,7 +125,7 @@ public class HomePage extends PagesManager {
 
     public void logIn(String user, String password) {
         open(MAIN_URL);
-        sleep(5000); //remove later
+        //sleep(5000); //remove later
         logger.info("Main/home url opened for: " + this.getClass().toString());
         element(Selectors.byAttribute("jhitranslate", "layouts.register")).click();
         element(Selectors.byAttribute("jhitranslate", "global.menu.account.loginWithoutEds")).click();

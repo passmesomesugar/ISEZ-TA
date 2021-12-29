@@ -7,6 +7,8 @@ import org.apache.logging.log4j.Logger;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 
+import java.time.Duration;
+
 import static com.codeborne.selenide.Selenide.element;
 import static com.codeborne.selenide.Selenide.sleep;
 
@@ -71,15 +73,15 @@ public class PagesManager {
 
     @AfterClass(alwaysRun = true)
     public void afterClassActions() {
-        sleep(1000);
-        checkIfNoErrorIsDisplayed(); /* If error message appears just before test is shutdown*/
+        // checkIfNoErrorIsDisplayed(); /* If error message appears just before test is shutdown*/
         WebDriverRunner.closeWebDriver();
         logger.info("closeWebDriver() executed");
         logger.info("Execution ended for:" + this.getClass().toString());
+        logger.info("");
     }
 
     public void checkIfNoErrorIsDisplayed() {
-        element(Selectors.byXpath("//div[contains(@class, 'error')]")).shouldNotBe(Condition.visible);
+        element(Selectors.byXpath("//div[contains(@class, 'error')]")).shouldNotBe(Condition.visible, Duration.ofSeconds(1));
         logger.info("checkIfNoErrorIsDisplayed");
     }
 

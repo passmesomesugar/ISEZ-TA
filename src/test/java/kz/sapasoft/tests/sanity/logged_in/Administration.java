@@ -7,8 +7,9 @@ import org.testng.annotations.Test;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
 public class Administration extends BasicTestConditions {
-    @Test(groups = "this")
+    @Test(groups = "smoke")
     void checkAdmin() {
+        logger.info("checkAdmin started");
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
         getPersonalCabinetPage().openAdministration();
