@@ -10,7 +10,7 @@ import static kz.sapasoft.services.UserManager.getCustomerOne;
 /*Проверка создания перечня и позиции*/
 public class CreateProcurementPlanListAndAddPositionTest extends BasicTestConditions {
 
-    @Test(groups = "1", description = "User can create procurement plan ~ list and procurement position")
+    //@Test(groups = "1", description = "User can create procurement plan ~ list and procurement position")
     void createProcurementPlanListAndPositionTest() {
         getHomePage().logIn(getCustomerOne().getName(), getCustomerOne().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();

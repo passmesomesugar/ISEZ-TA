@@ -1,6 +1,8 @@
 package kz.sapasoft.pages;
 
-import com.codeborne.selenide.*;
+import com.codeborne.selenide.Condition;
+import com.codeborne.selenide.Selectors;
+import com.codeborne.selenide.WebDriverRunner;
 import kz.sapasoft.services.PropertyDataReader;
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,7 +12,6 @@ import org.testng.annotations.BeforeClass;
 import java.time.Duration;
 
 import static com.codeborne.selenide.Selenide.element;
-import static com.codeborne.selenide.Selenide.sleep;
 
 public class PagesManager {
     public final int LOAD_PAUSE = 4000;
