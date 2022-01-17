@@ -12,9 +12,9 @@ public class HomePage extends PagesManager {
     public SelenideElement searchParticipantResult = element(Selectors.byXpath("//tbody/tr/td/a"));
     public SelenideElement title = element(Selectors.byXpath("//sk-document-signing-info//h2")); //для проверки отображения результата нужен номер документа, пока проверяю что есть заголовок
     public SelenideElement faqInfo = element(Selectors.byXpath("//div[@class='faq-list__item ng-star-inserted']"));
-    public SelenideElement lotsList = element(Selectors.byXpath("//sk-search-result/div/div"));
-    public SelenideElement purchasesList = element(Selectors.byXpath("//sk-search-result/div/div"));
-    public SelenideElement contractsList = element(Selectors.byXpath("//sk-search-result/div/div"));
+    public SelenideElement lotsList = element(Selectors.byXpath("//sk-search-result//div[@class=\"m-found-item\"]"));
+    public SelenideElement purchasesList = element(Selectors.byXpath("//sk-search-result//div[@class=\"m-found-item\"]"));
+    public SelenideElement contractsList = element(Selectors.byXpath("//sk-search-result//div[@class=\"m-found-item\"]"));
     public SelenideElement exportInfo = element(Selectors.byXpath("//tbody/tr"));
     public SelenideElement yearPlanInfo = element(Selectors.byXpath("//tbody/tr"));
     public SelenideElement holdingCategoriesInfo = element(Selectors.byXpath("//tbody/tr"));
