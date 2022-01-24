@@ -10,4 +10,4 @@ mvn -Dsurefire.suiteXmlFiles=src/test/resources/smoke.xml -Dusers=userbase -Denv
 
 mvn -Dsurefire.suiteXmlFiles=src/test/resources/smoke.xml -Dusers=userbase -Dselenide.headless=true -Denv=test-env clean test
  
- 
+mvn allure:serve 

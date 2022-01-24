@@ -46,7 +46,6 @@ public class LoggedOutTests extends BasicTestConditions {
         open(MAIN_URL);
         getHomePage().openFAQ();
         getHomePage().faqInfo.shouldBe(Condition.visible);
-
     }
 
     @Test(groups = "smoke", description = "")
