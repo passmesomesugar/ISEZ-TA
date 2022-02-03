@@ -18,7 +18,9 @@ public class PersonalCabinet extends PagesManager {
 
     public SelenideElement appealTitle = element(Selectors.byAttribute("jhitranslate", "appeal.title"));
 
-    public SelenideElement search = element(Selectors.byAttribute("jhitranslate", "bankWarranty.search"));
+    public SelenideElement searchInBankWarranty = element(Selectors.byAttribute("jhitranslate", "bankWarranty.search"));
+
+    public SelenideElement searchField = element(Selectors.byText(" Номер ЭБГ "));
 
     public SelenideElement randomCSS_ContainsTable_in_ClassName = element(Selectors.byXpath("//div[contains(@class, 'table')]"));
 
@@ -705,5 +707,9 @@ public class PersonalCabinet extends PagesManager {
     public void openDocumentsApprovalForApproval() {
         element(Selectors.byXpath("//*[@id='purchase-menu']//..//..//*[@jhitranslate='workFlow.title']")).click();
         logger.info("openDocumentsApprovalForApproval");
+    }
+
+    public void clickSearchInBankWarranty() {
+        searchInBankWarranty.click();
     }
 }

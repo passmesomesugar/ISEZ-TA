@@ -71,7 +71,7 @@ public class ProcurementPlanPosition extends PagesManager {
         logger.info("setPrepay: " + this.getClass().toString());
     }
 
-    public void setVolumeMeasurement() {
+    public void setVolumeMeasurementAsKG() {
         element(Selectors.byAttribute("title", "Килограмм")).click();
         logger.info("setVolumeMeasurement: " + this.getClass().toString());
     }

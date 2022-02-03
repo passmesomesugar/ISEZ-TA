@@ -10,7 +10,7 @@ import static kz.sapasoft.services.UserManager.getCustomerOne;
 /*Проверка создания перечня и позиции*/
 public class CreateProcurementPlanListAndAddPositionTest extends BasicTestConditions {
 
-    @Test(groups = "1", description = "User can create procurement plan ~ list and procurement position")
+    @Test(groups = "this1", description = "User can create procurement plan ~ list and procurement position")
     void createProcurementPlanListAndPositionTest() {
         getHomePage().logIn(getCustomerOne().getName(), getCustomerOne().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
@@ -38,12 +38,12 @@ public class CreateProcurementPlanListAndAddPositionTest extends BasicTestCondit
         getProcurementPlanPositionPage().setSchedulePeriod(getOpenTender().getSchedulePeriod());
         getProcurementPlanPositionPage().setEndDate(getOpenTender().getEndDate());
         getProcurementPlanPositionPage().setPrepay(getOpenTender().getPrepay());
-        getProcurementPlanPositionPage().setVolumeMeasurement();
+        getProcurementPlanPositionPage().setVolumeMeasurementAsKG();
         getProcurementPlanPositionPage().selectVAT("Без НДС");
-        getProcurementPlanPositionPage().setVolumeForYear("2021", "1");
-        getProcurementPlanPositionPage().setVolumeForYear("2022", "2");
-        getProcurementPlanPositionPage().setPriceForYear("2021", "1");
+        getProcurementPlanPositionPage().setVolumeForYear("2022", "1");
+        getProcurementPlanPositionPage().setVolumeForYear("2023", "2");
         getProcurementPlanPositionPage().setPriceForYear("2022", "1");
+        getProcurementPlanPositionPage().setPriceForYear("2023", "1");
         getProcurementPlanPositionPage().save();
         getPersonalCabinetPage().logOut();
     }
