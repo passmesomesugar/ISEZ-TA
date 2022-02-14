@@ -11,7 +11,7 @@ import static com.codeborne.selenide.Selenide.elements;
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
 public class GlobalMicroService extends BasicTestConditions {
-    @Test(groups = "this1")
+    @Test(groups = "microservices")
     void globalTest() {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getPersonalCabinetPage().openPersonalCabinet();
@@ -28,8 +28,6 @@ public class GlobalMicroService extends BasicTestConditions {
         getPersonalCabinetPage().clickSearchInBankWarranty();
         checkIfPageBodyHasTable();
         checkIfNoErrorIsDisplayed();
-
         getPersonalCabinetPage().openBankWarrantyReport();
-
     }
 }

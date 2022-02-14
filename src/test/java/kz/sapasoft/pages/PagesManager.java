@@ -21,7 +21,6 @@ public class PagesManager {
     public static final String TEST_DATA_FILE_NAME = "test-data";
 
     protected static final Logger logger = LogManager.getLogger(PagesManager.class);
-    //protected static final Logger logger1 = LogManager.getRootLogger();
 
     public String currentUserEnv = System.getProperty("user");
     public String testingScenario = System.getProperty("procurement.plan.scenario");

@@ -21,6 +21,8 @@ public class HomePage extends PagesManager {
     public SelenideElement zksSuppliersInfo = element(Selectors.byXpath("//div[@class='m-sidebar__layout m-sidebar__layout--found-item ng-star-inserted']"));
     public SelenideElement longTermPlanInfo = element(Selectors.byXpath("//tbody/tr"));
     public SelenideElement regulationsInfo = element(Selectors.byXpath("//div[@class='regulation-list__item ng-star-inserted']"));
+    public SelenideElement companyInfoButton = element(Selectors.byAttribute("jhitranslate", "layouts.aboutCompany"));
+   // public String SelenideElement = element(Selectors.byXpath("//*[@jhitranslate='layouts.login']/following-sibling::text()"));
 
     public void openNews() {
         element(Selectors.byXpath("//ul[@class='m-list m-list--nav']/li/a[@jhitranslate='main.news']")).click();
@@ -132,5 +134,13 @@ public class HomePage extends PagesManager {
         element(Selectors.byXpath("//*[@type='password']")).setValue(password);
         element(Selectors.byXpath("//*[@type='submit']")).click();
         logger.info("User name and password were submitted for:" + this.getClass().toString());
+    }
+
+    public void logOut() {
+        element(Selectors.byAttribute("jhitranslate", "global.menu.account.logout")).click();
+    }
+
+    public void clickCompanyInfo() {
+        companyInfoButton.click();
     }
 }
