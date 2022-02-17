@@ -2,6 +2,7 @@ package kz.sapasoft.pages;
 
 import com.codeborne.selenide.Selectors;
 import com.codeborne.selenide.SelenideElement;
+import io.qameta.allure.Step;
 
 import static com.codeborne.selenide.Selenide.*;
 
@@ -15,7 +16,9 @@ public class HomePage extends PagesManager {
     public SelenideElement lotsList = element(Selectors.byXpath("//sk-search-result/div/div"));
     public SelenideElement purchasesList = element(Selectors.byXpath("//sk-search-result/div/div"));
     public SelenideElement contractsList = element(Selectors.byXpath("//sk-search-result/div/div"));
-    public SelenideElement exportInfo = element(Selectors.byXpath("//tbody/tr"));
+    public SelenideElement exportInfo = element(Selectors.byXpath("//tbody/tr[1]/td[5]"));
+    public SelenideElement downloadPlan = element(Selectors.byXpath("//tbody/tr[1]/td[5]"));
+
     public SelenideElement yearPlanInfo = element(Selectors.byXpath("//tbody/tr"));
     public SelenideElement holdingCategoriesInfo = element(Selectors.byXpath("//tbody/tr"));
     public SelenideElement zksSuppliersInfo = element(Selectors.byXpath("//div[@class='m-sidebar__layout m-sidebar__layout--found-item ng-star-inserted']"));
@@ -24,107 +27,133 @@ public class HomePage extends PagesManager {
     public SelenideElement companyInfoButton = element(Selectors.byAttribute("jhitranslate", "layouts.aboutCompany"));
    // public String SelenideElement = element(Selectors.byXpath("//*[@jhitranslate='layouts.login']/following-sibling::text()"));
 
+    @Step("Открыть раздел новости")
     public void openNews() {
         element(Selectors.byXpath("//ul[@class='m-list m-list--nav']/li/a[@jhitranslate='main.news']")).click();
     }
 
+    @Step("Открыть раздел Реестрыи и перечни")
     public void openRegistry() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.registry']")).click();
     }
 
+    @Step("Выбрать Реестр/Перечень")
     public void chooseRegistry() {
         element(Selectors.byXpath("//div[@class='skDeleteBtn']/select")).click();
         element(Selectors.byXpath("//div[@class='skDeleteBtn']/select/option[contains(@value, '1: GENUINE_SUPPLIER')]")).click();
     }
 
+    @Step("Нажать на кнопку сбросить")
     public void searchRegistry() {
         element(Selectors.byXpath("//span[@jhitranslate='eProcGatewayApp.planItem.searchParam.search']")).click();
     }
 
+    @Step("Открыть раздел Справочник участников")
     public void openParticipantsDirectory() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.participantsDirectory']")).click();
     }
 
+    @Step("Нажать на кнопку Найти")
     public void searchParticipant() {
         element(Selectors.byXpath("//span[@jhitranslate='eProcGatewayApp.planItem.searchParam.search']")).click();
     }
 
+    @Step("Открыть раздел Проверка подписания")
     public void openSignatureVerification() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.signingVerification']")).click();
     }
 
+    @Step("Открыть раздел FAQ")
     public void openFAQ() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.faq']")).click();
     }
 
+    @Step("Открыть раздел Поиск лотов")
     public void openSearchLots() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.searchLots']")).click();
     }
 
+    @Step("Выбрать пункт Лоты")
     public void chooseLots() {
         element(Selectors.byXpath("//li/label[@for='lot']")).click();
     }
 
+    @Step("Выбрать пункт Закупки")
     public void choosePurchases() {
         element(Selectors.byXpath("//li/label[@for='advert']")).click();
     }
 
+    @Step("Выбрать пункт Договоры")
     public void chooseContracts() {
         element(Selectors.byXpath("//li/label[@for='contractCard']")).click();
     }
 
+    @Step("Открыть раздел Поиск планов")
     public void openSearchPlans() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.searchPlans']")).click();
     }
 
+    @Step("Выбрать пункт Выгрузка плана закупок")
     public void exportPlans() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.planExport']")).click();
     }
 
+    @Step("Выбрать пункт Консолидированный годовой план")
     public void yearPlan() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.consolidatedYearPlan']")).click();
     }
 
+    @Step("Выбрать пункт Консолидированный долгосрочный план")
     public void longTermPlan() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.consolidatedPlan']")).click();
     }
 
+    @Step("Открыть раздел Регламенты")
     public void openRegulations() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.regulations']")).click();
     }
 
+    @Step("Выбрать пункт Руководство")
     public void chooseManual() {
         element(Selectors.byXpath("//div[@class='regulation-tab mr-4 ng-star-inserted'][1]")).click();
     }
 
+    @Step("Выбрать пункт Видеоиснтрукция")
     public void chooseVideo() {
         element(Selectors.byXpath("//div[@class='regulation-tab mr-4 ng-star-inserted'][2]")).click();
     }
 
+    @Step("Выбрать пункт Справочники")
     public void chooseDirectories() {
         element(Selectors.byXpath("//div[@class='regulation-tab mr-4 ng-star-inserted'][3]")).click();
     }
 
+    @Step("Выбрать пункт Стандарты")
     public void chooseStandarts() {
         element(Selectors.byXpath("//div[@class='regulation-tab mr-4 ng-star-inserted'][4]")).click();
     }
 
+    @Step("Выбрать пункт Другие")
     public void chooseOther() {
         element(Selectors.byXpath("//div[@class='regulation-tab mr-4 ng-star-inserted'][5]")).click();
     }
 
+    @Step("Открыть раздел КМС")
     public void openKmz() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.kmz']")).click();
     }
 
+    @Step("Открыть раздел Категорийное управление закупками")
     public void openCategories() {
         element(Selectors.byXpath("//a[@jhitranslate='layouts.categories']")).click();
     }
 
+    @Step("Выбрать пункт Отбор поставщиков в рамках ЗКС")
     public void chooseZksSuppliers() {
         element(Selectors.byXpath("//a[@jhitranslate='categories.tab2']")).click();
     }
 
+    @Step("Авторизация в системе")
     public void logIn(String user, String password) {
         open(MAIN_URL);
         logger.info("Main/home url opened for: " + this.getClass().toString());

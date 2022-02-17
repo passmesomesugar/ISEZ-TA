@@ -93,4 +93,9 @@ public class PagesManager {
         element(Selectors.byXpath("//div[contains(@class, 'table')]")).shouldHave(Condition.exist);
         logger.info("checkIfPageBodyHasTable");
     }
+
+    public void checkIfPageBodyHasTableWithData() {
+        element(Selectors.byXpath("//tbody/tr[2]")).shouldHave(Condition.exist);
+        logger.info("checkIfPageBodyHasTableWithInfo");
+    }
 }

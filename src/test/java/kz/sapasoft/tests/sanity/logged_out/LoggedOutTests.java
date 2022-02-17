@@ -1,6 +1,7 @@
 package kz.sapasoft.tests.sanity.logged_out;
 
 import com.codeborne.selenide.Condition;
+import io.qameta.allure.Step;
 import kz.sapasoft.tests.BasicTestConditions;
 import org.testng.annotations.Test;
 
@@ -8,14 +9,15 @@ import static com.codeborne.selenide.Selenide.open;
 
 public class LoggedOutTests extends BasicTestConditions {
 
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "tes", description = "")
+    @Step("Проверка раздела Новости")
     public void news() {
         open(MAIN_URL);
         getHomePage().openNews();
         getHomePage().newsRow.shouldBe(Condition.exist);
     }
 
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "tes", description = "")
     public void registry() {
         open(MAIN_URL);
         getHomePage().openRegistry();
@@ -25,7 +27,7 @@ public class LoggedOutTests extends BasicTestConditions {
 
     }
 
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "tes", description = "")
     public void participantDirectory() {
         open(MAIN_URL);
         getHomePage().openParticipantsDirectory();
@@ -33,7 +35,7 @@ public class LoggedOutTests extends BasicTestConditions {
         getHomePage().searchParticipantResult.shouldBe(Condition.visible);
     }
 
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "tes", description = "")
     public void signatureVerification() {
         open(MAIN_URL);
         getHomePage().openSignatureVerification();
@@ -41,14 +43,14 @@ public class LoggedOutTests extends BasicTestConditions {
 
     }
 
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "tes", description = "")
     public void Faq() {
         open(MAIN_URL);
         getHomePage().openFAQ();
         getHomePage().faqInfo.shouldBe(Condition.visible);
     }
 
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "tes", description = "")
     public void searchLots() {
         open(MAIN_URL);
         getHomePage().openSearchLots();
@@ -61,7 +63,7 @@ public class LoggedOutTests extends BasicTestConditions {
 
     }
 
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "tes", description = "")
     public void searchPlans() {
         open(MAIN_URL);
         getHomePage().openSearchPlans();
@@ -76,7 +78,7 @@ public class LoggedOutTests extends BasicTestConditions {
 
     }
 
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "tes", description = "")
     public void regulations() {
         open(MAIN_URL);
         getHomePage().openRegulations();
@@ -94,13 +96,13 @@ public class LoggedOutTests extends BasicTestConditions {
 
     }
 
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "tes", description = "")
     public void kmz() {
         open(MAIN_URL);
         getHomePage().openKmz();
     }
 
-    @Test(groups = "smoke", description = "")
+    @Test(groups = "tes", description = "")
     public void categories() {
         open(MAIN_URL);
         getHomePage().openCategories();

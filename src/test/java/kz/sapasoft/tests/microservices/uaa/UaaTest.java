@@ -6,12 +6,12 @@ import org.testng.annotations.Test;
 
 import static kz.sapasoft.services.UserManager.getCustomerTwo;
 
-public class LogInLogOut extends BasicTestConditions {
-    @Test(groups = "this")
-    public void logInLogOut() {
+public class UaaTest extends BasicTestConditions {
+    @Test(groups = "test")
+    public void uaaTest() {
         getHomePage().logIn(getCustomerTwo().getName(), getCustomerTwo().getPassword());
         getHomePage().clickCompanyInfo();
-        //getHomePage().loginFromCompanyInfoPanel.shouldHave(Condition.text(getCustomerTwo().getName()));
+        getPersonalCabinetPage().loginFromCompanyInfoPanel.shouldHave(Condition.text(getCustomerTwo().getName()));
         getHomePage().logOut();
     }
 }

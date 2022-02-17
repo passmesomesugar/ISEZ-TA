@@ -13,6 +13,8 @@ public class TenderMicroService extends BasicTestConditions {
         getHomePage().logIn(getSupplierOne().getName(), getSupplierOne().getPassword());
         getPersonalCabinetPage().openProposals();
         getPersonalCabinetPage().openListOfProposals();
+        getPersonalCabinetPage().checkIfPageBodyHasTableWithData();
         checkIfNoErrorIsDisplayed();
+        getHomePage().logOut();
     }
 }
