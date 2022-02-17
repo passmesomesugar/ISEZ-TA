@@ -95,7 +95,7 @@ public class PagesManager {
     }
 
     public void checkIfPageBodyHasTableWithData() {
-        element(Selectors.byXpath("//tbody/tr[2]")).shouldHave(Condition.exist);
+        element(Selectors.byXpath("//tbody/tr[1]/td[2]")).shouldHave(Condition.exist);
         logger.info("checkIfPageBodyHasTableWithInfo");
     }
 }

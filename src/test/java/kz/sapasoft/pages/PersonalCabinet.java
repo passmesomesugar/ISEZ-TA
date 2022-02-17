@@ -74,7 +74,7 @@ public class PersonalCabinet extends PagesManager {
 
     public SelenideElement aboutCompany = element(Selectors.byAttribute("jhitranslate", "layouts.aboutCompany"));
 
-    public SelenideElement loginFromCompanyInfoPanel = element(Selectors.byAttribute("jhitranslate", "layouts.login"));
+    public SelenideElement loginFromCompanyInfoPanel = element(Selectors.byXpath("//div[@class=\"m-infoblock__layout\"] [2]"));
 
     public void openProcurementPlan() {
         element(Selectors.byAttribute("jhitranslate", "layouts.planAdvert")).click();
