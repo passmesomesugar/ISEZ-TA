@@ -26,6 +26,7 @@ public class PagesManager {
     public String testingScenario = System.getProperty("procurement.plan.scenario");
     public String currentTestingEnv = System.getProperty("env");
     public String MAIN_URL = PropertyDataReader.getProperties(currentTestingEnv).getProperty("main.url");
+    public String ExampleDataForTesting = System.getProperty("ExampleData");
 
     private ProcurementPlan procurementPlan;
     private PersonalCabinet personalCabinet;

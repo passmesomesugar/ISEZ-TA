@@ -17,7 +17,6 @@ public class GlobalMicroService extends BasicTestConditions {
         getPersonalCabinetPage().openPersonalCabinet();
         getPersonalCabinetPage().openProcurementPlan();
         checkIfNoErrorIsDisplayed();
-
         getPersonalCabinetPage().openBankWarranty();
         getPersonalCabinetPage().openBankWarrantyList();
         checkIfNoErrorIsDisplayed();
